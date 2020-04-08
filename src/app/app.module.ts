@@ -11,6 +11,7 @@ import { FooterRightComponent } from './navbar/footer-right/footer-right.compone
 import { HttpClientModule } from '@angular/common/http';
 import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { ProjetComponent } from './projet/projet.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HomeComponent } from './home/home.component';
     FooterLeftComponent,
     FooterRightComponent,
     HomeComponent,
+    ProjetComponent,
   ],
   imports: [
     BrowserModule,
