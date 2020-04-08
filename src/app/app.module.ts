@@ -8,6 +8,9 @@ import { SidebarLeftComponent } from './navbar/sidebar-left/sidebar-left.compone
 import { GeneralLayoutComponent } from './general-layout/general-layout.component';
 import { FooterLeftComponent } from './navbar/footer-left/footer-left.component';
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
+import { HttpClientModule } from '@angular/common/http';
+import{FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,15 @@ import { FooterRightComponent } from './navbar/footer-right/footer-right.compone
     SidebarLeftComponent,
     GeneralLayoutComponent,
     FooterLeftComponent,
-    FooterRightComponent
+    FooterRightComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
