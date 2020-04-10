@@ -1,5 +1,5 @@
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-  <input type="hidden" name="IdMS" #IdMS="ngModel" [(ngModel)]="service.formData.IdMS">
+  <input type="hidden" name="idMS" #IdMS="ngModel" [(ngModel)]="service.formData.idMS">
 
    <div class="form-group">
     <label>Label</label>
@@ -8,16 +8,16 @@
   </div>
   <div class="form-group">
     <label>Description</label>
-    <input name="Description" #Description="ngModel" [(ngModel)]="service.formData.Description" class="form-control">
+    <input name="Description" #Description="ngModel" [(ngModel)]="service.formData.description" class="form-control">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Author</label>
-      <input name="Author" #Author="ngModel" [(ngModel)]="service.formData.Author" class="form-control">
+      <input name="Author" #Author="ngModel" [(ngModel)]="service.formData.author" class="form-control">
     </div>
     <div class="form-group  col-md-6">
       <label>Lien</label>
-      <input name="Lien" #Lien="ngModel" [(ngModel)]="service.formData.Lien" class="form-control">
+      <input name="Lien" #Lien="ngModel" [(ngModel)]="service.formData.lien" class="form-control">
     </div>
     <div class="form-group  col-md-6">
       <label>DiagClass</label>
