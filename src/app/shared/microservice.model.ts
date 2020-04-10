@@ -5,4 +5,5 @@ export class Microservice {
     Author: string;
     Lien: string;
     DiagClass: string; 
+    
 }

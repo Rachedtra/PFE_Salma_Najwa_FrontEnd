@@ -29,7 +29,8 @@ import{FormsModule,ReactiveFormsModule} from '@angular/forms';
     FooterRightComponent,
     MicroservicesComponent,
     MicroserviceComponent,
-    MicroserviceListComponent
+    MicroserviceListComponent,
+ 
    
   ],
   imports: [

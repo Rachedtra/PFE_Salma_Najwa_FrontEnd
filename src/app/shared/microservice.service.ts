@@ -6,16 +6,17 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class MicroserviceService {
+
 formData : Microservice;
-readonly rootURL ="http://localhost:7567/api/MS"
+readonly rootURL ='http://localhost:7567/api'
 list : Microservice[];
+
   constructor(private http : HttpClient) { }
-  PostAsync(formData : Microservice){
-    return this.http.post(this.rootURL+'/MS',formData);
-     
-   }
-   refreshList(){
-    this.http.get(this.rootURL)
-    .toPromise().then(res => this.list = res as Microservice[]);
+
+   
+  refreshlist(){
+    
+    return this.http.get(this.rootURL+'/MS')
+    
   }
 }

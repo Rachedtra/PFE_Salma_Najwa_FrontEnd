@@ -25,10 +25,9 @@ export class MicroserviceComponent implements OnInit {
       Label: '',
       Author: '',
       Lien: '',
-      DiagClass: ''
+      DiagClass: '',
     }
   }
-
 
 
 }
