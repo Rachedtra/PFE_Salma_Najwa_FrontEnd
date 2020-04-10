@@ -8,14 +8,9 @@ import { GeneralLayoutComponent } from './general-layout/general-layout.componen
 import { FooterLeftComponent } from './navbar/footer-left/footer-left.component';
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
 import { HttpClientModule } from '@angular/common/http';
-
-import { MicroservicesComponent } from './microservices/microservices.component';
-import { MicroserviceComponent } from './Microservices/microservice/microservice.component';
-import { MicroserviceListComponent } from './Microservices/microservice-list/microservice-list.component';
 import { MicroserviceService } from './shared/microservice.service';
-
-
-import{FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GetDeleteMicroserviceComponent } from './SittingMs/get-delete-microservice/get-delete-microservice.component';
 
 
 
@@ -27,18 +22,15 @@ import{FormsModule,ReactiveFormsModule} from '@angular/forms';
     GeneralLayoutComponent,
     FooterLeftComponent,
     FooterRightComponent,
-    MicroservicesComponent,
-    MicroserviceComponent,
-    MicroserviceListComponent,
- 
-   
+    GetDeleteMicroserviceComponent
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-
     ReactiveFormsModule
   ],
   providers: [MicroserviceService],

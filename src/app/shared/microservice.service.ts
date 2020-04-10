@@ -1,22 +1,101 @@
 import { Injectable } from '@angular/core';
 import { Microservice } from './microservice.model';
 import { HttpClient } from "@angular/common/http";
+import { FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MicroserviceService {
 
-formData : Microservice;
-readonly rootURL ='http://localhost:7567/api'
-list : Microservice[];
+  constructor(private http: HttpClient, private fb: FormBuilder) { }
 
-  constructor(private http : HttpClient) { }
+  MicroserviceList: Microservice[]
+  /* #region  Form */
+  MicroserviceFormAdd_update = this.fb.group({
+    idMS: [''],
+    label: ['', Validators.required],
+    description: ['', Validators.required],
+    author: ['', Validators.required],
+    lien: ['', Validators.required],
+    diagClass: ['', Validators.required],
+    languageFK: ['', Validators.required]
 
-   
-  refreshlist(){
-    
-    return this.http.get(this.rootURL+'/MS')
-    
+
+  })
+  /* #endregion */
+
+  /* #region  InitialFormPost */
+
+  initializeFormForPostMicroservice() {
+    this.MicroserviceFormAdd_update.setValue({
+      idMS: '00000000-0000-0000-0000-000000000000',
+      label: '',
+
+      description: '',
+      author: '',
+      lien: '',
+      diagClass: '',
+      languageFK: '',
+
+    })
   }
+  /* #endregion */
+
+  /* #region  InitialFormUpdate */
+  initializeFormForUpdateMicroservice(microservice: Microservice) {
+    this.MicroserviceFormAdd_update.setValue({
+      idMS: microservice.idMS,
+      label: microservice.label,
+
+      description: microservice.description,
+      author: microservice.author,
+      lien: microservice.lien,
+      diagClass: microservice.diagClass,
+      languageFK: microservice.languageFK,
+    })
+  }
+  /* #endregion */
+
+  /* #region  get */
+  getListMicroservice() {
+    return this.http.get(environment.MsMicroservice + "/MS")
+
+  }
+  /* #endregion */
+
+  /* #region  delete */
+  deleteMicroservice(idMS: string) {
+    debugger
+    console.log(idMS)
+    return this.http.delete(environment.MsMicroservice + "/MS/" + idMS, { responseType: "text" });
+
+  }
+  /* #endregion */
+  /* #region  Post */
+  postMicroservice() {
+    debugger
+    return this.http.post(environment.MsMicroservice + "/MS/", this.MicroserviceFormAdd_update.value,
+      { responseType: "text" });
+  }
+  /* #endregion */
+  /* #region  Update */
+
+  updateMethod() {
+    return this.http.put(environment.MsMicroservice + "/MS/" + this.MicroserviceFormAdd_update.controls.idMS.value,
+      this.MicroserviceFormAdd_update.value,
+      { responseType: "text" }
+    );
+  }
+
+  /* #endregion */
+
+
+
+
+
+
+
+
 }
