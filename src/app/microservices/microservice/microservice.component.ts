@@ -20,12 +20,12 @@ export class MicroserviceComponent implements OnInit {
     if (form != null)
       form.resetForm();
     this.service.formData = {
-      IdMS: '',
-      Description: '',
-      Label: '',
-      Author: '',
-      Lien: '',
-      DiagClass: '',
+      idMS: '',
+      description: '',
+      label: '',
+      author: '',
+      lien: '',
+      diagClass: '',
     }
   }
 

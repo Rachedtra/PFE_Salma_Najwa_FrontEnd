@@ -1,9 +1,9 @@
 export class Microservice {
-    IdMS : string;
-    Label: string; 
-    Description: string;
-    Author: string;
-    Lien: string;
-    DiagClass: string; 
+    idMS : string;
+    label: string; 
+    description: string;
+    author: string;
+    lien: string;
+    diagClass: string; 
     
 }
