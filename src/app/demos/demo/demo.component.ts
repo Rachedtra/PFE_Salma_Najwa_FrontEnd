@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from 'src/app/shared/demo.service';
 import {NgForm} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -11,7 +12,7 @@ import {NgForm} from '@angular/forms';
 export class DemoComponent implements OnInit {
 
   constructor(private servise:DemoService
-    ) { }
+    , private toastr:ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -21,6 +22,7 @@ export class DemoComponent implements OnInit {
   {
     if(form!=null)
     form.resetForm();
+    this.toastr.success('submitted successfully',); 
     this.servise.formData=
     {
       id:null,
@@ -38,7 +40,7 @@ export class DemoComponent implements OnInit {
   insertRecord(form:NgForm){
     this.servise.postDemo(form.value).subscribe(res=>{
         this.resetForm(form);
-    
+        this.toastr.success('inserted successfully'); 
           },
        err=>{
             console.log(err);

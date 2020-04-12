@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from 'src/app/shared/demo.service';
-
+import { ToastrService } from 'ngx-toastr';
 import { Demo } from 'src/app/shared/demo.model';
 @Component({
   selector: 'app-demo-list',
@@ -9,8 +9,8 @@ import { Demo } from 'src/app/shared/demo.model';
 })
 export class DemoListComponent implements OnInit {
 
- 
-  constructor(private service: DemoService) { }
+
+  constructor(private service: DemoService , private toastr:ToastrService) { }
 
   ngOnInit() {
     this.service.refreshlist();
@@ -21,8 +21,4 @@ export class DemoListComponent implements OnInit {
   }
   popularteForm(Demo:Demo){
     this.service.formData= Object.assign({},Demo) ;
-  }
-
-  
-
-}
+  }}
