@@ -12,7 +12,9 @@ import { MicroserviceService } from './shared/microservice.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetDeleteMicroserviceComponent } from './SittingMs/get-delete-microservice/get-delete-microservice.component';
 
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { GetDeleteMicroserviceComponent } from './SittingMs/get-delete-microserv
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [MicroserviceService],
   bootstrap: [AppComponent]
