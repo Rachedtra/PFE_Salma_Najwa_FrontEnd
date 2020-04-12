@@ -1,0 +1,16 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" [value]="servise.formData.id">
+  <div class="form-group">
+      <label>Name:</label>
+<input name="nom" #nom="ngModel"  
+[(ngModel)]="servise.formData.nom" class="from-control" >  
+<div class="validation-error" *ngIf="nom.invalid && touched">this field is required</div>   
+  </div>
+
+
+  <div class="from-group">
+      <button class="btn btn-success btn-lg btn-block" [disabled]="!form.valid" type="submit"> Submit</button>
+  </div>
+</form>
+
+
