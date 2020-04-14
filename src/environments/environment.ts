@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   //apiBaseURI :'http://:7567/api/'
-  MsMicroservice: "http://localhost:5002/api",
+  MsMicroservice: "http://localhost:7567/api",
 
 };
 

@@ -14,7 +14,6 @@ import { GetDeleteMicroserviceComponent } from './SittingMs/get-delete-microserv
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -34,9 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot()
-  ],
+    BrowserAnimationsModule  ],
   providers: [MicroserviceService],
   bootstrap: [AppComponent]
 })
