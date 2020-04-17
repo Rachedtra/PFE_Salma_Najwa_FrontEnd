@@ -9,7 +9,6 @@ import { GeneralLayoutComponent } from './general-layout/general-layout.componen
 import { FooterLeftComponent } from './navbar/footer-left/footer-left.component';
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
 import { DemosComponent } from './demos/demos.component';
-import { DemoListComponent } from './demos/demo-list/demo-list.component';
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
@@ -21,7 +20,7 @@ import { HttpClientModule } from "@angular/common/http";
     FooterLeftComponent,
     FooterRightComponent,
     DemosComponent,
-    DemoListComponent
+   
   ],
   imports: [
     BrowserModule,
