@@ -62,3 +62,18 @@ i:hover{
 
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#logout-button {
+    color: white;
+    background-color: #16163f;
+    border: 1px solid black;
+}
+
+#delete-product-button {
+    color: white;
+    background-color: #145214;
+    border: 1px solid black;
+}

@@ -13,8 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetDeleteMicroserviceComponent } from './SittingMs/get-delete-microservice/get-delete-microservice.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
-
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AddUpdateMicroserviceComponent } from './SittingMs/add-update-microservice/add-update-microservice.component';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GeneralLayoutComponent,
     FooterLeftComponent,
     FooterRightComponent,
-    GetDeleteMicroserviceComponent
+    GetDeleteMicroserviceComponent,
+    AddUpdateMicroserviceComponent    //AddUpdateMethodComponent
 
 
   ],
@@ -33,7 +37,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule  ],
+    BrowserAnimationsModule,
+    TooltipModule.forRoot() ,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatDialogModule ],
   providers: [MicroserviceService],
   bootstrap: [AppComponent]
 })
