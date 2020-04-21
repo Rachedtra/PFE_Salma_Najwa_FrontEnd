@@ -35,15 +35,12 @@ export class GetDeleteMicroserviceComponent implements OnInit {
         }
       }
     });    
-    const snack = this.snackBar.open('Snack bar open before dialog');
 
   dialogRef.afterClosed().subscribe((confirmed: boolean) => {
     if (confirmed) {
-      snack.dismiss();
       const a = document.createElement('a');
       a.click();
       a.remove();
-      snack.dismiss();
       this.snackBar.open('Closing snack bar in a few seconds', 'Fechar', {
         duration: 2000,
       });
@@ -66,15 +63,15 @@ export class GetDeleteMicroserviceComponent implements OnInit {
           }
         }
       });    
-      const snack = this.snackBar.open('Snack bar open before dialog');
+      //const snack = this.snackBar.open('Snack bar open before dialog');
 
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
-        snack.dismiss();
+//snack.dismiss();
         const a = document.createElement('a');
         a.click();
         a.remove();
-        snack.dismiss();
+       // snack.dismiss();
         this.snackBar.open('Closing snack bar in a few seconds', 'Fechar', {
           duration: 2000,
         });

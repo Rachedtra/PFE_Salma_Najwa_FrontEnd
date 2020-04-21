@@ -1,14 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Microservice } from './microservice.model';
-import { HttpClient } from "@angular/common/http";
 import { FormBuilder, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
+  
 })
+
 export class MicroserviceService {
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  private httpOptions: any;
+
+
+  constructor(private http: HttpClient, private fb: FormBuilder) { 
+    this.httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+  }
+
 
   MicroserviceList: Microservice[]
   /* #region  Form */
@@ -81,10 +93,35 @@ export class MicroserviceService {
   /* #endregion */
   /* #region  Update */
 
-  updateMethod() {
-    return this.http.put(environment.MsMicroservice + "/MS/" + this.MicroserviceFormAdd_update.controls.idMS.value,
-      this.MicroserviceFormAdd_update.value,
-      { responseType: "text" }
+  // updateMethod() {
+  //   return this.http.put(environment.MsMicroservice + "/MS/" + this.MicroserviceFormAdd_update.controls.idMS.value,
+  //     this.MicroserviceFormAdd_update.value,
+  //     { responseType: "text" }
+  //   );
+  // }
+  // addTodo (microservice): Observable<Microservice> {
+   
+  //   return this.http.post<Microservice>(`${environment.MsMicroservice}/create.php`, Microservice, httpOptions).pipe(
+  //     tap((Microservice) => console.log(`added todo w/ id=${microservice.idMS}`)),
+  //     catchError(this.handleError<Microservice>('addTodo'))
+  //   );
+  // }
+  updateTodo (idMS, microservice): Observable<any> {
+    
+    const url = `${environment.MsMicroservice}/update.php?id=${idMS}`;
+    return this.http.put(url, microservice,this.httpOptions).pipe(
+      tap(_ => console.log(`updated todo id=${idMS}`)),
+      catchError(this.handleError<any>('updateTodo'))
+    );
+  }
+  handleError<T>(arg0: string): (err: any, caught: Observable<any>) => never {
+    throw new Error("Method not implemented.");
+  }
+  getTodo(idMS: string): Observable<Microservice> {
+    const url = `${environment.MsMicroservice}?id=${idMS}`;
+    return this.http.get<Microservice>(url).pipe(
+      tap(_ => console.log(`fetched todo id=${idMS}`)),
+      catchError(this.handleError<Microservice>(`getTodo id=${idMS}`))
     );
   }
 

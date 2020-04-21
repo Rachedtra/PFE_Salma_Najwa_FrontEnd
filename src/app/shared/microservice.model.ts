@@ -6,4 +6,5 @@ export class Microservice {
     lien: string;
     diagClass: string;
     languageFK: string;
+  title: any;
 }
