@@ -66,8 +66,11 @@ export class AddUpdateMicroserviceComponent implements OnInit {
   }
 
   save() {
-    this.employeeService.postMicroservice()
-      .subscribe(data => console.log(data), error => console.log(error));
+    debugger
+    this.employeeService.postMicroservice().subscribe(
+      
+    )
+      // .subscribe(data => console.log(data), error => console.log(error));
     this.employee = new Microservice();
     this.gotoList();
   }

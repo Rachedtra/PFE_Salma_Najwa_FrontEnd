@@ -87,7 +87,7 @@ export class MicroserviceService {
   /* #region  Post */
   postMicroservice() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/MS/", this.MicroserviceFormAdd_update.value,
+    return this.http.post(environment.MsMicroservice + "/MS", this.MicroserviceFormAdd_update.value,
       { responseType: "text" });
   }
   /* #endregion */
