@@ -9,17 +9,13 @@ import { Demo } from '../shared/demo.model';
 })
 export class DemosComponent implements OnInit {
 
-  constructor(private DemoService: DemoService
-
-
-    ) { }
+  constructor(private DemoService: DemoService) { }
   
   
     ngOnInit() {
       this.GetMicroservices();
   
     }
-    /* #region  GetListMethods */
     GetMicroservices() {
       this.DemoService.getdemo().subscribe(res => {
         this.DemoService.liste = res as Demo[]
@@ -28,14 +24,14 @@ export class DemosComponent implements OnInit {
     /* #endregion */
     /* #region  Ondelete */
   
-    OnDelete(idMethod) {
-      debugger
+    OnDelete(id) {
+      
       if (confirm("Vous êtes sûr de vouloir supprimer")) {
-        this.DemoService.deletedemo(idMethod).subscribe(
+        this.DemoService.deletedemo(id).subscribe(
           res => {
   
             if (res == "Delete Done") {
-              debugger
+              
               this.DemoService.getdemo().subscribe(res => {
                 this.DemoService.liste = res as Demo[]
                 //this._snackBar.open("La suppression est effectuée avec succées", "X", {
@@ -66,7 +62,6 @@ export class DemosComponent implements OnInit {
   
     /* #region  ComponentForPost */
     openComponentForPost() {
-      debugger
       this.DemoService.initializePostdemo();
       console.log(this.DemoService.initializePostdemo())  
      

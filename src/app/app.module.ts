@@ -10,7 +10,9 @@ import { FooterLeftComponent } from './navbar/footer-left/footer-left.component'
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
 import { DemosComponent } from './demos/demos.component';
 import { HttpClientModule } from "@angular/common/http";
-
+import { DemoService } from './shared/demo.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DemoComponent } from './demos/demo/demo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,7 @@ import { HttpClientModule } from "@angular/common/http";
     FooterLeftComponent,
     FooterRightComponent,
     DemosComponent,
+    DemoComponent,
    
   ],
   imports: [
@@ -27,9 +30,10 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule,
     FormsModule ,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DemoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

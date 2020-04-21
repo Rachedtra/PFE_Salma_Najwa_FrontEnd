@@ -55,7 +55,7 @@ export class DemoService {
   }
   /* #endregion */
   /* #region  Post */
-  postMicroservice() {
+  postdemo() {
     debugger
     return this.http.post(environment.Domain + "/Domain/", this.DemoFormAdd_update.value,
       { responseType: "text" });
@@ -63,7 +63,7 @@ export class DemoService {
   /* #endregion */
   /* #region  Update */
 
-  updateMethod() {
+  updatedemo() {
     return this.http.put(environment.Domain + "/Domain/" + this.DemoFormAdd_update.controls.id.value,
       this.DemoFormAdd_update.value,
       { responseType: "text" }

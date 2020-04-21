@@ -13,10 +13,12 @@
     let g of DemoService.liste" class="sizeText">
       <td class="align-middle table-border">{{g.nom }}</td>
       <td class="align-middle ">
-        <button (click)="openComponentForUpdate(g)" class="btn-sm btn-info rounded mr-3 rounded"> <span
-            class="fas fa-wrench  text-white"></span></button>
-        <button (click)="OnDelete(g.id)" class="btn-sm btn-danger rounded"><span
-            class="fas fa-trash-alt  text-white"></span> </button>
+        <button (click)="openComponentForUpdate(g)" 
+        class="btn-sm btn-info rounded mr-3 rounded"> 
+        <span class="fas fa-wrench  text-white"></span> </button>
+        <button (click)="OnDelete(g.id)" class="btn-sm btn-danger rounded">
+          <span class="fas fa-trash-alt  text-white">
+          </span> </button>
       </td>
     </tr>
     <tr>
