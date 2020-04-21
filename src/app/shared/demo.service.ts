@@ -37,31 +37,25 @@ export class DemoService {
 
     })
   }
-  /* #endregion */
 
-  /* #region  get */
   getdemo() {
     return this.http.get(environment.Domain+ "/Domain")
 
   }
-  /* #endregion */
 
-  /* #region  delete */
   deletedemo(id: string) {
     debugger
     console.log(id)
     return this.http.delete(environment.Domain + "/Domain/" + id, { responseType: "text" });
 
   }
-  /* #endregion */
-  /* #region  Post */
+ 
   postdemo() {
     debugger
     return this.http.post(environment.Domain + "/Domain/", this.DemoFormAdd_update.value,
       { responseType: "text" });
   }
-  /* #endregion */
-  /* #region  Update */
+
 
   updatedemo() {
     return this.http.put(environment.Domain + "/Domain/" + this.DemoFormAdd_update.controls.id.value,
