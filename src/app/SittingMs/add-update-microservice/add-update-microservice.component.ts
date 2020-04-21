@@ -3,6 +3,8 @@ import { MicroserviceService } from 'src/app/shared/microservice.service';
 import { Microservice } from 'src/app/shared/microservice.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { BsModalRef } from 'ngx-bootstrap/modal/';
 
 @Component({
   selector: 'app-add-update-microservice',
@@ -10,151 +12,63 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styles: []
 })
 export class AddUpdateMicroserviceComponent implements OnInit {
-
-  // todoForm: FormGroup;
-  // constructor(private formBuilder: FormBuilder, private router: Router, private api: MicroserviceService) { }
- 
- 
-  // ngOnInit() {
-  //   this.todoForm = this.formBuilder.group({
-  //     label: ['', Validators.compose([Validators.required])],
-  //     description: ['', Validators.compose([Validators.required])],
-  //     author: ['', Validators.compose([Validators.required])],
-  //     lien: ['', Validators.compose([Validators.required])],
-  //     diagClass: ['', Validators.compose([Validators.required])],
-  //     languageFK: ['', Validators.compose([Validators.required])],
-
-  //   });
-  // }
- 
-  // addTodo() {
-  //   const payload = {
-  //     label: this.todoForm.controls.label.value,
-  //     description: this.todoForm.controls.label.value,
-  //     author: this.todoForm.controls.label.value,
-  //     lien: this.todoForm.controls.label.value,
-  //     diagClass: this.todoForm.controls.label.value,
-  //     languageFK: this.todoForm.controls.label.value,
-
-  //   };
- 
-  //   this.api.addTodo(payload)
-  //     .subscribe(res => {
-  //         let idMS = res['idMS'];
-  //         this.router.navigate(['/']);
-  //       }, (err) => {
-  //         console.log(err);
-  //       });
-  // }
-
-
-
-
-
-  employee: Microservice = new Microservice();
-  submitted = false;
-
-  constructor(private employeeService: MicroserviceService,
-    private router: Router) { }
+  constructor(public bsModalRef: BsModalRef, private MsService: MicroserviceService, private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
+    this.MsService.MicroserviceFormAdd_update.markAsUntouched();
+
   }
 
-  newEmployee(): void {
-    this.submitted = false;
-    this.employee = new Microservice();
-  }
-//hello
-  save() {
+  UpdateForm() { }
+  PostForm() {
     debugger
-    this.employeeService.postMicroservice().subscribe(
+    this.MsService.postMicroservice().subscribe
 
-    )
-      // .subscribe(data => console.log(data), error => console.log(error));
-    this.employee = new Microservice();
-    this.gotoList();
+      (res => {
+
+        debugger
+        if (res == "Added Done") {
+          debugger
+          this.bsModalRef.hide();
+          this.MsService.getListMicroservice().subscribe(res => {
+            this.MsService.MicroserviceList = res as Microservice[]
+          })
+          this._snackBar.open("L'ajout est effectué avec succées", "X", {
+            duration: 3000,
+            verticalPosition: "top",
+            horizontalPosition: "right",
+            panelClass: ["green-snackbar"]
+          });
+        }
+
+      },
+        err => {
+          console.log(err)
+
+
+          this._snackBar.open("Erreur", "X", {
+            duration: 3000,
+            verticalPosition: 'top',
+            horizontalPosition: "right",
+            panelClass: ["red-snackbar"]
+          });
+        }
+
+
+      )
   }
 
   onSubmit() {
-    this.submitted = true;
-    this.save();    
+    debugger
+    if (
+      this.MsService.MicroserviceFormAdd_update.controls.idMS.value ==
+      "00000000-0000-0000-0000-000000000000"
+    ) {
+      this.PostForm();
+    } else {
+      this.PostForm();
+    }
   }
 
-  gotoList() {
-    this.router.navigate(['/microservice']);
-  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   micro={
-//   label: '',
-
-//   description: '',
-//   author: '',
-//   lien: '',
-//   diagClass: '',
-//   languageFK:'',
-//   published: false
-// };
-// submitted = false;
-//   constructor(private service:MicroserviceService) { }
-
-//   ngOnInit() {
-
-//   }
-
-//   saveTutorial() {
-//     const data = {
-//       label: this.micro.label,
-//       description: this.micro.description, 
-//       author: this.micro.author,
-//       lien: this.micro.lien,
-//       diagClass: this.micro.diagClass,
-//       languageFK: this.micro.languageFK
-//     };
-
-//     this.service.postMicroservice()
-//       .subscribe(
-//         response => {
-//           console.log(response);
-//           this.submitted = true;
-//         },
-//         error => {
-//           console.log(error);
-//         });
-//   }
-
-//   newTutorial() {
-//     this.submitted = false;
-//     this.micro = {
-//       label: '',
-//       description: '',
-//       author: '',
-//       lien: '',
-//       diagClass: '',
-//       languageFK: '',
-
-//       published: false
-//     };
-//   }
-
-
- 
-
-

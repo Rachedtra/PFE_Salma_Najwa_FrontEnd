@@ -8,16 +8,16 @@ import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
-  
+
 })
 
 export class MicroserviceService {
   private httpOptions: any;
 
 
-  constructor(private http: HttpClient, private fb: FormBuilder) { 
+  constructor(private http: HttpClient, private fb: FormBuilder) {
     this.httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   }
 
@@ -87,7 +87,7 @@ export class MicroserviceService {
   /* #region  Post */
   postMicroservice() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/MS", this.MicroserviceFormAdd_update.value,
+    return this.http.post(environment.MsMicroservice + "/MS/", this.MicroserviceFormAdd_update.value,
       { responseType: "text" });
   }
   /* #endregion */
@@ -100,16 +100,16 @@ export class MicroserviceService {
   //   );
   // }
   // addTodo (microservice): Observable<Microservice> {
-   
+
   //   return this.http.post<Microservice>(`${environment.MsMicroservice}/create.php`, Microservice, httpOptions).pipe(
   //     tap((Microservice) => console.log(`added todo w/ id=${microservice.idMS}`)),
   //     catchError(this.handleError<Microservice>('addTodo'))
   //   );
   // }
-  updateTodo (idMS, microservice): Observable<any> {
-    
+  updateTodo(idMS, microservice): Observable<any> {
+
     const url = `${environment.MsMicroservice}/update.php?id=${idMS}`;
-    return this.http.put(url, microservice,this.httpOptions).pipe(
+    return this.http.put(url, microservice, this.httpOptions).pipe(
       tap(_ => console.log(`updated todo id=${idMS}`)),
       catchError(this.handleError<any>('updateTodo'))
     );

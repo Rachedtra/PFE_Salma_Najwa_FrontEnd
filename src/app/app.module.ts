@@ -11,11 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MicroserviceService } from './shared/microservice.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetDeleteMicroserviceComponent } from './SittingMs/get-delete-microservice/get-delete-microservice.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddUpdateMicroserviceComponent } from './SittingMs/add-update-microservice/add-update-microservice.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UpdateMicroserviceComponent } from './SittingMs/update-microservice/update-microservice.component';
@@ -30,7 +31,6 @@ import { UpdateMicroserviceComponent } from './SittingMs/update-microservice/upd
     GetDeleteMicroserviceComponent,
     AddUpdateMicroserviceComponent,
     UpdateMicroserviceComponent,
-        //AddUpdateMethodComponent
 
 
   ],
@@ -41,10 +41,12 @@ import { UpdateMicroserviceComponent } from './SittingMs/update-microservice/upd
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    TooltipModule.forRoot() ,
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+
     MatSnackBarModule,
     MatButtonModule,
-    MatDialogModule ],
+    MatDialogModule],
   providers: [MicroserviceService],
   bootstrap: [AppComponent]
 })

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Microservice } from 'src/app/shared/microservice.model';
 import { MicroserviceService } from 'src/app/shared/microservice.service';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AddUpdateMicroserviceComponent } from '../add-update-microservice/add-update-microservice.component';
-import { UpdateMicroserviceComponent } from '../update-microservice/update-microservice.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-get-delete-microservice',
@@ -12,74 +11,18 @@ import { UpdateMicroserviceComponent } from '../update-microservice/update-micro
   styles: []
 })
 export class GetDeleteMicroserviceComponent implements OnInit {
-  durationInSeconds = 5;
 
-  constructor(private microserviceService: MicroserviceService,private dialog: MatDialog,
-    private snackBar: MatSnackBar
+  constructor(private microserviceService: MicroserviceService, private modalService: BsModalService, private _snackBar: MatSnackBar
 
 
   ) { }
+  bsModalRef: BsModalRef;
 
 
   ngOnInit() {
     this.GetMicroservices();
 
   }
-  openComponentForUpdate(){
-    const dialogRef = this.dialog.open(UpdateMicroserviceComponent,{
-      data:{
-        message: 'Are you sure want to delete?',
-        buttonText: {
-          ok: 'Save',
-          cancel: 'No'
-        }
-      }
-    });    
-
-  dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-    if (confirmed) {
-      const a = document.createElement('a');
-      a.click();
-      a.remove();
-      this.snackBar.open('Closing snack bar in a few seconds', 'Fechar', {
-        duration: 2000,
-      });
-    }
-  });
-  
-  }
-//  this.dialog = this.modalService.show(AddUpdateMethodComponent, {
-//   class: 'modal-dialog-centered', ignoreBackdropClick: true
-
-//   };
-    
-    openComponentForPost(){
-      const dialogRef = this.dialog.open(AddUpdateMicroserviceComponent,{
-        data:{
-          message: 'Are you sure want to delete?',
-          buttonText: {
-            ok: 'Save',
-            cancel: 'No'
-          }
-        }
-      });    
-      //const snack = this.snackBar.open('Snack bar open before dialog');
-
-    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-      if (confirmed) {
-//snack.dismiss();
-        const a = document.createElement('a');
-        a.click();
-        a.remove();
-       // snack.dismiss();
-        this.snackBar.open('Closing snack bar in a few seconds', 'Fechar', {
-          duration: 2000,
-        });
-      }
-    });
-    
-    }
-
   /* #region  GetListMethods */
   GetMicroservices() {
     this.microserviceService.getListMicroservice().subscribe(res => {
@@ -99,25 +42,25 @@ export class GetDeleteMicroserviceComponent implements OnInit {
             debugger
             this.microserviceService.getListMicroservice().subscribe(res => {
               this.microserviceService.MicroserviceList = res as Microservice[]
-              // this._snackBar.open("La suppression est effectuée avec succées", "X", {
-              // duration: 3000,
-              // verticalPosition: "top",
-              // horizontalPosition: "right",
-              // panelClass: ["green-snackbar"]
-              // });
+              this._snackBar.open("La suppression est effectuée avec succées", "X", {
+                duration: 3000,
+                verticalPosition: "top",
+                horizontalPosition: "right",
+                panelClass: ["green-snackbar"]
+              });
             })
 
           }
         },
-        // err => {
-        //   console.log(err)
-        //   this._snackBar.open("Erreur", "X", {
-        //     duration: 3000,
-        //     verticalPosition: 'top',
-        //     horizontalPosition: "right",
-        //     panelClass: ["red-snackbar"]
-        //   });
-        // }
+        err => {
+          console.log(err)
+          this._snackBar.open("Erreur", "X", {
+            duration: 3000,
+            verticalPosition: 'top',
+            horizontalPosition: "right",
+            panelClass: ["red-snackbar"]
+          });
+        }
       );
     }
   }
@@ -125,43 +68,25 @@ export class GetDeleteMicroserviceComponent implements OnInit {
   /* #endregion */
 
   /* #region  ComponentForPost */
- // openComponentForPost() {
-       // const dialogConfig = new MatDialogConfig();
+  openComponentForPost() {
+    debugger
+    this.microserviceService.initializeFormForPostMicroservice();
+    console.log(this.microserviceService.initializeFormForPostMicroservice())
 
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
+    this.bsModalRef = this.modalService.show(AddUpdateMicroserviceComponent, {
+      class: 'modal-dialog-centered', ignoreBackdropClick: true
+    });
+  }
 
-    // dialogConfig.data = {
-    //     id: 1,
-    //     title: 'Angular For Beginners'
-    // };
-
-    // this.dialog.open(AddUpdateMethodComponent, dialogConfig);
-    // const dialogRef = this.dialog.open(AddUpdateMethodComponent, dialogConfig);
-
-    // dialogRef.afterClosed().subscribe(
-    //     data => console.log("Dialog output:", data)
-    // ); 
-
-  
-//    debugger
-//    this.microserviceService.initializeFormForPostMicroservice();
-//    console.log(this.microserviceService.initializeFormForPostMicroservice())
-//     this.dialog = this.modalService.show(AddUpdateMethodComponent, {
-//       class: 'modal-dialog-centered', ignoreBackdropClick: true
-// });
-  
-//   }
-//   /* #endregion */
-//   /* #region  ComponentForUpdate */
-//   openComponentForUpdate(microservice: Microservice) {
-//     this.microserviceService.initializeFormForUpdateMicroservice(microservice);
-//     // this.bsModalRef = this.modalService.show(AddUpdateMethodComponent, {
-//     //   class: 'modal-dialog-centered', ignoreBackdropClick: true
-//     // });
-//   }
-// }
-
-// /* #endregion */
-
+  /* #endregion */
+  /* #region  ComponentForUpdate */
+  openComponentForUpdate(microservice: Microservice) {
+    this.microserviceService.initializeFormForUpdateMicroservice(microservice);
+    this.bsModalRef = this.modalService.show(AddUpdateMicroserviceComponent, {
+      class: 'modal-dialog-centered', ignoreBackdropClick: true
+    });
+  }
 }
+
+/* #endregion */
+
