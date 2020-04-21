@@ -4,6 +4,7 @@ import { MicroserviceService } from 'src/app/shared/microservice.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddUpdateMicroserviceComponent } from '../add-update-microservice/add-update-microservice.component';
+import { UpdateMicroserviceComponent } from '../update-microservice/update-microservice.component';
 
 @Component({
   selector: 'app-get-delete-microservice',
@@ -25,7 +26,7 @@ export class GetDeleteMicroserviceComponent implements OnInit {
 
   }
   openComponentForUpdate(){
-    const dialogRef = this.dialog.open(AddUpdateMicroserviceComponent,{
+    const dialogRef = this.dialog.open(UpdateMicroserviceComponent,{
       data:{
         message: 'Are you sure want to delete?',
         buttonText: {
