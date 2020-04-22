@@ -48,8 +48,10 @@ export class AddUpdateMicroserviceComponent implements OnInit {
 
   }
   PostForm() {
+    debugger
     this.MsService.postMicroservice().subscribe(res => {
-      if (res == "Added Done") {
+      if (res == "Added done") {
+        debugger
         this.bsModalRef.hide();
         this.MsService.getListMicroservice().subscribe(res => {
           this.MsService.MicroserviceList = res as Microservice[]
