@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddUpdateMicroserviceComponent } from './SittingMs/add-update-microservice/add-update-microservice.component';
 import { MatButtonModule } from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -61,8 +62,8 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    NgxPaginationModule,
-
+     NgxPaginationModule,
+     MatSelectModule,
     MatSnackBarModule,
     MatButtonModule,
     MatDialogModule],

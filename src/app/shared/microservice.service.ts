@@ -92,7 +92,7 @@ export class MicroserviceService {
   /* #region  Update */
 
   updateMicroservice() {
-    return this.http.put(environment.MsMicroservice + "/MS/" + this.MicroserviceFormAdd_update.controls.idMS.value,
+    return this.http.put(environment.MsMicroservice + "/MS" + this.MicroserviceFormAdd_update.controls.idMS.value,
       this.MicroserviceFormAdd_update.value,
       { responseType: "text" }
     );

@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MicroserviceService } from 'src/app/shared/microservice.service';
 import { Microservice } from 'src/app/shared/microservice.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
+import { Language } from 'src/app/shared/language.model';
+import { LanguageService } from 'src/app/shared/language.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-update-microservice',
@@ -12,13 +15,23 @@ import { BsModalRef } from 'ngx-bootstrap/modal/';
   styles: []
 })
 export class AddUpdateMicroserviceComponent implements OnInit {
-  constructor(public bsModalRef: BsModalRef, private MsService: MicroserviceService, private _snackBar: MatSnackBar
-  ) { }
+  formData: Language;
+  LanguageList:Language[];
+    constructor(public bsModalRef: BsModalRef, private MsService: MicroserviceService, private _snackBar: MatSnackBar,
+   private language :LanguageService  ) { }
 
   ngOnInit() {
+    // this.language.getLanguageList().then
+    // (res => this.LanguageList = res as []);
     this.MsService.MicroserviceFormAdd_update.markAsUntouched();
-
-  }
+     this.language.getLanguageList().then(res => this.LanguageList = res as Language[]);
+       this.formData = {
+        idLanguage: '00000000-0000-0000-0000-000000000000',
+        label:'',
+       
+       }
+       }
+  
 
   UpdateForm() {
     this.MsService.updateMicroservice().subscribe(res => {
