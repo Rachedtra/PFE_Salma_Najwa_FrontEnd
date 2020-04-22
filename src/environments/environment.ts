@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  Domain: "http://localhost:7567/api/",
+
+  //apiBaseURI :'http://:7567/api/'
+  MsMicroservice: "http://localhost:7567/api",
+
+
 };
 
 /*
