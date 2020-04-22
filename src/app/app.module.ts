@@ -12,6 +12,7 @@ import { MicroserviceService } from './shared/microservice.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetDeleteMicroserviceComponent } from './SittingMs/get-delete-microservice/get-delete-microservice.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -30,7 +31,6 @@ import { MatButtonModule } from '@angular/material/button';
     GetDeleteMicroserviceComponent,
     AddUpdateMicroserviceComponent,
 
-
   ],
   imports: [
     BrowserModule,
@@ -41,6 +41,7 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    NgxPaginationModule,
 
     MatSnackBarModule,
     MatButtonModule,
