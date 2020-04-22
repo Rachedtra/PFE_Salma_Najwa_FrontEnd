@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  //apiBaseURI :'http://:7567/api/'
+  MsMicroservice: "http://localhost:7567/api",
+
+
 };
 
 /*
