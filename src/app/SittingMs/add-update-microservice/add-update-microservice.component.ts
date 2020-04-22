@@ -48,41 +48,33 @@ export class AddUpdateMicroserviceComponent implements OnInit {
 
   }
   PostForm() {
-    debugger
-    this.MsService.postMicroservice().subscribe
+    this.MsService.postMicroservice().subscribe(res => {
+      if (res == "Added Done") {
+        this.bsModalRef.hide();
+        this.MsService.getListMicroservice().subscribe(res => {
+          this.MsService.MicroserviceList = res as Microservice[]
+        })
+        this._snackBar.open("L'ajout est effectué avec succées", "X", {
+          duration: 3000,
+          verticalPosition: "top",
+          horizontalPosition: "right",
+          panelClass: ["green-snackbar"]
+        });
+      }
 
-      (res => {
-
-        debugger
-        if (res == "Added Done") {
-          debugger
-          this.bsModalRef.hide();
-          this.MsService.getListMicroservice().subscribe(res => {
-            this.MsService.MicroserviceList = res as Microservice[]
-          })
-          this._snackBar.open("L'ajout est effectué avec succées", "X", {
-            duration: 3000,
-            verticalPosition: "top",
-            horizontalPosition: "right",
-            panelClass: ["green-snackbar"]
-          });
-        }
-
-      },
-        err => {
-          console.log(err)
-
-
-          this._snackBar.open("Erreur", "X", {
-            duration: 3000,
-            verticalPosition: 'top',
-            horizontalPosition: "right",
-            panelClass: ["red-snackbar"]
-          });
-        }
+    },
+      err => {
+        console.log(err)
+        this._snackBar.open("Erreur", "X", {
+          duration: 3000,
+          verticalPosition: 'top',
+          horizontalPosition: "right",
+          panelClass: ["red-snackbar"]
+        });
+      }
 
 
-      )
+    )
   }
 
   onSubmit() {
