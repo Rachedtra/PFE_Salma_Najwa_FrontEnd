@@ -93,37 +93,13 @@ export class MicroserviceService {
   /* #endregion */
   /* #region  Update */
 
-  // updateMethod() {
-  //   return this.http.put(environment.MsMicroservice + "/MS/" + this.MicroserviceFormAdd_update.controls.idMS.value,
-  //     this.MicroserviceFormAdd_update.value,
-  //     { responseType: "text" }
-  //   );
-  // }
-  // addTodo (microservice): Observable<Microservice> {
-
-  //   return this.http.post<Microservice>(`${environment.MsMicroservice}/create.php`, Microservice, httpOptions).pipe(
-  //     tap((Microservice) => console.log(`added todo w/ id=${microservice.idMS}`)),
-  //     catchError(this.handleError<Microservice>('addTodo'))
-  //   );
-  // }
-  updateTodo(idMS, microservice): Observable<any> {
-
-    const url = `${environment.MsMicroservice}/update.php?id=${idMS}`;
-    return this.http.put(url, microservice, this.httpOptions).pipe(
-      tap(_ => console.log(`updated todo id=${idMS}`)),
-      catchError(this.handleError<any>('updateTodo'))
+  updateMicroservice() {
+    return this.http.put(environment.MsMicroservice + "/MS/" + this.MicroserviceFormAdd_update.controls.idMS.value,
+      this.MicroserviceFormAdd_update.value,
+      { responseType: "text" }
     );
   }
-  handleError<T>(arg0: string): (err: any, caught: Observable<any>) => never {
-    throw new Error("Method not implemented.");
-  }
-  getTodo(idMS: string): Observable<Microservice> {
-    const url = `${environment.MsMicroservice}?id=${idMS}`;
-    return this.http.get<Microservice>(url).pipe(
-      tap(_ => console.log(`fetched todo id=${idMS}`)),
-      catchError(this.handleError<Microservice>(`getTodo id=${idMS}`))
-    );
-  }
+
 
   /* #endregion */
 

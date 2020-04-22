@@ -20,7 +20,33 @@ export class AddUpdateMicroserviceComponent implements OnInit {
 
   }
 
-  UpdateForm() { }
+  UpdateForm() {
+    this.MsService.updateMicroservice().subscribe(res => {
+      if (res == "Update Done") {
+        this.bsModalRef.hide();
+        this.MsService.getListMicroservice().subscribe(res => {
+          this.MsService.MicroserviceList = res as Microservice[]
+        })
+        this._snackBar.open("La modification est effectuée avec succées", "X", {
+          duration: 3000,
+          verticalPosition: "top",
+          horizontalPosition: "right",
+          panelClass: ["green-snackbar"]
+        });
+      }
+    },
+      err => {
+        console.log(err)
+        this._snackBar.open('Erreur', "X", {
+          duration: 3000,
+          verticalPosition: 'top',
+          horizontalPosition: "right",
+          panelClass: ["red-snackbar"]
+        });
+      }
+    )
+
+  }
   PostForm() {
     debugger
     this.MsService.postMicroservice().subscribe
@@ -67,7 +93,7 @@ export class AddUpdateMicroserviceComponent implements OnInit {
     ) {
       this.PostForm();
     } else {
-      this.PostForm();
+      this.UpdateForm();
     }
   }
 
