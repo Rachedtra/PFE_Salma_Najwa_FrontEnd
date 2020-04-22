@@ -15,7 +15,12 @@
     </thead>
     <tbody>
       <tr *ngFor="
-    let g of microserviceService.MicroserviceList" class="sizeText">
+    let g of microserviceService.MicroserviceList  | paginate
+    : {
+        id: 'ContractStatePagination',
+        itemsPerPage: 3,
+        currentPage: p
+      }" class="sizeText">
         <td class="align-middle table-border">{{g.label }}</td>
         <td class="align-middle table-border">{{g.description }}</td>
         <td class="align-middle table-border">{{g.author }}</td>
@@ -33,6 +38,9 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls id="ContractStatePagination" class="my-pagination" (pageChange)="p = $event"
+    previousLabel="Prec " nextLabel="Suiv ">
+  </pagination-controls>
 
   <div class="col-3" style="float:left !important"> </div>
 </div>

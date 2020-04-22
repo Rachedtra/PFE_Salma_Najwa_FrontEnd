@@ -33,7 +33,11 @@
    // "ngx-toastr": "^12.0.1",
 
     "ngx-bootstrap": "^5.6.1",
+<<<<<<< HEAD
+    "ngx-pagination": "^5.0.0",
+=======
 
+>>>>>>> 8e5f17f1f2c5cbe8223df042409c381948575bba
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
