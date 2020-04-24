@@ -9,6 +9,6 @@ export class LanguageService {
   constructor(private http: HttpClient) { }
 
   getLanguageList() {
-    return this.http.get(environment.MsMicroservice + '/Language').toPromise();
+    return this.http.get(environment.MsMicroservice + '/Language');
   }
 }

@@ -24,7 +24,7 @@ export class AddUpdateMicroserviceComponent implements OnInit {
     // this.language.getLanguageList().then
     // (res => this.LanguageList = res as []);
     this.MsService.MicroserviceFormAdd_update.markAsUntouched();
-     this.language.getLanguageList().then(res => this.LanguageList = res as Language[]);
+     this.language.getLanguageList().subscribe(res => this.LanguageList = res as Language[]);
        this.formData = {
         idLanguage: '00000000-0000-0000-0000-000000000000',
         label:'',
