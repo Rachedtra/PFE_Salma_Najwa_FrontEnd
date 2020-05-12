@@ -26,6 +26,18 @@ import {MatSelectModule} from '@angular/material/select';
 import { GetDeleteProjetComponent } from './SittingProjet/get-delete-projet/get-delete-projet.component';
 import { AddUpdateProjetComponent } from './SittingProjet/add-update-projet/add-update-projet.component';
 import { ProjetService } from './shared/projet.service';
+import { GetDeleteDomainComponent } from './SittingDomain/get-delete-domain/get-delete-domain.component';
+import { GetDeleteMethodComponent } from './SittingMethod/get-delete-method/get-delete-method.component';
+import { GetDeleteLanguageComponent } from './SittingLanguage/get-delete-language/get-delete-language.component';
+import { GetDeleteVersionComponent } from './SittingVersion/get-delete-version/get-delete-version.component';
+import { AddUpdateVersionComponent } from './SittingVersion/add-update-version/add-update-version.component';
+import { AddUpdateLanguageComponent } from './SittingLanguage/add-update-language/add-update-language.component';
+import { AddUpdateMethodComponent } from './SittingMethod/add-update-method/add-update-method.component';
+import { AddUpdateDomainComponent } from './SittingDomain/add-update-domain/add-update-domain.component';
+import { DomaineService } from './shared/domaine.service';
+import { MethodService } from './shared/method.service';
+import { LanguageService } from './shared/language.service';
+import { VersionService } from './shared/version.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +65,14 @@ import { ProjetService } from './shared/projet.service';
     AddUpdateMicroserviceComponent,
     GetDeleteProjetComponent,
     AddUpdateProjetComponent,
+    GetDeleteDomainComponent,
+    GetDeleteMethodComponent,
+    GetDeleteLanguageComponent,
+    GetDeleteVersionComponent,
+    AddUpdateVersionComponent,
+    AddUpdateLanguageComponent,
+    AddUpdateMethodComponent,
+    AddUpdateDomainComponent,
 
   ],
   imports: [
@@ -69,7 +89,7 @@ import { ProjetService } from './shared/projet.service';
     MatSnackBarModule,
     MatButtonModule,
     MatDialogModule],
-  providers: [BsModalRef,MicroserviceService,ProjetService],
+  providers: [MicroserviceService,ProjetService,DomaineService,MethodService,LanguageService,VersionService],
   
   bootstrap: [AppComponent]
 })

@@ -78,31 +78,13 @@ private httpOptions: any;
   /* #region  Update */
 
   updateProjet() {
-    return this.http.put(environment.MsMicroservice + "/Projet/" + this.ProjetFormAdd_update.controls.idProjet.value,
-      this.ProjetFormAdd_update.value,
-      { responseType: "text" }
-    );}
-  // /* #endregion */
-  // /* #region  Post */
-  // postMicroservice() {
-  //   debugger
-  //   return this.http.post(environment.MsMicroservice + "/MS/", this.MicroserviceFormAdd_update.value,
-  //     { responseType: "text" });
-  // }
-  // /* #endregion */
-  // /* #region  Update */
-
-  // updateMicroservice() {
-  //   return this.http.put(environment.MsMicroservice + "MS" + this.MicroserviceFormAdd_update.controls.idMS.value,
-  //     this.MicroserviceFormAdd_update.value,
-  //     { responseType: "text" }
-  //   );
-  //   // return this.http.put(environment.MsMicroservice + '/MS/' + this.MicroserviceFormAdd_update.controls.idMS, this.MicroserviceFormAdd_update);
-
-  // }
+    debugger
+    return this.http.put(environment.MsMicroservice + "/Projet/", this.ProjetFormAdd_update.value,
+      { responseType: "text" });}
+  
+  
 
 
-  /* #endregion */
 
 
 

@@ -126,6 +126,9 @@ export class AddUpdateMicroserviceComponent implements OnInit {
       this.PostForm();
  
     }
+    else {
+      this.UpdateForm();
+    }
   }
 
 }

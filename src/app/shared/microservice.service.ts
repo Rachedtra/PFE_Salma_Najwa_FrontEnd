@@ -12,6 +12,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class MicroserviceService {
   private httpOptions: any;
 
+  MicroserviceList: Microservice[]
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
     this.httpOptions = {
@@ -19,7 +20,6 @@ export class MicroserviceService {
     };
   }
 
-  MicroserviceList: Microservice[]
   /* #region  Form */
   MicroserviceFormAdd_update = this.fb.group({
     idMS: [''],
@@ -91,13 +91,9 @@ export class MicroserviceService {
   /* #region  Update */
 
   updateMicroservice() {
-    return this.http.put(environment.MsMicroservice + "MS" + this.MicroserviceFormAdd_update.controls.idMS.value,
-      this.MicroserviceFormAdd_update.value,
-      { responseType: "text" }
-    );
-    // return this.http.put(environment.MsMicroservice + '/MS/' + this.MicroserviceFormAdd_update.controls.idMS, this.MicroserviceFormAdd_update);
-
-  }
+    debugger
+    return this.http.put(environment.MsMicroservice + "/MS/", this.MicroserviceFormAdd_update.value,
+      { responseType: "text" });}
 
 
   /* #endregion */
