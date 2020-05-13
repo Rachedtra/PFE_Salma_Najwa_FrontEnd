@@ -7,6 +7,7 @@ export const environment = {
 
   //apiBaseURI :'http://:7567/api/'
   MsMicroservice: "http://localhost:7567/api",
+  Commentaire: "http://localhost:44338/api",
 
 
 };

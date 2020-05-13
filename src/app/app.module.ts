@@ -38,6 +38,14 @@ import { DomaineService } from './shared/domaine.service';
 import { MethodService } from './shared/method.service';
 import { LanguageService } from './shared/language.service';
 import { VersionService } from './shared/version.service';
+import { GetDeleteCategorieComponent } from './SittingGestionCategorie/get-delete-categorie/get-delete-categorie.component';
+import { AddUpdateCategorieComponent } from './SittingGestionCategorie/add-update-categorie/add-update-categorie.component';
+import { GetDeleteSousCategorieComponent } from './SittingSousCategorie/get-delete-sous-categorie/get-delete-sous-categorie.component';
+import { AddUpdateSousCategorieComponent } from './SittingSousCategorie/add-update-sous-categorie/add-update-sous-categorie.component';
+import { GetDeleteDemandeInfoComponent } from './SittingDemandeInfo/get-delete-demande-info/get-delete-demande-info.component';
+import { AddUpdateDemandeInfoComponent } from './SittingDemandeInfo/add-update-demande-info/add-update-demande-info.component';
+import { GetDeleteCommentaireComponent } from './SittingCommentaire/get-delete-commentaire/get-delete-commentaire.component';
+import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-commentaire/add-update-commentaire.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +81,14 @@ import { VersionService } from './shared/version.service';
     AddUpdateLanguageComponent,
     AddUpdateMethodComponent,
     AddUpdateDomainComponent,
+    GetDeleteCategorieComponent,
+    AddUpdateCategorieComponent,
+    GetDeleteSousCategorieComponent,
+    AddUpdateSousCategorieComponent,
+    GetDeleteDemandeInfoComponent,
+    AddUpdateDemandeInfoComponent,
+    GetDeleteCommentaireComponent,
+    AddUpdateCommentaireComponent,
 
   ],
   imports: [
@@ -88,7 +104,8 @@ import { VersionService } from './shared/version.service';
      MatSelectModule,
     MatSnackBarModule,
     MatButtonModule,
-    MatDialogModule],
+    MatDialogModule
+  ],
   providers: [MicroserviceService,ProjetService,DomaineService,MethodService,LanguageService,VersionService],
   
   bootstrap: [AppComponent]

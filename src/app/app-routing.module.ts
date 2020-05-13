@@ -13,6 +13,8 @@ import { GetDeleteLanguageComponent } from './SittingLanguage/get-delete-languag
 import { AddUpdateLanguageComponent } from './SittingLanguage/add-update-language/add-update-language.component';
 import { GetDeleteVersionComponent } from './SittingVersion/get-delete-version/get-delete-version.component';
 import { AddUpdateVersionComponent } from './SittingVersion/add-update-version/add-update-version.component';
+import { GetDeleteCommentaireComponent } from './SittingCommentaire/get-delete-commentaire/get-delete-commentaire.component';
+import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-commentaire/add-update-commentaire.component';
 
 const routes: Routes = [
   {
@@ -62,7 +64,16 @@ const routes: Routes = [
   {
     path: 'Version',
     component: AddUpdateVersionComponent,
+  }, 
+  {
+    path: 'Commentaire',
+    component: GetDeleteCommentaireComponent,
   },
+  {
+    path: 'Commentaire',
+    component: AddUpdateCommentaireComponent,
+  },
+ 
 ];
 
 @NgModule({
