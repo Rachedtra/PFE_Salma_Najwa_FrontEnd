@@ -1,0 +1,32 @@
+<div class="modal-header ">
+  <h4 *ngIf="languageService.CommentaireFormAdd_update.controls.idCom.value =='00000000-0000-0000-0000-000000000000'"
+    class="modal-title pull-left text-info ml-3 mt-2">Ajouter un Domain </h4>
+  <h4 *ngIf=" languageService.CommentaireFormAdd_update.controls.idCom.value !='00000000-0000-0000-0000-000000000000'"
+    class="modal-title pull-left text-info ml-3 mt-2">Modifier la Domain</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body ">
+  <div class="container">
+    <form [formGroup]=" languageService.CommentaireFormAdd_update">
+      <div class="form-group ms-auto ml-5 mt-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+          </div>
+          <input type="text" class="form-control col-8" formControlName="description" placeholder="Entrer le description "
+            [class.is-invalid]="languageService.CommentaireFormAdd_update.controls.description.errors?.required &&
+            languageService.CommentaireFormAdd_update.controls.description.touched">
+        </div>
+        
+      </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class=" btn btn-info col-3 mr-2 " (click)="onSubmit()"
+      [disabled]="languageService.CommentaireFormAdd_update.invalid"><i class="fas fa-check"></i>
+      Valider</button>
+  </div>

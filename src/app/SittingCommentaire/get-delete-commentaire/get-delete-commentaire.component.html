@@ -1,0 +1,36 @@
+<div class="content-wrapper">
+  <button type="button" class="btn  mb-2 text-white" (click)="openComponentForPost()"
+    style="background-color:rgb(13, 184, 214); "> <i class="fas fa-plus-circle "></i> Ajouter</button>
+  <table class="table table-bordered  table-hover text-center">
+    <thead>
+      <tr>
+        <th class="align-middle table-info table-border">description</th>
+        <th class="align-middle table-info table-border">Action(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="
+    let g of CommentaireService.CommentaireList  | paginate
+    : {
+        id: 'ContractStatePagination',
+        itemsPerPage: 3,
+        currentPage: p
+      }" class="sizeText">
+        <td class="align-middle table-border">{{g.description }}</td>
+        <td class="align-middle ">
+          <button (click)="openComponentForUpdate(g)" class="btn-sm btn-info rounded mr-3 rounded"> <span
+              class="fas fa-wrench  text-white"></span></button>
+          <button (click)="OnDelete(g.idCom)" class="btn-sm btn-danger rounded"><span
+              class="fas fa-trash-alt  text-white"></span> </button>
+        </td>
+      </tr>
+      <tr>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls id="ContractStatePagination" class="my-pagination" (pageChange)="p = $event"
+    previousLabel="Prec " nextLabel="Suiv ">
+  </pagination-controls>
+
+  <div class="col-3" style="float:left !important"> </div>
+</div>

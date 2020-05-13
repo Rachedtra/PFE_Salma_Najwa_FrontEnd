@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styles: []
 })
 export class GetDeleteMicroserviceComponent implements OnInit {
-
+ 
   constructor(private microserviceService: MicroserviceService, private modalService: BsModalService, private _snackBar: MatSnackBar
 
 
@@ -21,6 +21,7 @@ export class GetDeleteMicroserviceComponent implements OnInit {
 
   ngOnInit() {
     this.GetMicroservices();
+
 
   }
   /* #region  GetListMethods */
@@ -86,6 +87,7 @@ export class GetDeleteMicroserviceComponent implements OnInit {
       class: 'modal-dialog-centered', ignoreBackdropClick: true
     });
   }
+  
 }
 
 /* #endregion */
