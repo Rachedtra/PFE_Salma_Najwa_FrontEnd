@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class GetDeleteCommentaireComponent implements OnInit {
 
-  constructor(private microserviceService: CommentaireService, private modalService: BsModalService, private _snackBar: MatSnackBar
+  constructor(private CommentaireService: CommentaireService, private modalService: BsModalService, private _snackBar: MatSnackBar
 
 
     ) { }
@@ -20,29 +20,52 @@ export class GetDeleteCommentaireComponent implements OnInit {
   
   
     ngOnInit() {
-      this.GetMicroservices();
+      this.GetCommentaire();
   
   
     }
     /* #region  GetListMethods */
-    GetMicroservices() {
-      this.microserviceService.getCommentaireList().subscribe(res => {
-        this.microserviceService.CommentaireList = res as Commentaire[]
+    GetCommentaire() {
+      console.log("test");
+      this.CommentaireService.getCommentaireList().subscribe(res => {
+        this.CommentaireService.CommentaireList = res as Commentaire[];
+        console.log("test2",res);
+
       })
     }
+//     this.guaranteeService
+//     .getGarantee(localStorage.getItem('ID_RequestFolder'))
+//     .subscribe(
+//       res => {
+
+//         // this.ListGuarantee = res as Guarantee[];
+//         this.guaranteeService.GuaranteeForm.setValue(res as Commentaire);
+
+//         console.log("lisguarantee" + res)
+
+//       },
+//       (error) => {
+//         console.log("errrr" + error)
+
+//       });
+
+
+
+
+// }
     /* #endregion */
     /* #region  Ondelete */
   
     OnDelete(idMethod) {
       debugger
       if (confirm("Vous êtes sûr de vouloir supprimer")) {
-        this.microserviceService.deleteCommentaire(idMethod).subscribe(
+        this.CommentaireService.deleteCommentaire(idMethod).subscribe(
           res => {
   
             if (res == "Delete Done") {
               debugger
-              this.microserviceService.getCommentaireList().subscribe(res => {
-                this.microserviceService.CommentaireList = res as Commentaire[]
+              this.CommentaireService.getCommentaireList().subscribe(res => {
+                this.CommentaireService.CommentaireList = res as Commentaire[]
                 this._snackBar.open("La suppression est effectuée avec succées", "X", {
                   duration: 3000,
                   verticalPosition: "top",
@@ -71,8 +94,8 @@ export class GetDeleteCommentaireComponent implements OnInit {
     /* #region  ComponentForPost */
     openComponentForPost() {
       debugger
-      this.microserviceService.initializeFormForPostCommentaire();
-      console.log(this.microserviceService.initializeFormForPostCommentaire())
+      this.CommentaireService.initializeFormForPostCommentaire();
+      console.log(this.CommentaireService.initializeFormForPostCommentaire())
   
       this.bsModalRef = this.modalService.show(AddUpdateCommentaireComponent, {
         class: 'modal-dialog-centered', ignoreBackdropClick: true
@@ -82,7 +105,7 @@ export class GetDeleteCommentaireComponent implements OnInit {
     /* #endregion */
     /* #region  ComponentForUpdate */
     openComponentForUpdate(microservice: Commentaire) {
-      this.microserviceService.initializeFormForUpdateLanguage(microservice);
+      this.CommentaireService.initializeFormForUpdateLanguage(microservice);
       this.bsModalRef = this.modalService.show(AddUpdateCommentaireComponent, {
         class: 'modal-dialog-centered', ignoreBackdropClick: true
       });
