@@ -9,6 +9,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class CommentaireService {
   private httpOptions: any;
+  CommentaireList: Commentaire[]
 
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
@@ -17,7 +18,6 @@ export class CommentaireService {
     };
   }
 
-  CommentaireList: Commentaire[]
   /* #region  Form */
  CommentaireFormAdd_update = this.fb.group({
     idCom: [''],
@@ -40,10 +40,10 @@ export class CommentaireService {
   /* #endregion */
 
   /* #region  InitialFormUpdate */
-  initializeFormForUpdateLanguage(microservice: Commentaire) {
+  initializeFormForUpdateLanguage(commentaire: Commentaire) {
     this.CommentaireFormAdd_update.setValue({
-      idCom: microservice.idCom,
-      description: microservice.description,
+      idCom: commentaire.idCom,
+      description: commentaire.description,
 
     })
   }
@@ -52,17 +52,16 @@ export class CommentaireService {
   /* #region  get */
   getCommentaireList() {
     console.log("test2");
-    return this.http.get(environment.Commentaire + "/Commentaire");
-    console.log("test3");
+    return this.http.get(environment.Commentaire + "/Commentaire")
 
   }
   /* #endregion */
 
   // /* #region  delete */
-  deleteCommentaire(idLanguage: string) {
+  deleteCommentaire(idCom: string) {
     debugger
-    console.log(idLanguage)
-    return this.http.delete(environment.Commentaire + "/Language/" + idLanguage, { responseType: "text" });
+    console.log(idCom)
+    return this.http.delete(environment.Commentaire + "/Commentaire/" + idCom, { responseType: "text" });
 
   }
   /* #endregion */

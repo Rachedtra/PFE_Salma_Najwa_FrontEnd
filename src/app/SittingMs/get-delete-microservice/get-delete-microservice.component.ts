@@ -5,7 +5,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AddUpdateMicroserviceComponent } from '../add-update-microservice/add-update-microservice.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-@Component({
+@Component({ 
   selector: 'app-get-delete-microservice',
   templateUrl: './get-delete-microservice.component.html',
   styles: []

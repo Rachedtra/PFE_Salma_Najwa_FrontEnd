@@ -1,3 +1,44 @@
-<p>
-  add-update-sous-categorie works!
-</p>
+<div class="modal-header ">
+  <h4 *ngIf="sousCategorieService.CommentaireFormAdd_update.controls.idCategorie.value =='00000000-0000-0000-0000-000000000000'"
+    class="modal-title pull-left text-info ml-3 mt-2">Ajouter un Domain </h4>
+  <h4 *ngIf=" sousCategorieService.CommentaireFormAdd_update.controls.idCategorie.value !='00000000-0000-0000-0000-000000000000'"
+    class="modal-title pull-left text-info ml-3 mt-2">Modifier la Domain</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body ">
+  <div class="container">
+    <form [formGroup]=" sousCategorieService.CommentaireFormAdd_update">
+      <div class="form-group ms-auto ml-5 mt-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+          </div>
+          <input type="text" class="form-control col-8" formControlName="label" placeholder="Entrer le label "
+            [class.is-invalid]="sousCategorieService.CommentaireFormAdd_update.controls.label.errors?.required &&
+            sousCategorieService.CommentaireFormAdd_update.controls.label.touched">
+        </div>
+        
+      </div>  
+     
+      <div class="form-group ms-auto ml-5 mt-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+          </div>
+          <input type="text" class="form-control col-8" formControlName="fK_SousCategorie" placeholder="Entrer le fK_SousCategorie "
+            [class.is-invalid]="sousCategorieService.CommentaireFormAdd_update.controls.fK_SousCategorie.errors?.required &&
+            sousCategorieService.CommentaireFormAdd_update.controls.fK_SousCategorie.touched">
+        </div>
+        
+      </div>  
+      
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class=" btn btn-info col-3 mr-2 " (click)="onSubmit()"
+      [disabled]="languageService.CommentaireFormAdd_update.invalid"><i class="fas fa-check"></i>
+      Valider</button>
+  </div>

@@ -46,6 +46,9 @@ import { GetDeleteDemandeInfoComponent } from './SittingDemandeInfo/get-delete-d
 import { AddUpdateDemandeInfoComponent } from './SittingDemandeInfo/add-update-demande-info/add-update-demande-info.component';
 import { GetDeleteCommentaireComponent } from './SittingCommentaire/get-delete-commentaire/get-delete-commentaire.component';
 import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-commentaire/add-update-commentaire.component';
+import { GetDeleteVoteComponent } from './SittingVote/get-delete-vote/get-delete-vote.component';
+import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update-vote.component';
+import { MaquetteComponent } from './Sittingmaquette/maquette.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +92,9 @@ import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-c
     AddUpdateDemandeInfoComponent,
     GetDeleteCommentaireComponent,
     AddUpdateCommentaireComponent,
+    GetDeleteVoteComponent,
+    AddUpdateVoteComponent,
+    MaquetteComponent,
 
   ],
   imports: [

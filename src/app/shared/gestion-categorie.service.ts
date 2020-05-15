@@ -10,6 +10,7 @@ import { GestionCategorie } from './gestion-categorie.model';
 export class GestionCategorieService {
 
   private httpOptions: any;
+  CategorieList: GestionCategorie[]
 
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
@@ -18,10 +19,9 @@ export class GestionCategorieService {
     };
   }
 
-  CategorieList: GestionCategorie[]
   /* #region  Form */
  CommentaireFormAdd_update = this.fb.group({
-    ididCategorieCom: [''],
+    idCategorie: [''],
     label: ['', Validators.required]
 
 
@@ -51,14 +51,14 @@ export class GestionCategorieService {
   /* #endregion */
 
   /* #region  get */
-  getCommentaireList() {
+  getCategorieList() {
     return this.http.get(environment.Commentaire + "/Categorie")
 
   }
   /* #endregion */
 
   // /* #region  delete */
-  deleteCommentaire(idCategorie: string) {
+  deleteCategorie(idCategorie: string) {
     debugger
     console.log(idCategorie)
     return this.http.delete(environment.Commentaire + "/Categorie/" + idCategorie, { responseType: "text" });
@@ -66,7 +66,7 @@ export class GestionCategorieService {
   }
   /* #endregion */
   /* #region  Post */
-  postCommentaire() {
+  postCategorie() {
     debugger
     return this.http.post(environment.Commentaire + "/Categorie/", this.CommentaireFormAdd_update.value,
       { responseType: "text" });
@@ -74,7 +74,7 @@ export class GestionCategorieService {
   /* #endregion */
   /* #region  Update */
 
-  updateCommentaire() {
+  updateCategorie() {
 
     debugger
     return this.http.put(environment.Commentaire + "/Categorie/", this.CommentaireFormAdd_update.value,

@@ -1,0 +1,21 @@
+
+button {
+    position: relative;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 4px;
+    cursor: pointer;
+}
+
+
+input[type="text"], textarea {
+
+  background-color : #DCDCDC; 
+
+}
+button.btn btn-primary{
+position:absolute; 
+margin-left:47%;  } 

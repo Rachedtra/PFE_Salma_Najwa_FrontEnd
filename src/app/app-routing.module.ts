@@ -15,6 +15,15 @@ import { GetDeleteVersionComponent } from './SittingVersion/get-delete-version/g
 import { AddUpdateVersionComponent } from './SittingVersion/add-update-version/add-update-version.component';
 import { GetDeleteCommentaireComponent } from './SittingCommentaire/get-delete-commentaire/get-delete-commentaire.component';
 import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-commentaire/add-update-commentaire.component';
+import { GetDeleteDemandeInfoComponent } from './SittingDemandeInfo/get-delete-demande-info/get-delete-demande-info.component';
+import { AddUpdateDemandeInfoComponent } from './SittingDemandeInfo/add-update-demande-info/add-update-demande-info.component';
+import { GetDeleteSousCategorieComponent } from './SittingSousCategorie/get-delete-sous-categorie/get-delete-sous-categorie.component';
+import { AddUpdateSousCategorieComponent } from './SittingSousCategorie/add-update-sous-categorie/add-update-sous-categorie.component';
+import { GetDeleteCategorieComponent } from './SittingGestionCategorie/get-delete-categorie/get-delete-categorie.component';
+import { AddUpdateCategorieComponent } from './SittingGestionCategorie/add-update-categorie/add-update-categorie.component';
+import { GetDeleteVoteComponent } from './SittingVote/get-delete-vote/get-delete-vote.component';
+import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update-vote.component';
+import { MaquetteComponent } from './Sittingmaquette/maquette.component';
 
 const routes: Routes = [
   {
@@ -73,7 +82,42 @@ const routes: Routes = [
     path: 'Commentaire',
     component: AddUpdateCommentaireComponent,
   },
- 
+  {
+    path: 'Demande_Info',
+    component: GetDeleteDemandeInfoComponent,
+  },
+  {
+    path: 'Demande_Info',
+    component: AddUpdateDemandeInfoComponent,
+  },
+  {
+    path: 'Sous_Categorie',
+    component: GetDeleteSousCategorieComponent,
+  },
+  {
+    path: 'Sous_Categorie',
+    component: AddUpdateSousCategorieComponent,
+  },
+  {
+    path: 'Gestion_Categorie',
+    component: GetDeleteCategorieComponent,
+  },
+  {
+    path: 'Gestion_Categorie',
+    component: AddUpdateCategorieComponent,
+  },
+  {
+    path: 'Vote',
+    component: GetDeleteVoteComponent,
+  },
+  {
+    path: 'Vote',
+    component: AddUpdateVoteComponent,
+  },
+  {
+    path: 'maquette',
+  component: MaquetteComponent,
+},
 ];
 
 @NgModule({
