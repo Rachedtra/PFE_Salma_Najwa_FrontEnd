@@ -19,5 +19,8 @@ export class MaquetteComponent implements OnInit {
     this.DomaineService.getDomainList()
     .subscribe(res => this.DomainList = res as []);
   }
-
+  onSubmit() {
+    debugger
+   
+}
 }
