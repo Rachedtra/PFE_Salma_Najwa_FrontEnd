@@ -49,6 +49,9 @@ import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-c
 import { GetDeleteVoteComponent } from './SittingVote/get-delete-vote/get-delete-vote.component';
 import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update-vote.component';
 import { MaquetteComponent } from './Sittingmaquette/maquette.component';
+import { MsFilterPipe } from './SittingMs/MSFilter.pipe';
+import { HomeComponent } from './SittingMaquette1/home/home.component';
+import { AnswerComponent } from './SittingMaquette1/answer/answer.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +98,9 @@ import { MaquetteComponent } from './Sittingmaquette/maquette.component';
     GetDeleteVoteComponent,
     AddUpdateVoteComponent,
     MaquetteComponent,
-
+    MsFilterPipe,
+    HomeComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +117,7 @@ import { MaquetteComponent } from './Sittingmaquette/maquette.component';
     MatButtonModule,
     MatDialogModule
   ],
-  providers: [MicroserviceService,ProjetService,DomaineService,MethodService,LanguageService,VersionService],
+  providers: [MicroserviceService,ProjetService,DomaineService,MethodService,LanguageService,VersionService,MsFilterPipe],
   
   bootstrap: [AppComponent]
 })

@@ -9,18 +9,18 @@ import { GestionCategorie } from 'src/app/shared/gestion-categorie.model';
   styles: []
 })
 export class AddUpdateCategorieComponent implements OnInit {
-  constructor(public bsModalRef: BsModalRef, private languageService: GestionCategorieService, private _snackBar: MatSnackBar) { }
+  constructor(public bsModalRef: BsModalRef, private categorieService: GestionCategorieService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
- this.languageService.CommentaireFormAdd_update.markAsUntouched();
+ this.categorieService.CommentaireFormAdd_update.markAsUntouched();
 
   }
   UpdateForm() {
-    this.languageService.updateCategorie().subscribe(res => {
+    this.categorieService.updateCategorie().subscribe(res => {
       if (res == "Update Done") {
         this.bsModalRef.hide();
-        this.languageService.getCategorieList().subscribe(res => {
-          this.languageService.CategorieList = res as GestionCategorie[]
+        this.categorieService.getCategorieList().subscribe(res => {
+          this.categorieService.CategorieList = res as GestionCategorie[]
         })
         this._snackBar.open("La modification est effectuée avec succées", "X", {
           duration: 3000,
@@ -45,12 +45,12 @@ export class AddUpdateCategorieComponent implements OnInit {
 
   PostForm() {
     debugger
-    this.languageService.postCategorie().subscribe(res => {
+    this.categorieService.postCategorie().subscribe(res => {
       if (res == "Added done") {
         debugger
         this.bsModalRef.hide();
-        this.languageService.getCategorieList().subscribe(res => {
-          this.languageService.CategorieList = res as GestionCategorie[]
+        this.categorieService.getCategorieList().subscribe(res => {
+          this.categorieService.CategorieList = res as GestionCategorie[]
         })
         this._snackBar.open("L'ajout est effectué avec succées", "X", {
           duration: 3000,
@@ -78,7 +78,7 @@ export class AddUpdateCategorieComponent implements OnInit {
   onSubmit() {
     debugger
     if (
-      this.languageService.CommentaireFormAdd_update.controls.idCategorie.value ==
+      this.categorieService.CommentaireFormAdd_update.controls.idCategorie.value ==
       "00000000-0000-0000-0000-000000000000"
     ) {
       this.PostForm();

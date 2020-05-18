@@ -22,5 +22,8 @@ export class MaquetteComponent implements OnInit {
   onSubmit() {
     debugger
    
-}
+   
+  }
+   
+
 }

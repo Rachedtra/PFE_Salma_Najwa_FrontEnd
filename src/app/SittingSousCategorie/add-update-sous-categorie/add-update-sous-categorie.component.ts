@@ -3,6 +3,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SousCategorieService } from 'src/app/shared/sous-categorie.service';
 import { SousCategorie } from 'src/app/shared/sous-categorie.model';
+import { GestionCategorieService } from 'src/app/shared/gestion-categorie.service';
 
 @Component({
   selector: 'app-add-update-sous-categorie',
@@ -10,11 +11,14 @@ import { SousCategorie } from 'src/app/shared/sous-categorie.model';
   styles:[]
 })
 export class AddUpdateSousCategorieComponent implements OnInit {
-  constructor(public bsModalRef: BsModalRef, private sousCategorieService: SousCategorieService, private _snackBar: MatSnackBar) { }
+  CategorieList:[];
+
+  constructor(public bsModalRef: BsModalRef, private sousCategorieService: SousCategorieService, private _snackBar: MatSnackBar,private categorie:GestionCategorieService) { }
 
   ngOnInit() {
  this.sousCategorieService.CommentaireFormAdd_update.markAsUntouched();
-
+ this.categorie.getCategorieList()
+ .subscribe(res => this.CategorieList= res as []);
   }
   UpdateForm() {
     this.sousCategorieService.updateCommentaire().subscribe(res => {
@@ -79,7 +83,7 @@ export class AddUpdateSousCategorieComponent implements OnInit {
   onSubmit() {
     debugger
     if (
-      this.sousCategorieService.CommentaireFormAdd_update.controls.idCategorie.value ==
+      this.sousCategorieService.CommentaireFormAdd_update.controls.idSC.value ==
       "00000000-0000-0000-0000-000000000000"
     ) {
       this.PostForm();

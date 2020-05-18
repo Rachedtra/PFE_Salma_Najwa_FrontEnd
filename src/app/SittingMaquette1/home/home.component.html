@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-light">
+    <!-- Brand/logo -->
+  
+    <a class="navbar-brand" href="#">
+      <img src="assets/Image/logo-pgh-50.jpg" class="rounded-circle" width="100" height="100">
+
+    </a> 
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <form class="form-inline" action="/action_page.php">
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Contact</a>
+    </li>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button type="button" class="btn btn-outline-primary"style="position: absolute;margin-left:50%;"  >Sign Up</button>
+        <button type="button" class="btn btn-outline-primary"style="position: absolute;margin-left:57%;" >Log In</button>
+
+            <img src="/assets/Image/user.png" class="img-circle elevation-2" alt="User Image" class="rounded-circle" width="50" height="50"style="position: absolute;margin-left:63%;" >
+          <div class="info">
+    
+            <a href="#" class="d-block"style="position: absolute;margin-left:43%;" >Salma Ben Alaya</a>
+    
+          </div>
+        </form>
+
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="container">
+  <h1>Angular8</h1>
+  <hr align="center" width="95%" color="#DCDCDC" size="1">
+
+  <div class="container">
+ 
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="position: absolute;margin-left:60%;">
+Poser question    </button>
+  
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Detail</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body ">
+            <div class="container">
+              <form [formGroup]="demandeInfo.DemandeInfoFormAdd_update">
+                <div class="form-group ms-auto ml-5 mt-2">
+                  <div class="input-group">         
+                   <input type="text" class="form-control col-12"  placeholder="titre">
+            </div>
+             
+            
+            <div class="input-group">
+            
+            <select class="form-control col-12">
+              <option value="0">Select</option>
+              <option *ngFor="let save of CategorieList" value="{{save.idCategorie}}">{{save.label}}</option>
+          </select>
+            </div>
+          <div class="input-group">
+            <select type="text" class="form-control col-12" >
+              <option value="0">Select</option>
+              <option *ngFor="let save of DomainList" value="{{save.idDomaine}}">{{save.idDomaine}}</option>
+          </select>
+          
+          </div>
+        <div class="input-group">
+        <textarea class="form-control" placeholder="description">
+        </textarea>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+              <button type="button"  class=" btn btn-primary" (click)="onSubmit()"
+            [disabled]="demandeInfo.DemandeInfoFormAdd_update.invalid">Submit</button>
+          </div>
+
+        </div>
+      </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div class="container">
+ 
+    <!-- Button to Open the Modal -->
+
+    <button routerLink="/answer" class="btn">Titre</button>
+    <input type="text" name="titre" placeholder="titre"/>
+    <input type="text" name="categorie" placeholder="categorie"/>
+    <input type="text" name="domaine" placeholder="domaine"/>
+  
+ 
+    
+  <div class="form-group">
+    <label for="question"></label>
+  <textarea class="form-control" rows="4">
+  {{description}}
+    </textarea>
+    <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 00-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 00-.163-.505L1.71 6.745l4.052-.576a.525.525 0 00.393-.288l1.847-3.658 1.846 3.658a.525.525 0 00.393.288l4.052.575-2.906 2.77a.564.564 0 00-.163.506l.694 3.957-3.686-1.894a.503.503 0 00-.461 0z" clip-rule="evenodd"/>
+    </svg>
+    <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 00-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 00-.163-.505L1.71 6.745l4.052-.576a.525.525 0 00.393-.288l1.847-3.658 1.846 3.658a.525.525 0 00.393.288l4.052.575-2.906 2.77a.564.564 0 00-.163.506l.694 3.957-3.686-1.894a.503.503 0 00-.461 0z" clip-rule="evenodd"/>
+    </svg>
+    <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 00-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 00-.163-.505L1.71 6.745l4.052-.576a.525.525 0 00.393-.288l1.847-3.658 1.846 3.658a.525.525 0 00.393.288l4.052.575-2.906 2.77a.564.564 0 00-.163.506l.694 3.957-3.686-1.894a.503.503 0 00-.461 0z" clip-rule="evenodd"/>
+    </svg>
+    <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 00-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 00-.163-.505L1.71 6.745l4.052-.576a.525.525 0 00.393-.288l1.847-3.658 1.846 3.658a.525.525 0 00.393.288l4.052.575-2.906 2.77a.564.564 0 00-.163.506l.694 3.957-3.686-1.894a.503.503 0 00-.461 0z" clip-rule="evenodd"/>
+    </svg>
+    <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 00-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 00-.163-.505L1.71 6.745l4.052-.576a.525.525 0 00.393-.288l1.847-3.658 1.846 3.658a.525.525 0 00.393.288l4.052.575-2.906 2.77a.564.564 0 00-.163.506l.694 3.957-3.686-1.894a.503.503 0 00-.461 0z" clip-rule="evenodd"/>
+    </svg>
+  </div>
+
+  </div>
+  <div>
+<button type="button" class="btn btn-outline-primary">HTML</button>
+<button type="button" class="btn btn-outline-primary">CSS</button>
+<button type="button" class="btn btn-outline-primary">JS</button>
+</div>
+
+
+</div></div></div>
+</body>
+</html>

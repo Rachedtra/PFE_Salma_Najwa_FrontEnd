@@ -77,7 +77,7 @@ Poser question    </button>
             <div class="input-group-prepend">
             </div>
             <label>Categorie:</label>
-            <select type="text" class="form-control col-12" formControlName="Categorie"
+            <select type="text" class="form-control col-12" formControlName="GestionCategorie"
             >
               <option value="0">Select</option>
               <option *ngFor="let item of CategorieList" value="{{item.idCategorie}}">{{item.label}}</option>
@@ -114,9 +114,7 @@ Poser question    </button>
   <div class="form-group">
     <label for="question"></label>
     <textarea class="form-control" rows="5" id="question">
-     if{
-       
-     }
+  
     </textarea>
   </div>
 </div>
@@ -178,7 +176,6 @@ Poser question    </button>
   <label for="question"></label>
   <textarea class="form-control" rows="5" id="question"></textarea>
 </div>
-<button type="button" class=" btn btn-info col-3 mr-2 " (click)="onSubmit()"
-><i class="fas fa-check"></i>
-Submit</button>
+<a href="#" class="btn btn-info" role="button">Poster</a>
+
 </body></html>

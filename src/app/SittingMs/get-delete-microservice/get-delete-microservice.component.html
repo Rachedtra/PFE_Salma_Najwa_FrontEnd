@@ -1,17 +1,17 @@
 <div class="content-wrapper">
+  
   <button type="button" class="btn  mb-2 text-white" (click)="openComponentForPost()"
     style="background-color:rgb(13, 184, 214); "> <i class="fas fa-plus-circle "></i> Ajouter</button>
     
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search"
-              style="width:200px" [(ngModel)]="searchTerm" />
-  </div>
-  <!-- <div *ngFor="let microservice of microservices | MSFilter:searchTerm">
-    <div (click)="onClick(microservice.idMS)" class="pointerCursor">
-        <app-display-microservice [microservice]="microservice" #childComponent>
-        </app-display-microservice>
-    </div>
-</div> -->
+      <input type="text" class="form-control" style="widows: 300px;" [(ngModel)]="label" (input)="Search()"/>
+      </div>
+      <div *ngFor=" let microservice of MicroserviceList | searchMicro:searchTerm">
+        <div (click)="onClick(microservice.idMS)" class="pointerCursor">
+          <!-- <app-display-microservice [microservice]="microservice" #childComponent></app-display-microservice> -->
+        </div>
+      </div>
+
   <table class="table table-bordered  table-hover text-center">
     <thead>
       <tr>
@@ -26,7 +26,7 @@
     </thead>
     <tbody>
       <tr *ngFor="
-    let g of microserviceService.MicroserviceList  | paginate
+    let g of microserviceService.MicroserviceList | paginate
     : {
         id: 'ContractStatePagination',
         itemsPerPage: 3,

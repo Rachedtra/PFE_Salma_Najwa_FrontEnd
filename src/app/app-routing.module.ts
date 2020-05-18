@@ -24,6 +24,8 @@ import { AddUpdateCategorieComponent } from './SittingGestionCategorie/add-updat
 import { GetDeleteVoteComponent } from './SittingVote/get-delete-vote/get-delete-vote.component';
 import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update-vote.component';
 import { MaquetteComponent } from './Sittingmaquette/maquette.component';
+import { AnswerComponent } from './SittingMaquette1/answer/answer.component';
+import { HomeComponent } from './SittingMaquette1/home/home.component';
 
 const routes: Routes = [
   {
@@ -117,6 +119,15 @@ const routes: Routes = [
   {
     path: 'maquette',
   component: MaquetteComponent,
+},
+
+{
+  path: 'maquette1',
+component: HomeComponent,
+},
+{
+  path: 'answer',
+component: AnswerComponent,
 },
 ];
 

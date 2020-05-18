@@ -1,15 +1,19 @@
 import { PipeTransform, Pipe } from '@angular/core';
 import { Microservice } from '../shared/microservice.model';
 @Pipe({
-    name: 'MSFilter'
-})
+    name: 'searchMicro',
+    pure: false
+  })
 export class MsFilterPipe implements PipeTransform{
-    transform(microservices: Microservice[], searchTerm: string):Microservice[] {
-        if (!microservices || !searchTerm) {
+    private counter = 0;
+    transform(microservices: Microservice[], label: string):Microservice[] {
+        this.counter++;
+        if (!microservices || !label) {
             return microservices;
         }
 
         return microservices.filter(microservice =>
-            microservice.label.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+            microservice.label.toLowerCase().indexOf(label.toLowerCase()) !== -1);
+            
     }
     }
