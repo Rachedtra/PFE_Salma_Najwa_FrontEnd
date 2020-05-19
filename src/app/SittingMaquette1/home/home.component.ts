@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommentaireService } from 'src/app/shared/commentaire.service';
 import { Commentaire } from 'src/app/shared/commentaire.model';
 import { DemandeInfoService } from 'src/app/shared/demande-info.service';
 import { DemandeInfo } from 'src/app/shared/demande-info.model';
 import { GestionCategorieService } from 'src/app/shared/gestion-categorie.service';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomaineService } from 'src/app/shared/domaine.service';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
@@ -15,9 +16,16 @@ import { Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild(ModalDirective) modal: ModalDirective;
+
+  timeInput = new FormControl();
+  subjectInput = new FormControl();
+  locationInput = new FormControl();
+  descriptionInput = new FormControl();
   CategorieList:[];
   DomainList:[];
   DemandeList: DemandeInfo[];
+  userForm: FormGroup;
 
   constructor(private fb: FormBuilder,private DomaineService:DomaineService,private _snackBar: MatSnackBar,private demandeInfo:DemandeInfoService,private categorieService:GestionCategorieService,private commentaireService:CommentaireService) { }
 
@@ -30,46 +38,26 @@ export class HomeComponent implements OnInit {
 
     }
 
+  addNewEvent() {
+    const newEvent: any = {
+      titre: this.timeInput.value,
+      domaine: this.subjectInput.value,
+     categorie: this.locationInput.value,
+      description: this.descriptionInput.value
+    };
   
-  VersionFormAdd_update = this.fb.group({
-    titre: ['', Validators.required],
-    categorie: ['', Validators.required],
-    domaine: ['', Validators.required],
-    description: ['', Validators.required],
-
-
-  })
-  /* #endregion */
-
-  /* #region  InitialFormPost */
-
-  initializeFormForPostMicroservice() {
-    this.VersionFormAdd_update.setValue({
-      titre: '',
-    
-
-
-    })
+    this.DemandeList.push(newEvent);
+  
+    this.timeInput.setValue('');
+    this.subjectInput.setValue('');
+    this.locationInput.setValue('');
+    this.descriptionInput.setValue('');
+  
+    this.modal.hide();
   }
-//   addNewEvent() {
-//     const newEvent: any = {
-//       titre: this.titre.value,
-//       domaine: this.domaine.value,
-//       categorie: this.categorie.value,
-//       description: this.descriptionInput.value
-//     };
-  
-//     this.events.push(newEvent);
-  
-//     this.timeInput.setValue('');
-//     this.subjectInput.setValue('');
-//     this.locationInput.setValue('');
-//     this.descriptionInput.setValue('');
-  
-//     this.modal.hide();
-//   }
-// }
-changementDePage = function () {
-  this.router.navigate(['http://localhost:4200/answer']);
-};
+  onSubmitForm() {
+  }
+
+
+
 }

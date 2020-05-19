@@ -1,3 +1,87 @@
-<p>
-  answer works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-light">
+    <!-- Brand/logo -->
+  
+    <a class="navbar-brand" href="#">
+      <img src="assets/Image/logo-pgh-50.jpg" class="rounded-circle" width="100" height="100">
+
+    </a> 
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <form class="form-inline" action="/action_page.php">
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Contact</a>
+    </li>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button type="button" class="btn btn-outline-primary"style="position: absolute;margin-left:50%;"  >Sign Up</button>
+        <button type="button" class="btn btn-outline-primary"style="position: absolute;margin-left:57%;" >Log In</button>
+
+            <img src="/assets/Image/user.png" class="img-circle elevation-2" alt="User Image" class="rounded-circle" width="50" height="50"style="position: absolute;margin-left:63%;" >
+          <div class="info">
+    
+            <a href="#" class="d-block"style="position: absolute;margin-left:43%;" >Salma Ben Alaya</a>
+    
+          </div>
+        </form>
+
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="container">
+  <h1>Angular8</h1>
+  <hr align="center" width="95%" color="#DCDCDC" size="1">
+
+  <div class="container">
+
+
+   
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-group">
+    <p> Titre: {{value.titre}}</p>
+    
+    <p> Categorie: {{value.categorie}} </p>
+    <p> Domaine: {{value.domaine}} </p>
+    <p> Description: {{value.description}} </p>
+     
+  </div>
+</div>
+ <div class="container">
+  <div class="form-group">
+    <label for="question"></label>
+  <textarea class="form-control" rows="4" name="answer">
+    </textarea>
+    <button routerLink="/maquette1" class="btn">Poster</button>
+    
+  </div>
+</div>
+  </div>
+  <div>
+
+
+
+
+</div>
+</body>
+</html>
+
+   
