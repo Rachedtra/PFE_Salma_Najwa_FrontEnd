@@ -7,9 +7,13 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class DemandeInfoService {
   private httpOptions: any;
 
+  DemandeList: DemandeInfo[]
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
     this.httpOptions = {
@@ -17,12 +21,12 @@ export class DemandeInfoService {
     };
   }
 
-  DemandeList: DemandeInfo[]
   /* #region  Form */
- CommentaireFormAdd_update = this.fb.group({
+  DemandeInfoFormAdd_update = this.fb.group({
   idInf: [''],
   description: ['', Validators.required],
-    date: ['', Validators.required]
+    date: ['', Validators.required],
+    titre: ['', Validators.required]
 
 
   })
@@ -30,11 +34,12 @@ export class DemandeInfoService {
 
   /* #region  InitialFormPost */
 
-  initializeFormForPostCommentaire() {
-    this.CommentaireFormAdd_update.setValue({
+  initializeFormForPostDemandeInfo() {
+    this.DemandeInfoFormAdd_update.setValue({
       idInf: '00000000-0000-0000-0000-000000000000',
       description: '',
       date:'',
+      titre:'',
 
 
     })
@@ -42,25 +47,26 @@ export class DemandeInfoService {
   /* #endregion */
 
   /* #region  InitialFormUpdate */
-  initializeFormForUpdateLanguage(microservice: DemandeInfo) {
-    this.CommentaireFormAdd_update.setValue({
+  initializeFormForUpdateDemandeInfo(microservice: DemandeInfo) {
+    this.DemandeInfoFormAdd_update.setValue({
       idInf: microservice.idInf,
       description: microservice.description,
       date: microservice.date,
+      titre: microservice.date,
 
     })
   }
   /* #endregion */
 
   /* #region  get */
-  getCommentaireList() {
+  getDemandeInfoList() {
     return this.http.get(environment.Commentaire + "/DemandeInfo")
 
   }
   /* #endregion */
 
   // /* #region  delete */
-  deleteCommentaire(idInf: string) {
+  deleteDemandeInfo(idInf: string) {
     debugger
     console.log(idInf)
     return this.http.delete(environment.Commentaire + "/DemandeInfo/" + idInf, { responseType: "text" });
@@ -68,18 +74,18 @@ export class DemandeInfoService {
   }
   /* #endregion */
   /* #region  Post */
-  postCommentaire() {
+  postDemandeInfo() {
     debugger
-    return this.http.post(environment.Commentaire + "/DemandeInfo/", this.CommentaireFormAdd_update.value,
+    return this.http.post(environment.Commentaire + "/DemandeInfo/", this.DemandeInfoFormAdd_update.value,
       { responseType: "text" });
   }
   /* #endregion */
   /* #region  Update */
 
-  updateCommentaire() {
+  updateDemandeInfo() {
 
     debugger
-    return this.http.put(environment.Commentaire + "/Commentaire/", this.CommentaireFormAdd_update.value,
+    return this.http.put(environment.Commentaire + "/DemandeInfo/", this.DemandeInfoFormAdd_update.value,
       { responseType: "text" });}
   /* #endregion */
 

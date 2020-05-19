@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { SousCategorieService } from 'src/app/shared/sous-categorie.service';
-import { SousCategorie } from 'src/app/shared/sous-categorie.model';
 
+import { BsModalRef} from 'ngx-bootstrap/modal';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { VoteService } from 'src/app/shared/vote.service';
+import { Vote } from 'src/app/shared/vote.model';
 @Component({
-  selector: 'app-add-update-sous-categorie',
-  templateUrl: './add-update-sous-categorie.component.html',
-  styles:[]
+  selector: 'app-add-update-vote',
+  templateUrl: './add-update-vote.component.html',
+  styles: []
 })
-export class AddUpdateSousCategorieComponent implements OnInit {
-  constructor(public bsModalRef: BsModalRef, private sousCategorieService: SousCategorieService, private _snackBar: MatSnackBar) { }
+export class AddUpdateVoteComponent implements OnInit {
+
+
+  constructor(public bsModalRef: BsModalRef, private voteService: VoteService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
- this.sousCategorieService.CommentaireFormAdd_update.markAsUntouched();
+ this.voteService.VoteFormAdd_update.markAsUntouched();
 
   }
   UpdateForm() {
-    this.sousCategorieService.updateCommentaire().subscribe(res => {
+    this.voteService.updateVote().subscribe(res => {
       if (res == "Update Done") {
         this.bsModalRef.hide();
-        this.sousCategorieService.getCommentaireList().subscribe(res => {
-          this.sousCategorieService.SousCategorieList = res as SousCategorie[]
+        this.voteService.getListVote().subscribe(res => {
+          this.voteService.VoteList = res as Vote[]
         })
         this._snackBar.open("La modification est effectuée avec succées", "X", {
           duration: 3000,
@@ -46,12 +48,12 @@ export class AddUpdateSousCategorieComponent implements OnInit {
 
   PostForm() {
     debugger
-    this.sousCategorieService.postCommentaire().subscribe(res => {
+    this.voteService.postVote().subscribe(res => {
       if (res == "Added done") {
         debugger
         this.bsModalRef.hide();
-        this.sousCategorieService.getCommentaireList().subscribe(res => {
-          this.sousCategorieService.SousCategorieList = res as SousCategorie[]
+        this.voteService.getListVote().subscribe(res => {
+          this.voteService.VoteList = res as Vote[]
         })
         this._snackBar.open("L'ajout est effectué avec succées", "X", {
           duration: 3000,
@@ -79,7 +81,7 @@ export class AddUpdateSousCategorieComponent implements OnInit {
   onSubmit() {
     debugger
     if (
-      this.sousCategorieService.CommentaireFormAdd_update.controls.idCategorie.value ==
+      this.voteService.VoteFormAdd_update.controls.idVote.value ==
       "00000000-0000-0000-0000-000000000000"
     ) {
       this.PostForm();

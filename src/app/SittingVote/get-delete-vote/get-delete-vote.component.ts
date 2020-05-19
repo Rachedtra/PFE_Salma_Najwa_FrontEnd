@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjetService } from 'src/app/shared/projet.service';
-import { Projet } from 'src/app/shared/projet.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { AddUpdateProjetComponent } from '../add-update-projet/add-update-projet.component';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { VoteService } from 'src/app/shared/vote.service';
+import { Vote } from 'src/app/shared/vote.model';
+import { AddUpdateVoteComponent } from '../add-update-vote/add-update-vote.component';
 @Component({
-  selector: 'app-get-delete-projet',
-  templateUrl: './get-delete-projet.component.html',
+  selector: 'app-get-delete-vote',
+  templateUrl: './get-delete-vote.component.html',
   styles: []
 })
-export class GetDeleteProjetComponent implements OnInit {
-  constructor(private modalService: BsModalService,
-    private projetService:ProjetService,
-    private _snackBar: MatSnackBar) { }
+export class GetDeleteVoteComponent implements OnInit {
+
+  constructor(private modalService: BsModalService,private voteService:VoteService,private _snackBar: MatSnackBar) { }
   
   bsModalRef: BsModalRef;
 
@@ -21,19 +20,19 @@ export class GetDeleteProjetComponent implements OnInit {
   this.getProjet();
     }
     getProjet() {
-      this.projetService.getLisProjet().subscribe(res => {
-        this.projetService.ProjetList = res as Projet[]
+      this.voteService.getListVote().subscribe(res => {
+        this.voteService.VoteList = res as Vote[]
       })}
       OnDelete(idMethod) {
         debugger
         if (confirm("Vous êtes sûr de vouloir supprimer")) {
-          this.projetService.deleteProjet(idMethod).subscribe(
+          this.voteService.deleteVote(idMethod).subscribe(
             res => {
     
               if (res == "Delete Done") {
                 debugger
-                this.projetService.getLisProjet().subscribe(res => {
-                  this.projetService.ProjetList = res as Projet[]
+                this.voteService.getListVote().subscribe(res => {
+                  this.voteService.VoteList = res as Vote[]
                   this._snackBar.open("La suppression est effectuée avec succées", "X", {
                     duration: 3000,
                     verticalPosition: "top",
@@ -58,18 +57,17 @@ export class GetDeleteProjetComponent implements OnInit {
       }
       openComponentForPost() {
         debugger
-        this.projetService.initializeFormForPostMicroservice();
-        console.log(this.projetService.initializeFormForPostMicroservice())
+        this.voteService.initializeFormForPostVote();
+        console.log(this.voteService.initializeFormForPostVote())
     
-        this.bsModalRef = this.modalService.show(AddUpdateProjetComponent, {
+        this.bsModalRef = this.modalService.show(AddUpdateVoteComponent, {
           class: 'modal-dialog-centered', ignoreBackdropClick: true
         });
       }
-      openComponentForUpdate(projet:Projet) {
-        this.projetService.initializeFormForUpdateMicroservice(projet);
-        this.bsModalRef = this.modalService.show(AddUpdateProjetComponent, {
+      openComponentForUpdate(version:Vote) {
+        this.voteService.initializeFormForUpdateVote(version);
+        this.bsModalRef = this.modalService.show(AddUpdateVoteComponent, {
           class: 'modal-dialog-centered', ignoreBackdropClick: true
         });
       }
   }
-    

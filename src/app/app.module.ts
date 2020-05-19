@@ -46,6 +46,9 @@ import { GetDeleteDemandeInfoComponent } from './SittingDemandeInfo/get-delete-d
 import { AddUpdateDemandeInfoComponent } from './SittingDemandeInfo/add-update-demande-info/add-update-demande-info.component';
 import { GetDeleteCommentaireComponent } from './SittingCommentaire/get-delete-commentaire/get-delete-commentaire.component';
 import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-commentaire/add-update-commentaire.component';
+import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update-vote.component';
+import { GetDeleteVoteComponent } from './SittingVote/get-delete-vote/get-delete-vote.component';
+import { SittingmaquetteComponent } from './sittingmaquette/sittingmaquette.component';
 
 @NgModule({
   declarations: [
@@ -55,20 +58,6 @@ import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-c
     GeneralLayoutComponent,
     FooterLeftComponent,
     FooterRightComponent,
-    // DemosComponent,
-    //DemoComponent,
-
-
-    // imports: [
-    //   BrowserModule,
-    //  HttpClientModule,
-    //  FormsModule ,
-    //  ReactiveFormsModule,
-    //   AppRoutingModule,
-    //   BrowserAnimationsModule
-    //  ],
-    // providers: [DemoService],
-
     GetDeleteMicroserviceComponent,
     AddUpdateMicroserviceComponent,
     GetDeleteProjetComponent,
@@ -89,7 +78,13 @@ import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-c
     AddUpdateDemandeInfoComponent,
     GetDeleteCommentaireComponent,
     AddUpdateCommentaireComponent,
-
+    AddUpdateVoteComponent,
+    GetDeleteVoteComponent,
+    SittingmaquetteComponent
+  
+    
+   
+   
   ],
   imports: [
     BrowserModule,
@@ -107,7 +102,6 @@ import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-c
     MatDialogModule
   ],
   providers: [MicroserviceService,ProjetService,DomaineService,MethodService,LanguageService,VersionService],
-  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

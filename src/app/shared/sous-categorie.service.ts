@@ -23,8 +23,7 @@ export class SousCategorieService {
  CommentaireFormAdd_update = this.fb.group({
   idSC: [''],
   label: ['', Validators.required],
-  categorie: ['', Validators.required],
-  categorieFK: ['', Validators.required]
+  fK_SousCategorie: ['', Validators.required]
 
 
   })
@@ -36,8 +35,7 @@ export class SousCategorieService {
     this.CommentaireFormAdd_update.setValue({
       idSC: '00000000-0000-0000-0000-000000000000',
       label: '',
-      categorie: '',
-      categorieFK: '',
+      fK_SousCategorie: '',
 
 
     })
@@ -49,8 +47,7 @@ export class SousCategorieService {
     this.CommentaireFormAdd_update.setValue({
       idSC: microservice.idSC,
       label: microservice.label,
-      categorie: microservice.categorie,
-      categorieFK: microservice.categorieFK,
+      fK_SousCategorie: microservice.fK_SousCategorie,
 
     })
   }
