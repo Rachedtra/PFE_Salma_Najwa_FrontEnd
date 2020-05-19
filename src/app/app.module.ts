@@ -52,6 +52,7 @@ import { MaquetteComponent } from './Sittingmaquette/maquette.component';
 import { MsFilterPipe } from './SittingMs/MSFilter.pipe';
 import { HomeComponent } from './SittingMaquette1/home/home.component';
 import { AnswerComponent } from './SittingMaquette1/answer/answer.component';
+import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { AnswerComponent } from './SittingMaquette1/answer/answer.component';
     MaquetteComponent,
     MsFilterPipe,
     HomeComponent,
-    AnswerComponent
+    AnswerComponent,
+    ListDomainComponent
   ],
   imports: [
     BrowserModule,

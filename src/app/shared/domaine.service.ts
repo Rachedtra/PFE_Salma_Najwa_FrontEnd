@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { tap, catchError, map} from 'rxjs/operators';
 import { Domaine } from './domaine.model';
+import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DomaineService {
   private httpOptions: any;
-
+  private handleError(error: any) {
+    console.log(error);
+    return throwError(error);
+  }
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
     this.httpOptions = {
@@ -36,6 +41,7 @@ export class DomaineService {
 
     })
   }
+  
   /* #endregion */
 
   /* #region  InitialFormUpdate */
@@ -53,6 +59,7 @@ export class DomaineService {
     return this.http.get(environment.MsMicroservice + "/Domain")
 
   }
+  
   /* #endregion */
 
   /* #region  delete */
@@ -77,7 +84,12 @@ export class DomaineService {
     return this.http.put(environment.MsMicroservice + "/Domain/", this.DomainFormAdd_update.value,
       { responseType: "text" });}
 
-
+      getDomainById (id: string): Observable<Domaine> {
+        const url = `${environment.MsMicroservice}/${id}`;
+        return this.http.get<Domaine>(url).pipe(
+        catchError(this.handleError)
+        );
+        }
   /* #endregion */
 
 

@@ -26,6 +26,7 @@ import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update
 import { MaquetteComponent } from './Sittingmaquette/maquette.component';
 import { AnswerComponent } from './SittingMaquette1/answer/answer.component';
 import { HomeComponent } from './SittingMaquette1/home/home.component';
+import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.component';
 
 const routes: Routes = [
   {
@@ -116,18 +117,19 @@ const routes: Routes = [
     path: 'Vote',
     component: AddUpdateVoteComponent,
   },
-  {
-    path: 'maquette',
-  component: MaquetteComponent,
-},
+
 
 {
   path: 'maquette1',
-component: HomeComponent,
+component: ListDomainComponent,
 },
 {
   path: 'answer',
 component: AnswerComponent,
+},
+{
+  path: 'listDomain',
+component: HomeComponent,
 },
 ];
 
