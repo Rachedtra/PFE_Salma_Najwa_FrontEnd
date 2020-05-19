@@ -23,9 +23,10 @@ export class ListDomainComponent implements OnInit {
 fetchId = "00000000-0000-0000-0000-000000000000";
 
 getUser() {
+  debugger
   this.domaineService.getDomainById(this.fetchId).subscribe(data => {
-    this.Domaine = data;
-   this.displayData= true;
+  //   this.Domaine = data;
+  //  this.displayData= true;
   });
 }
 }
