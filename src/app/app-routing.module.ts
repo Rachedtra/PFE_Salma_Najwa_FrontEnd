@@ -128,7 +128,7 @@ component: ListDomainComponent,
 component: AnswerComponent,
 },
 {
-  path: 'listDomain',
+  path: 'home',
 component: HomeComponent,
 },
 ];

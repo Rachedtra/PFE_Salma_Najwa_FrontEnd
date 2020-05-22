@@ -3,24 +3,27 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DemandeInfoService } from 'src/app/shared/demande-info.service';
 import { DemandeInfo } from 'src/app/shared/demande-info.model';
+import { DomaineService } from 'src/app/shared/domaine.service';
 @Component({
   selector: 'app-add-update-demande-info',
   templateUrl: './add-update-demande-info.component.html',
   styles: []
 })
 export class AddUpdateDemandeInfoComponent implements OnInit {
-  constructor(public bsModalRef: BsModalRef, private languageService: DemandeInfoService, private _snackBar: MatSnackBar) { }
+  DomainList:[];
+
+  constructor(private domaineService:DomaineService,public bsModalRef: BsModalRef, private demandInfoService: DemandeInfoService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
- this.languageService.DemandeInfoFormAdd_update.markAsUntouched();
+ this.demandInfoService.DemandeInfoFormAdd_update.markAsUntouched();
 
   }
   UpdateForm() {
-    this.languageService.updateDemandeInfo().subscribe(res => {
+    this.demandInfoService.updateDemandeInfo().subscribe(res => {
       if (res == "Update Done") {
         this.bsModalRef.hide();
-        this.languageService.getDemandeInfoList().subscribe(res => {
-          this.languageService.DemandeList = res as DemandeInfo[]
+        this.demandInfoService.getDemandeInfoList().subscribe(res => {
+          this.demandInfoService.DemandeList = res as DemandeInfo[]
         })
         this._snackBar.open("La modification est effectuée avec succées", "X", {
           duration: 3000,
@@ -45,12 +48,12 @@ export class AddUpdateDemandeInfoComponent implements OnInit {
 
   PostForm() {
     debugger
-    this.languageService.postDemandeInfo().subscribe(res => {
+    this.demandInfoService.postDemandeInfo().subscribe(res => {
       if (res == "Added done") {
         debugger
         this.bsModalRef.hide();
-        this.languageService.getDemandeInfoList().subscribe(res => {
-          this.languageService.DemandeList = res as DemandeInfo[]
+        this.demandInfoService.getDemandeInfoList().subscribe(res => {
+          this.demandInfoService.DemandeList = res as DemandeInfo[]
         })
         this._snackBar.open("L'ajout est effectué avec succées", "X", {
           duration: 3000,
@@ -78,7 +81,7 @@ export class AddUpdateDemandeInfoComponent implements OnInit {
   onSubmit() {
     debugger
     if (
-      this.languageService.DemandeInfoFormAdd_update.controls.idInf.value ==
+      this.demandInfoService.DemandeInfoFormAdd_update.controls.idInf.value ==
       "00000000-0000-0000-0000-000000000000"
     ) {
       this.PostForm();

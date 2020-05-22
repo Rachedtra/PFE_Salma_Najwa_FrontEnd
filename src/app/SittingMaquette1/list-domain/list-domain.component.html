@@ -49,16 +49,22 @@
   <hr align="center" width="95%" color="#DCDCDC" size="1">
 
   <div class="container">
-    <form #domainForm="ngForm" ngNativeValidate (ngSubmit)="save()">
-    <div class="md-form"> 
-<select  id="categorie" placeholder="categorie" class="form-control" mdbInput [formControl]="subjectInput">        
-<option value="0">Select</option>
-<option *ngFor="let item of DomainList" value="{{item.idDomaine}}">{{item.idDomaine}}</option>
-</select>
-<button class= 'btn btn-info' (click)="updateUser()"> UPDATE DATA</button>
+    <!-- <tr *ngFor="
+    let g of demandInfo.DemandeList">
+      <td class="align-middle table-border">{{g.idDomain }}</td> </tr> -->
+      
+      <div class="input-group">
+      <select class="form-control">
+        <option value="0">Select</option>
+        <option *ngFor="let item of demandInfo.DemandeList">{{item.idDomain}}</option>
+    </select>
+    </div>
+      
+      <button (click)="GetDemandeInfo()" id="test" routerLink="/home">Click</button>
+    
+      <td class="align-middle ">
 
-</div>
-</form>
+
 </div>
 </div>
 </div>

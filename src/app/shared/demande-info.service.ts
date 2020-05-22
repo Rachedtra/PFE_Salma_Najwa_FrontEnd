@@ -20,8 +20,9 @@ export class DemandeInfoService {
 
   /* #region  Form */
   DemandeInfoFormAdd_update = this.fb.group({
-  idInf: [''],
-  description: ['', Validators.required],
+    idInf: [''],
+    idDomain: [''],
+    description: ['', Validators.required],
     date: ['', Validators.required],
     titre: ['', Validators.required]
 
@@ -34,6 +35,7 @@ export class DemandeInfoService {
   initializeFormForPostDemandeInfo() {
     this.DemandeInfoFormAdd_update.setValue({
       idInf: '00000000-0000-0000-0000-000000000000',
+      idDomain: '00000000-0000-0000-0000-000000000000',
       description: '',
       date:'',
       titre:'',
@@ -47,6 +49,7 @@ export class DemandeInfoService {
   initializeFormForUpdateDemandeInfo(microservice: DemandeInfo) {
     this.DemandeInfoFormAdd_update.setValue({
       idInf: microservice.idInf,
+      idDomain: microservice.idDomain,
       description: microservice.description,
       date: microservice.date,
       titre: microservice.date,
@@ -59,7 +62,19 @@ export class DemandeInfoService {
   getDemandeInfoList() {
     return this.http.get(environment.Commentaire + "/DemandeInfo")
 
+  } 
+  // getByIdDemandeInfo(idDomain: string) {
+  //   debugger
+  //   return this.http.get(environment.Commentaire + "/DemandeInfo/"+idDomain);
+    
+
+  // }
+  get(idDomain) {
+    return this.http.get(`${environment.Commentaire + "/DemandeInfo"}/${idDomain}`);
   }
+  // findByid(idDomain) {
+  //   return this.http.get(`${environment.Commentaire + "/DemandeInfo"}?idDomain=${idDomain}`);
+  // }
   /* #endregion */
 
   // /* #region  delete */
