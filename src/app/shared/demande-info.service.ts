@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DemandeInfo } from './demande-info.model';
 import { environment } from 'src/environments/environment';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -69,8 +70,28 @@ export class DemandeInfoService {
     
 
   // }
-  get(idDomain) {
-    return this.http.get(`${environment.Commentaire + "/DemandeInfo"}/${idDomain}`);
+  // get(idInf:string) {
+  //   debugger
+  //   console.log(idInf)
+  //   return this.http.get(environment.Commentaire + "/DemandeInfo/" + idInf, { responseType: "text" });
+  // }
+  getTextFile(idInf: string) {
+    // The Observable returned by get() is of type Observable<string>
+    // because a text response was specified.
+    // There's no need to pass a <string> type parameter to get().
+    return this.http.get(idInf, {responseType: 'text'})
+      .pipe(
+        tap( // Log the result or error
+          data => this.log(idInf, data),
+          error => this.logError(idInf, error)
+        )
+      );
+  }
+  logError(idInf: string, error: any): void {
+    throw new Error("Method not implemented.");
+  }
+  log(filename: any, data: string): void {
+    throw new Error("Method not implemented.");
   }
   // findByid(idDomain) {
   //   return this.http.get(`${environment.Commentaire + "/DemandeInfo"}?idDomain=${idDomain}`);
@@ -89,8 +110,8 @@ export class DemandeInfoService {
   postDemandeInfo() {
     debugger
     return this.http.post(environment.Commentaire + "/DemandeInfo/", this.DemandeInfoFormAdd_update.value,
-      { responseType: "text" });
-  }
+      { responseType: "text" });}
+   
   /* #endregion */
   /* #region  Update */
 

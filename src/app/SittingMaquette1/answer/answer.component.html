@@ -8,79 +8,127 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 </head>
-<body>
-
-  <nav class="navbar navbar-expand-sm bg-light">
-    <!-- Brand/logo -->
+<body class="g-Ue-we">
+  <div class="wrapper">
   
-    <a class="navbar-brand" href="#">
-      <img src="assets/Image/logo-pgh-50.jpg" class="rounded-circle" width="100" height="100">
-
-    </a> 
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <form class="form-inline" action="/action_page.php">
-
-    <li class="nav-item">
-      <a class="nav-link" href="#">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Contact</a>
-    </li>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button type="button" class="btn btn-outline-primary"style="position: absolute;margin-left:50%;"  >Sign Up</button>
-        <button type="button" class="btn btn-outline-primary"style="position: absolute;margin-left:57%;" >Log In</button>
-
-            <img src="/assets/Image/user.png" class="img-circle elevation-2" alt="User Image" class="rounded-circle" width="50" height="50"style="position: absolute;margin-left:63%;" >
-          <div class="info">
-    
-            <a href="#" class="d-block"style="position: absolute;margin-left:43%;" >Salma Ben Alaya</a>
-    
-          </div>
-        </form>
-
-  </ul>
-</nav>
-
-<div class="container-fluid">
-  <div class="container">
-  <h1>Angular8</h1>
-  <hr align="center" width="95%" color="#DCDCDC" size="1">
-
-  <div class="container">
-
-
-   
   </div>
-</div>
 
-<div class="container">
-  <div class="form-group">
-    <p> Titre: {{value.titre}}</p>
-    
-    <p> Categorie: {{value.categorie}} </p>
-    <p> Domaine: {{value.domaine}} </p>
-    <p> Description: {{value.description}} </p>
-     
+
+    <div class="col-md-3" data-aos="fade" data-aos-delay="200">
+      <a href="#" class="btn btn-primary py-3 btn-block" data-toggle="modal" data-target="#exampleModal"style=" background-color: transparent;
+      color: black;
+      border: 2px solid pink; ">      <p style="font-style: italic;color: darkslategrey;"><em>Add Question</em> </p>
+</a>
   </div>
-</div>
- <div class="container">
-  <div class="form-group">
-    <label for="question"></label>
-  <textarea class="form-control" rows="4" name="answer">
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+      <div class="modal-body">
+        <input type="text" class="form-control col-12" placeholder="titre" >
+       
+         
+        
+        <div class="input-group-prepend">
+        </div>
+        <label>Categorie:</label>
+        <!-- <select type="text" class=" col-12" 
+        >
+          <option value="0">Select</option>
+          <option *ngFor="let item of CategorieList" value="{{item.idCategorie}}">{{item.label}}</option>
+      </select> -->
+      
+      <div class="input-group-prepend">
+      </div>
+      <label>Domaine:</label>
+      <select type="text" class="form-control col-12" formControlName="Domaine"
+        >
+          <option value="0">Select</option>
+          <option *ngFor="let item of DomainList" value="{{item.idDomaine}}">{{item.idDomaine}}</option>
+      </select>
+      
+    
+    <div class="input-group-prepend">
+    </div>
+    <label>Description:</label>
+    <textarea class="form-control">
     </textarea>
-    <button routerLink="/maquette1" class="btn">Poster</button>
-    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: pink;    border-color: #f8f9fa;
+        ">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
-  </div>
-  <div>
 
-
-
+  <section  style=" margin-left: 8px;  width: 100%;" class =card_section>
+<div class="card card-1"style="margin-left: -120%;width: 184%;">
+  <div class="d-block d-md-flex listing vertical">
+    <div class="lh-content">
+<address>23 Juine 2020, 13:52, Informatique</address>
 
 </div>
+</div>
+
+<h3>Comment faire .....?</h3>
+</div>
+<div class="card card-1"style="
+margin-left: -120%;
+width: 184%;
+">
+<div class="d-block d-md-flex listing vertical">
+  <div class="lh-content">
+<address>23 Juine 2020, 13:52, Informatique</address>
+
+</div>
+</div>
+<h3>Mon reponse est ......</h3>
+<p class="mb-0" style="margin-top: 35px;"></p>
+<rating ></rating>
+  <!-- <div class="form-group">
+   
+    <div class="form-text small">
+      <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
+      <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
+    </div>
+  </div> -->
+  
+  <hr>
+  <pre>Model: <b>{{ ctrl.value }}</b></pre>
+  <button class="btn btn-sm btn-outline-{{ ctrl.disabled ? 'danger' : 'success'}} mr-2" (click)="toggle()">
+    {{ ctrl.disabled ? "control disabled" : " control enabled" }}
+  </button>
+  <button class="btn btn-sm btn-outline-primary mr-2" (click)="ctrl.setValue(null)">Clear</button>
+  <!-- <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+  </svg>
+  <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+  </svg>
+  <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+  </svg>
+  <svg class="bi bi-star-half" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
+  </svg>
+  <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+  </svg> -->
+</div>
+
+</section>
+
 </body>
 </html>
 

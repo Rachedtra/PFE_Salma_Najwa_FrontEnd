@@ -11,7 +11,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="/assets/Image/user.png" class="img-circle elevation-2" alt="User Image">
+  <img src="/assets/Image/user.png" class="img-circle elevation-2" alt="User Image" class="rounded-circle" width="50" height="40"style="position: absolute;margin-left:57%;" >
       </div>
       <div class="info">
 
@@ -25,7 +25,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item has-treeview menu-open">
-          <a href="#" class="nav-link active">
+          <a href="#" class="nav-link active" style="background-color: pink;">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Starter Pages
@@ -47,37 +47,32 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-
-          <a routerLink="/home" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
+      
+        <li class="nav-item has-treeview menu-open">
+          <a href="#" class="nav-link active"  style="background-color: pink;">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              home </p>
-
+              Microservice
+              <i class="right fas fa-angle-left"></i>
+            </p>
           </a>
-        </li>
+        <ul class="nav nav-treeview">
+ 
         <li class="nav-item">
-
           <a routerLink="/Microservice" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
-            <p>
+            <i class="fab fa-audible"></i>    &nbsp;           <p>
               microservice </p>
 
           </a>
         </li>
         <li class="nav-item">
-
           <a routerLink="/Projet" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
-            <p>
-              projet </p>
-
-          </a>
+            <i class="fas fa-tasks"></i>  &nbsp;          <p> projet </p> </a>
         </li>
+        
         <li class="nav-item">
-
           <a routerLink="/Domain" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
+            <i class="fas fa-globe"></i> &nbsp;  
             <p>
               Domain </p>
 
@@ -86,17 +81,16 @@
         <li class="nav-item">
 
           <a routerLink="/Method" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
-            <p>
+            <i class="fas fa-alarm-plus"></i>    &nbsp;          <p>
               Method </p>
 
           </a>
         </li>
+      
         <li class="nav-item">
 
           <a routerLink="/Language" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
-            <p>
+            <i class="fas fa-globe"></i>     &nbsp;          <p>
               language </p>
 
           </a>
@@ -104,25 +98,37 @@
         <li class="nav-item">
 
           <a routerLink="/Version" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
-            <p>
+            <i class="fas fa-code-branch"></i>   &nbsp;            <p>
               version </p>
 
           </a>
         </li>
-        <li class="nav-item">
 
+        </ul>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="#" class="nav-link active"  style="background-color: pink;">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Microservice1
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            
+        <li class="nav-item">
           <a routerLink="/Commentaire" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
+            <i class="far fa-comment-dots"></i> &nbsp;  
             <p>
               Commentaire </p>
 
           </a>
+          
         </li>
         <li class="nav-item">
 
           <a routerLink="/Demande_Info" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
+            <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp;  
             <p>
               Demande_Info </p>
 
@@ -131,7 +137,7 @@
           <li class="nav-item">
 
           <a routerLink="/Gestion_Categorie" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
+            <i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp;  
             <p>
               Gestion_Categorie </p>
 
@@ -140,7 +146,7 @@
         <li class="nav-item">
 
           <a routerLink="/Sous_Categorie" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
+            <i class="fa fa-tag" aria-hidden="true"></i> &nbsp;  
             <p>
               Sous_Categorie </p>
 
@@ -149,12 +155,13 @@
         <li class="nav-item">
 
           <a routerLink="/Vote" class="nav-link" routerLinkActive="active">
-            <i class="nav-icon fab fa-dashcube"></i>
-            <p>
+            <i class="fas fa-check"></i>       &nbsp;                  <p>
               Vote </p>
 
           </a>
         </li> 
+      </ul>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

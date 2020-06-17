@@ -8,6 +8,7 @@ import { GeneralLayoutComponent } from './general-layout/general-layout.componen
 import { FooterLeftComponent } from './navbar/footer-left/footer-left.component';
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
 
+import {RatingModule} from "ngx-rating";
 
 import { HttpClientModule } from '@angular/common/http';
 import { MicroserviceService } from './shared/microservice.service';
@@ -117,7 +118,9 @@ import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.
      MatSelectModule,
     MatSnackBarModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    RatingModule
+    
   ],
   providers: [MicroserviceService,ProjetService,DomaineService,MethodService,LanguageService,VersionService,MsFilterPipe],
   

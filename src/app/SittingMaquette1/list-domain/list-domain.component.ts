@@ -8,7 +8,7 @@ import { DemandeInfo } from 'src/app/shared/demande-info.model';
 @Component({
   selector: 'app-list-domain',
   templateUrl: './list-domain.component.html',
-  styleUrls: ['./list-domain.component.css']
+  styleUrls: ['./style.css']
 })
 export class ListDomainComponent implements OnInit {
   DomainList:[];
@@ -42,8 +42,8 @@ getUser() {
   //   var idAttr = target.attributes.idDomain;
   //   var value = idAttr.nodeValue;
   // }
-  GetDemandeInfo(id) {
-    this.demandInfo.get(id)
+  GetDemandeInfo(idInf) {
+    this.demandInfo.getTextFile(idInf)
     .subscribe(
       data => {
         this.currentTutorial = data;
@@ -55,3 +55,4 @@ getUser() {
 }
  
 }
+
