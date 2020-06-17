@@ -10,6 +10,7 @@ import { DomaineService } from 'src/app/shared/domaine.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { GestionCategorie } from 'src/app/shared/gestion-categorie.model';
+import { ListDomainComponent } from '../list-domain/list-domain.component';
 
 @Component({
   selector: 'app-home',
@@ -18,14 +19,11 @@ import { GestionCategorie } from 'src/app/shared/gestion-categorie.model';
 })
 export class HomeComponent implements OnInit {
 
-  CategorieList: GestionCategorie[]
 
  
 
-  constructor(private fb: FormBuilder,private DomaineService:DomaineService,private _snackBar: MatSnackBar,private demandeInfo:DemandeInfoService,private categorieService:GestionCategorieService,private commentaireService:CommentaireService) { }
+  constructor() { }
 
   ngOnInit() {
-
     }
-
 }

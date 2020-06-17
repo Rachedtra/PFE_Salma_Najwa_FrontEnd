@@ -23,5 +23,11 @@ export class ListDomainComponent implements OnInit {
     .subscribe(res => this.demandeInfo = res as []); 
    
   }
+  GetAll()
+  {
+    this.demandInfo.getDemandeInfoList().subscribe(res => {
+      this.demandInfo.DemandeList = res as DemandeInfo[]
+    })}
+  
 }
 
