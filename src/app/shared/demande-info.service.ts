@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
-import { DemandeInfo } from './demande-info.model';
+import { demandeinfo } from './demande-info.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class DemandeInfoService {
   private httpOptions: any;
 
-  DemandeList: DemandeInfo[]
+  DemandeList: demandeinfo[]
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
     this.httpOptions = {
@@ -26,7 +26,8 @@ export class DemandeInfoService {
   idInf: [''],
   description: ['', Validators.required],
     date: ['', Validators.required],
-    titre: ['', Validators.required]
+    titre: ['', Validators.required],
+    fkDomaine: ['', Validators.required]
 
 
   })
@@ -39,7 +40,7 @@ export class DemandeInfoService {
       idInf: '00000000-0000-0000-0000-000000000000',
       description: '',
       date:'',
-      titre:'',
+      fkDomaine:'',
 
 
     })
@@ -47,13 +48,12 @@ export class DemandeInfoService {
   /* #endregion */
 
   /* #region  InitialFormUpdate */
-  initializeFormForUpdateDemandeInfo(microservice: DemandeInfo) {
+  initializeFormForUpdateDemandeInfo(microservice: demandeinfo) {
     this.DemandeInfoFormAdd_update.setValue({
       idInf: microservice.idInf,
       description: microservice.description,
       date: microservice.date,
-      titre: microservice.date,
-
+      domaine:microservice.domaine,
     })
   }
   /* #endregion */

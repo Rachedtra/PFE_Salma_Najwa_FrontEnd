@@ -3,7 +3,7 @@ import { DemandeInfoService } from 'src/app/shared/demande-info.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddUpdateDemandeInfoComponent } from '../add-update-demande-info/add-update-demande-info.component';
-import { DemandeInfo } from 'src/app/shared/demande-info.model';
+import { demandeinfo } from 'src/app/shared/demande-info.model';
 
 @Component({
   selector: 'app-get-delete-demande-info',
@@ -28,7 +28,7 @@ export class GetDeleteDemandeInfoComponent implements OnInit {
     GetDemandeInfo() {
       console.log("test");
       this.demandeInfoService.getDemandeInfoList().subscribe(res => {
-        this.demandeInfoService.DemandeList = res as DemandeInfo[];
+        this.demandeInfoService.DemandeList = res as demandeinfo[];
         console.log("test2",res);
     })
   }
@@ -44,7 +44,7 @@ export class GetDeleteDemandeInfoComponent implements OnInit {
             if (res == "Delete Done") {
               debugger
               this.demandeInfoService.getDemandeInfoList().subscribe(res => {
-                this.demandeInfoService.DemandeList = res as DemandeInfo[]
+                this.demandeInfoService.DemandeList = res as demandeinfo[]
                 this._snackBar.open("La suppression est effectuée avec succées", "X", {
                   duration: 3000,
                   verticalPosition: "top",
@@ -83,7 +83,7 @@ export class GetDeleteDemandeInfoComponent implements OnInit {
   
     /* #endregion */
     /* #region  ComponentForUpdate */
-    openComponentForUpdate(microservice: DemandeInfo) {
+    openComponentForUpdate(microservice: demandeinfo) {
       this.demandeInfoService.initializeFormForUpdateDemandeInfo(microservice);
       this.bsModalRef = this.modalService.show(AddUpdateDemandeInfoComponent, {
         class: 'modal-dialog-centered', ignoreBackdropClick: true

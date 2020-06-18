@@ -10,17 +10,7 @@
 <div class="modal-body ">
   <div class="container">
     <form [formGroup]="languageService.DemandeInfoFormAdd_update">
-      <div class="form-group ms-auto ml-5 mt-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
-          </div>
-          <input type="text" class="form-control col-8" formControlName="titre" placeholder="Entrer le titre "
-            [class.is-invalid]="languageService.DemandeInfoFormAdd_update.controls.titre.errors?.required &&
-            languageService.DemandeInfoFormAdd_update.controls.titre.touched">
-         
-        </div>
-      </div>  
+      
       <div class="form-group ms-auto ml-5 mt-2">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -42,6 +32,17 @@
         languageService.DemandeInfoFormAdd_update.controls.date.touched">
       </div>
         </div>
+      
+      <div class="form-group ms-auto ml-5 mt-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+          </div>
+      <input type="text" class="form-control col-8" formControlName="domaine" placeholder="Entrer le domaine "
+      [class.is-invalid]="languageService.DemandeInfoFormAdd_update.controls.domaine.errors?.required &&
+      languageService.DemandeInfoFormAdd_update.controls.domaine.touched">
+    </div>
+      </div>
       </form>
     </div>
   </div>

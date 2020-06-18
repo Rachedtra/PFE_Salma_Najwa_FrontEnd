@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+;import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +48,8 @@ import { GetDeleteCommentaireComponent } from './SittingCommentaire/get-delete-c
 import { AddUpdateCommentaireComponent } from './SittingCommentaire/add-update-commentaire/add-update-commentaire.component';
 import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update-vote.component';
 import { GetDeleteVoteComponent } from './SittingVote/get-delete-vote/get-delete-vote.component';
-import { SittingmaquetteComponent } from './sittingmaquette/sittingmaquette.component';
+//import { AnswerComponent } from './sittingmaquette/answer/answer.component';
+import { ListDomainComponent } from './sittingmaquette/list-domain/list-domain.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { SittingmaquetteComponent } from './sittingmaquette/sittingmaquette.comp
     AddUpdateCommentaireComponent,
     AddUpdateVoteComponent,
     GetDeleteVoteComponent,
-    SittingmaquetteComponent
+    //AnswerComponent,
+    ListDomainComponent,
   
     
    

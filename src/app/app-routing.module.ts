@@ -24,7 +24,8 @@ import { AddUpdateCategorieComponent } from './SittingGestionCategorie/add-updat
 
 import { GetDeleteVoteComponent } from './SittingVote/get-delete-vote/get-delete-vote.component';
 import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update-vote.component';
-import {SittingmaquetteComponent} from'./sittingmaquette/sittingmaquette.component'
+//import { AnswerComponent } from './SittingMaquette/answer/answer.component';
+import { ListDomainComponent } from './sittingmaquette/list-domain/list-domain.component';
 ;
 const routes: Routes = [
   {
@@ -116,13 +117,19 @@ const routes: Routes = [
     path: 'Vote',
     component: AddUpdateVoteComponent,
   },
+
+
   {
     path: 'maquette',
-  component: SittingmaquetteComponent,
+    component: ListDomainComponent
 },
-  
 
-];
+//{
+ // path: 'answer',
+//component: AnswerComponent,
+//},
+
+]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

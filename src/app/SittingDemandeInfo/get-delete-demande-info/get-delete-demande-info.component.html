@@ -4,9 +4,9 @@
   <table class="table table-bordered  table-hover text-center">
     <thead>
       <tr>
-        <th class="align-middle table-info table-border">titre</th>
         <th class="align-middle table-info table-border">description</th>
         <th class="align-middle table-info table-border">data</th>
+        <th class="align-middle table-info table-border">fkDomaine</th>
         <th class="align-middle table-info table-border">Action(s)</th>
       </tr>
     </thead>
@@ -18,9 +18,9 @@
         itemsPerPage: 3,
         currentPage: p
       }" class="sizeText">
-      <td class="align-middle table-border">{{g.titre }}</td>
       <td class="align-middle table-border">{{g.description }}</td>
       <td class="align-middle table-border">{{g.date }}</td>
+      <td class="align-middle table-border">{{g.domaine }}</td>
       <td class="align-middle ">
           <button (click)="openComponentForUpdate(g)" class="btn-sm btn-info rounded mr-3 rounded"> <span
               class="fas fa-wrench  text-white"></span></button>
