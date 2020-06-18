@@ -11,6 +11,6 @@ export class AnswerComponent implements OnInit {
 
   ngOnInit() {
   }
-  starsCount: number;
+  // starsCount: number;
 
 }

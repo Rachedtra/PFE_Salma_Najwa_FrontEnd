@@ -33,6 +33,7 @@
     "ngx-pagination": "^5.0.0",
     "ngx-rating": "0.0.9",
     "rxjs": "~6.3.3",
+    "stream-chat": "^1.11.4",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },

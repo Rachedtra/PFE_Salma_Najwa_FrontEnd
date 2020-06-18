@@ -8,114 +8,656 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 </head>
-<body class="g-Ue-we">
-  <div class="wrapper">
-  
-  </div>
+<body>
 
-
-    <div class="col-md-3" data-aos="fade" data-aos-delay="200">
-      <a href="#" class="btn btn-primary py-3 btn-block" data-toggle="modal" data-target="#exampleModal"style=" background-color: transparent;
-      color: black;
-      border: 2px solid pink; ">      <p style="font-style: italic;color: darkslategrey;"><em>Add Question</em> </p>
-</a>
-  </div>
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   -->
+  </head>
+  <body >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="container app">
+      <div class="row app-one">
+        <div class="col-sm-4 side">
+          <div class="side-one">
+            <div class="row heading">
+              <div class="col-sm-3 col-xs-3 heading-avatar">
+                <div class="heading-avatar-icon">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                </div>
+              </div>
+              <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
+                <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+              </div>
+              <div class="col-sm-2 col-xs-2 heading-compose  pull-right">
+                <i class="fa fa-comments fa-2x  pull-right" aria-hidden="true"></i>
+              </div>
+            </div>
     
-      <div class="modal-body">
-        <input type="text" class="form-control col-12" placeholder="titre" >
-       
-         
-        
-        <div class="input-group-prepend">
+            <div class="row searchBox">
+              <div class="col-sm-12 searchBox-inner">
+                <div class="form-group has-feedback">
+                  <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search question">
+                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="row sideBar">
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre1
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                 
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre2
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                 
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre3
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre4
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre5
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre5
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                 
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre6
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre7
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre8
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="side-two">
+            <div class="row newMessage-heading">
+              <div class="row newMessage-main">
+                <div class="col-sm-2 col-xs-2 newMessage-back">
+                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-10 col-xs-10 newMessage-title">
+                  New Chat
+                </div>
+              </div>
+            </div>
+    
+            <div class="row composeBox">
+              <div class="col-sm-12 composeBox-inner">
+                <div class="form-group has-feedback">
+                  <input id="composeText" type="text" class="form-control" name="searchText" placeholder="Search People">
+                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="row compose-sideBar">
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre9
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                 
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre10
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre11
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre12
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre13
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre14
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                 
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre15
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                  <div class="avatar-icon">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                  </div>
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre17
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                 
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">titre18
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row sideBar-body">
+                <div class="col-sm-3 col-xs-3 sideBar-avatar">
+               
+                </div>
+                <div class="col-sm-9 col-xs-9 sideBar-main">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-8 sideBar-name">
+                      <span class="name-meta">John Doe
+                    </span>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                      <span class="time-meta pull-right">18:18
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <label>Categorie:</label>
-        <!-- <select type="text" class=" col-12" 
-        >
-          <option value="0">Select</option>
-          <option *ngFor="let item of CategorieList" value="{{item.idCategorie}}">{{item.label}}</option>
-      </select> -->
-      
-      <div class="input-group-prepend">
-      </div>
-      <!-- <label>Domaine:</label>
-      <select type="text" class="form-control col-12" formControlName="Domaine"
-        >
-          <option value="0">Select</option>
-          <option *ngFor="let item of DomainList" value="{{item.idDomaine}}">{{item.idDomaine}}</option>
-      </select> -->
-      
     
-    <div class="input-group-prepend">
+        <div class="col-sm-8 conversation">
+          <div class="row heading">
+            <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
+              <div class="heading-avatar-icon">
+                <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
+              </div>
+            </div>
+            <div class="col-sm-8 col-xs-7 heading-name">
+              <a class="heading-name-meta">John Doe
+              </a>
+              <span class="heading-online">Online</span>
+            </div>
+            <div class="col-sm-1 col-xs-1  heading-dot pull-right">
+              <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+            </div>
+          </div>
+    
+          <div class="row message" id="conversation">
+            <div class="row message-previous">
+              <div class="col-sm-12 previous">
+                <a onclick="previous(this)" id="ankitjain28" name="20">
+                Show Previous Message!
+                </a>
+              </div>
+            </div>
+    
+            <div class="row message-body">
+              <div class="col-sm-12 message-main-receiver">
+                <div class="receiver">
+                  <div class="message-text">
+                 
+                  </div>
+                  <span class="message-time pull-right">
+                  </span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="row message-body">
+              <div class="col-sm-12 message-main-sender">
+                <div class="sender">
+                  <div class="message-text">
+                    I am doing nothing man!
+                  </div>
+                  <span class="message-time pull-right">
+                    Sun
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="row reply">
+            <div class="col-sm-1 col-xs-1 reply-emojis">
+              <i class="fa fa-smile-o fa-2x"></i>
+            </div>
+            <div class="col-sm-9 col-xs-9 reply-main">
+              <!-- <form [formGroup]="commentaireService.CommentaireFormAdd_update"> -->
+                <form class="input_msg_write" (ngSubmit)="sendMessage()">
+              <textarea   type="text"
+              class="write_msg"
+              placeholder="Type a message"
+              name="newMessage"
+              [(ngModel)]="newMessage"></textarea>
+            </form>
+            </div>
+
+            <div class="col-sm-1 col-xs-1 reply-recording">
+              <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="col-sm-1 col-xs-1 reply-send">
+              <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <label>Description:</label>
-    <textarea class="form-control">
-    </textarea>
+    
+  </body>
+  </html>
+
+     
+
+  
+
+
+
+
+
+  <!-- <form>
+    <div class="form-group ms-auto ml-5 mt-2">
+      <div class="input-group" >
+      
+        <input type="text" class="form-control col-8">
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" style="background-color: pink;    border-color: #f8f9fa;
-        ">Save changes</button>
+      
+    </div>
+    <div class="form-group ms-auto ml-5 mt-2">
+      <div class="input-group">
+      
+        <input type="text" class="form-control col-8" >
       </div>
+      
+    </div>
+    <div class="form-group ms-auto ml-5 mt-2">
+      <div class="input-group">
+      
+        <input type="text" class="form-control col-8" >
+      </div>
+      
+    </div>
+    <div class="form-group ms-auto ml-5 mt-2">
+      <div class="input-group">
+      
+        <input type="text" class="form-control col-8">
+      </div>
+      
+    </div>
+    </form> -->
+
+  <!-- <table class="table table-bordered  table-hover text-center">
+    <thead>
+      <tr>
+        <th class="align-middle table-info table-border">titre</th>
+        <th class="align-middle table-info table-border">idDomain</th>
+        <th class="align-middle table-info table-border">description</th>
+        <th class="align-middle table-info table-border">data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td class="align-middle table-border">{{titre }}</td>
+      <td class="align-middle table-border">{{idDomain }}</td>
+      <td class="align-middle table-border">{{description }}</td>
+      <td class="align-middle table-border">{{date }}</td>
+
+      </tr>
+      <tr>
+      </tr>
+    </tbody>
+  </table> -->
+
+
+
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="position: absolute;margin-left:70%;">
+  Poser question    </button>
+    
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+<div class="modal-header ">
+  <h4 *ngIf="demandeInfo.DemandeInfoFormAdd_update.controls.idInf.value =='00000000-0000-0000-0000-000000000000'"
+    class="modal-title pull-left text-info ml-3 mt-2">Ajouter un Domain </h4>
+
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body ">
+  <div class="container">
+    <form [formGroup]="demandeInfoService.DemandeInfoFormAdd_update">
+      <div class="form-group ms-auto ml-5 mt-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+          </div>
+          <input type="text" class="form-control col-8" formControlName="titre" placeholder="Entrer le titre "
+            [class.is-invalid]="demandeInfoService.DemandeInfoFormAdd_update.controls.titre.errors?.required &&
+            demandeInfoService.DemandeInfoFormAdd_update.controls.titre.touched">
+         
+        </div>
+      </div>  
+      <div class="form-group ms-auto ml-5 mt-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+          </div>
+          <input type="text" class="form-control col-8" formControlName="description" placeholder="Entrer le description "
+            [class.is-invalid]="demandeInfoService.DemandeInfoFormAdd_update.controls.description.errors?.required &&
+            demandeInfoService.DemandeInfoFormAdd_update.controls.description.touched">
+         
+        </div>
+      </div>
+        <div class="form-group ms-auto ml-5 mt-2">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+            </div>
+        <input type="text" class="form-control col-8" formControlName="date" placeholder="Entrer le date "
+        [class.is-invalid]="demandeInfoService.DemandeInfoFormAdd_update.controls.date.errors?.required &&
+        demandeInfoService.DemandeInfoFormAdd_update.controls.date.touched">
+      </div>
+        </div>
+      </form>
     </div>
   </div>
-</div>
+  <div class="modal-footer">
+    <button type="button" class=" btn btn-info col-3 mr-2 " (click)="onSubmit()"
+      [disabled]="demandeInfoService.DemandeInfoFormAdd_update.invalid"><i class="fas fa-check"></i>
+      Valider</button>
+  </div>
 
-  <section  style=" margin-left: 8px;  width: 100%;" class =card_section>
-<div class="card card-1"style="margin-left: -120%;width: 184%;">
-  <div class="d-block d-md-flex listing vertical">
-    <div class="lh-content">
-<address>23 Juine 2020, 13:52, Informatique</address>
+</div></div></div> -->
 
-</div>
-</div>
-
-<h3>Comment faire .....?</h3>
-</div>
-<div class="card card-1"style="
-margin-left: -120%;
-width: 184%;
-">
-<div class="d-block d-md-flex listing vertical">
-  <div class="lh-content">
-<address>23 Juine 2020, 13:52, Informatique</address>
-
-</div>
-</div>
-<h3>Mon reponse est ......</h3>
-<p class="mb-0" style="margin-top: 35px;"></p>
-<rating></rating>
-<!-- <rating ></rating>
-  <div class="form-group">
-   
-    <div class="form-text small">
-      <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
-      <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
-    </div>
-  </div> -->
+<!-- <div class="container-fluid"> -->
+  <!-- <div class="container"> -->
+  <!-- <h1>Angular8</h1>
+  <hr align="center" width="95%" color="#DCDCDC" size="1"> -->
+    <!-- <button type="button" class="btn  mb-2 text-white" (click)="openComponentForPost()"
+      style="background-color:rgb(13, 184, 214); "> <i class="fas fa-plus-circle "></i> Ajouter</button>
+    <table class="table table-bordered  table-hover text-center">
+     
+      <tbody>
+        <tr *ngFor=" let g of demandeInfo.DemandeList">
+        <td class="align-middle table-border">titre:{{g.titre }}</td></tr>
+        <tr *ngFor=" let a of  CategorieList">
+          <td class="align-middle table-border">categorie:{{a.categorie }}</td></tr>
+        <tr *ngFor=" let g of demandeInfo.DemandeList">
+          <td class="align-middle table-border">description: {{g.description }}</td></tr>
+          <tr *ngFor=" let g of demandeInfo.DemandeList">
+            <td class="align-middle table-border">data:{{g.date }}</td></tr>
   
-  <!-- <hr>
-  <pre>Model: <b>{{ ctrl.value }}</b></pre>
-  <button class="btn btn-sm btn-outline-{{ ctrl.disabled ? 'danger' : 'success'}} mr-2" (click)="toggle()">
-    {{ ctrl.disabled ? "control disabled" : " control enabled" }}
-  </button> -->
- 
-</div>
-
-</section>
-
-</body>
-</html>
-
-   
+       
+      </tbody>
+    </table>
+  
+    <pagination-controls id="ContractStatePagination" class="my-pagination" (pageChange)="p = $event"
+      previousLabel="Prec " nextLabel="Suiv ">
+    </pagination-controls>
+  
+    <div class="col-3" style="float:left !important"> </div> -->
+<!-- </div>
+</div> -->

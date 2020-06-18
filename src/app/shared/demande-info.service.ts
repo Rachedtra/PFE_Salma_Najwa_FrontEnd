@@ -70,11 +70,11 @@ export class DemandeInfoService {
     
 
   // }
-  // get(idInf:string) {
-  //   debugger
-  //   console.log(idInf)
-  //   return this.http.get(environment.Commentaire + "/DemandeInfo/" + idInf, { responseType: "text" });
-  // }
+  get(idInf:string) {
+    debugger
+    console.log(idInf)
+    return this.http.get(environment.Commentaire + "/DemandeInfo/" + idInf, { responseType: "text" });
+  }
   getTextFile(idInf: string) {
     // The Observable returned by get() is of type Observable<string>
     // because a text response was specified.

@@ -14,7 +14,7 @@ import { CommentaireService } from 'src/app/shared/commentaire.service';
 export class ListDomainComponent implements OnInit {
   demandeInfo:[];
 
-  constructor(private commentaireService:CommentaireService,private demandInfo:DemandeInfoService) { }
+  constructor(private commentaireService:CommentaireService,private demandInfo:DemandeInfoService,private demandeInfoService: DemandeInfoService) { }
 
   ngOnInit() {
     this.demandInfo.DemandeInfoFormAdd_update.markAsUntouched();
@@ -23,11 +23,19 @@ export class ListDomainComponent implements OnInit {
     .subscribe(res => this.demandeInfo = res as []); 
    
   }
-  GetAll()
-  {
-    this.demandInfo.getDemandeInfoList().subscribe(res => {
-      this.demandInfo.DemandeList = res as DemandeInfo[]
-    })}
+//   get()
+//   {
+//     this.demandInfo.getDemandeInfoList().subscribe(res => {
+//       this.demandInfo.DemandeList = res as DemandeInfo[]     });}
+//  }
   
+  
+ get() {
+  console.log("test");
+  this.demandeInfoService.getDemandeInfoList().subscribe(res => {
+    this.demandeInfoService.DemandeList = res as DemandeInfo[];
+    console.log("test2",res);
+})
 }
 
+}
