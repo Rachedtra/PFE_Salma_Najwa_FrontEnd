@@ -40,7 +40,9 @@ this.microservice =this.microservice.filter(res=>{
 
   OnDelete(idMethod) {
     debugger
-    if (confirm("Vous êtes sûr de vouloir supprimer")) {
+    const message = `Are you sure you want to do this?`;
+
+    if (confirm("Vous êtes sûr de mer")) {
       this.microserviceService.deleteMicroservice(idMethod).subscribe(
         res => {
 

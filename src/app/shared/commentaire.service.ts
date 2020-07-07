@@ -3,6 +3,9 @@ import { environment } from 'src/environments/environment';
 import { Commentaire } from './commentaire.model';
 import { Validators, FormBuilder } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { DemandeInfo } from './demande-info.model';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +15,15 @@ export class CommentaireService {
   CommentaireList: Commentaire[]
 
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(private http: HttpClient, private fb: FormBuilder,private commentaireService:CommentaireService) {
     this.httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
+    
   }
 
   /* #region  Form */
  CommentaireFormAdd_update = this.fb.group({
-    idCom: [''],
     description: ['', Validators.required]
 
 
@@ -31,7 +34,6 @@ export class CommentaireService {
 
   initializeFormForPostCommentaire() {
     this.CommentaireFormAdd_update.setValue({
-      idCom: '00000000-0000-0000-0000-000000000000',
       description: '',
 
 
@@ -67,7 +69,7 @@ export class CommentaireService {
   /* #endregion */
   /* #region  Post */
   postCommentaire() {
-    debugger
+    
     return this.http.post(environment.Commentaire + "/Commentaire/", this.CommentaireFormAdd_update.value,
       { responseType: "text" });
   }
@@ -82,10 +84,12 @@ export class CommentaireService {
   /* #endregion */
 
 
+  read(id: number): Observable<Commentaire> {
+    return this.http.get<Commentaire>(`${environment.Commentaire}/${this.commentaireService}/${id}`);
+  }
+  
 
 
 
-
-
-
+ 
 }

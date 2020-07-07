@@ -78,16 +78,9 @@ export class AddUpdateCommentaireComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger
-    if (
-      this.languageService.CommentaireFormAdd_update.controls.idCom.value ==
-      "00000000-0000-0000-0000-000000000000"
-    ) {
-      this.PostForm();
-    }
-     else {
-      this.UpdateForm();
-    }
+    this.PostForm();
+  
+     
   }
 
 }

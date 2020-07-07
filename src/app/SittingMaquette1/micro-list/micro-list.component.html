@@ -1,0 +1,8 @@
+
+<h1>Select MicroService</h1>
+<div class="select">
+  <select name="slct" id="slct">
+    <option value="0">Select</option>
+    <option *ngFor="let item of DemandList" value="{{item.idDomain}}">{{item.titre}}</option>
+  </select>
+</div>

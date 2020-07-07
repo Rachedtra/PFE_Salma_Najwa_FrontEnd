@@ -7,7 +7,6 @@ import { SidebarLeftComponent } from './navbar/sidebar-left/sidebar-left.compone
 import { GeneralLayoutComponent } from './general-layout/general-layout.component';
 import { FooterLeftComponent } from './navbar/footer-left/footer-left.component';
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
-
 import {RatingModule} from "ngx-rating";
 
 import { HttpClientModule } from '@angular/common/http';
@@ -53,7 +52,11 @@ import { MsFilterPipe } from './SittingMs/MSFilter.pipe';
 import { HomeComponent } from './SittingMaquette1/home/home.component';
 import { AnswerComponent } from './SittingMaquette1/answer/answer.component';
 import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+import { from } from 'rxjs';
+import { MicroListComponent } from './SittingMaquette1/micro-list/micro-list.component';
+import { ListQuestionComponent } from './SittingMaquette1/list-question/list-question.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,20 +65,6 @@ import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.
     GeneralLayoutComponent,
     FooterLeftComponent,
     FooterRightComponent,
-    // DemosComponent,
-    //DemoComponent,
-
-
-    // imports: [
-    //   BrowserModule,
-    //  HttpClientModule,
-    //  FormsModule ,
-    //  ReactiveFormsModule,
-    //   AppRoutingModule,
-    //   BrowserAnimationsModule
-    //  ],
-    // providers: [DemoService],
-
     GetDeleteMicroserviceComponent,
     AddUpdateMicroserviceComponent,
     GetDeleteProjetComponent,
@@ -101,9 +90,12 @@ import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.
     MsFilterPipe,
     HomeComponent,
     AnswerComponent,
-    ListDomainComponent
+    ListDomainComponent,
+    MicroListComponent,
+    ListQuestionComponent,
   ],
   imports: [
+    Ng2SearchPipeModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

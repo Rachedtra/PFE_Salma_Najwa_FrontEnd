@@ -26,12 +26,15 @@ import { AddUpdateVoteComponent } from './SittingVote/add-update-vote/add-update
 import { AnswerComponent } from './SittingMaquette1/answer/answer.component';
 import { HomeComponent } from './SittingMaquette1/home/home.component';
 import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.component';
+import { MicroListComponent } from './SittingMaquette1/micro-list/micro-list.component';
+import { ListQuestionComponent } from './SittingMaquette1/list-question/list-question.component';
 
 const routes: Routes = [
   {
     path: 'Microservice',
     component: GetDeleteMicroserviceComponent,
-  },
+  }, 
+
   {
     path: 'Microservice',
     component: AddUpdateMicroserviceComponent,
@@ -127,9 +130,20 @@ component: ListDomainComponent,
 component: AnswerComponent,
 },
 {
-  path: 'home',
+  path: 'Home',
 component: HomeComponent,
 },
+
+
+{
+  path: 'ListMicro',
+component: MicroListComponent,
+},
+{
+  path: 'listQuestion',
+component: ListQuestionComponent,
+},
+
 ];
 
 @NgModule({

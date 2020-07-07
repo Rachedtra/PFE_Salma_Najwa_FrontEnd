@@ -1,141 +1,157 @@
-<!DOCTYPE html>
- <html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
- 
-</head>
-<body class="g-Ue-we">
-	<form class="form-wrapper cf"[formGroup]="demandInfo.DemandeInfoFormAdd_update">
-    <select class="form-control" formControlName="idDomain">
-      <option value="0">Select</option>
-      <option *ngFor="let item of demandeInfo" value="{{item.idDomain}">{{item.idDomain}}</option>
-  </select>
-  <button type="submit" (click)="get()" routlink>Search</button>
-</form>
-     <table class="container">
-      <thead>
-        <tr>
-          <th><h1>Titre</h1></th>
-          <th><h1>Description</h1></th>
-          <th><h1>Date</h1></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="
-        let g of demandeInfoService.DemandeList  | paginate
-        : {
-            id: 'ContractStatePagination',
-            itemsPerPage: 3,
-            currentPage: p
-          }" class="sizeText">
-        <td>{{g.titre }}</td>
-      <td>{{g.description }}</td>
-      <td>{{g.date }}</td>   
-      </tbody>
-    </table> 
- 
-</body>
-</html>
+<!-- <div class="content" >
+  <div class="col-sm-12 col-lg-6">
+        <div class="scroll-area-lg">
+            <div class="scrollbar-container ps ps--active-y">
+                <div class="p-2">
+                    <div class="chat-wrapper p-1">
+                        <div class="chat-box-wrapper">
+                            <div>
+                                <div class="avatar-icon-wrapper mr-1">
+                                    <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                            <div>
+                                <div class="chat-box" *ngFor="let g of demandInfo.DemandeList" (click)="Update()">              
+                              {{g.titre}}
+                                </div>
+   
+                        </div>
+                        <div class="float-right">
+                            <div class="chat-box-wrapper chat-box-wrapper-right" >
+                                <div>
+                        
+                                    <div class="chat-box1">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <table class="table table-bordered  table-hover text-center">
-    <thead>
-      <tr>
-        <th class="align-middle table-info table-border">titre</th>
-        <th class="align-middle table-info table-border">idDomain</th>
-        <th class="align-middle table-info table-border">description</th>
-        <th class="align-middle table-info table-border">data</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="
-    let g of demandeInfoService.DemandeList  | paginate
-    : {
-        id: 'ContractStatePagination',
-        itemsPerPage: 3,
-        currentPage: p
-      }" class="sizeText">
-      <td class="align-middle table-border">{{g.titre }}</td>
-      <td class="align-middle table-border">{{g.idDomain }}</td>
-      <td class="align-middle table-border">{{g.description }}</td>
-      <td class="align-middle table-border">{{g.date }}</td>
-      </tr>
-      <tr>
-      </tr>
-    </tbody>
-  </table> --> 
-  <!-- <div class="background">
-    <div class="container">
-      <div class="panel pricing-table">
-        
-        <div class="pricing-plan">
-          <img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png" alt="" class="pricing-img">
-          <div *ngFor="
-          let g of demandeInfoService.DemandeList  | paginate
-          : {
-              id: 'ContractStatePagination',
-              itemsPerPage: 3,
-              currentPage: p
-            }" class="sizeText">
-          <h2 class="pricing-header">{{g.titre }}</h2>
-          <ul class="pricing-features">
-            <li class="pricing-features-item">{{g.description }}</li>
-            <li class="pricing-features-item">{{g.date }}</li>
-          </ul>
-          <a href="#/" class="pricing-button">Sign up</a>
+                                   
+                                    <div>   
+                                       <small class="opacity-6">
+                                      <i class="fa fa-calendar-alt mr-1"></i>
+                                    </small></div>
+                                  
+                                   
+                                      </div>
+                                       <div style="text-align:left">
+                      <rating (rate)="onRate($event)"></rating>
+                                    
+                                         <div>
+                                </div>
+                              
+                                 
+                                </div>
+                            </div>
+                        </div>
+                     
+                      
+                    </div>
+                </div>
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 400px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 296px;"></div></div></div>
         </div>
-      </div>  
-      </div>
-    </div>
-  </div> -->
-  
-  
-  
+        <div>
+      <form [formGroup]=" commentaireService.CommentaireFormAdd_update">
+        <textarea formControlName="description"
+           placeholder="Write here and hit enter to send..." type="text" class="form-control-sm form-control"></textarea><br>
+          </form>
+        </div>
 
+        <div class="card-footer">
+    <button type="button" class=" btn btn-info col-3 mr-2 " 
+    (click)="onSubmit()" [disabled]="commentaireService.CommentaireFormAdd_update.invalid" 
+    style="width: 80px; background-color:turquoise;">Send</button>
+
+        </div>
+     </div>  
+   
+      </div> -->
+
+
+
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+      <div class="content-wrapper">
+        <div id="sidebar">
+          <h3>Gestion Micro-service</h3>
+          <div class="checklist colors">
+   
+            <ul  class="list-group" *ngFor="let demand of MSService.MicroserviceList" >
+                <li  (click)="consulter(demand)"class="menu__text" style="	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                  {{demand.titre}} </li>
+              </ul>
+              </div>
+     
+      </div>
+      
+      <div id="grid-selector">
+          
+                      <div class="p-2">
+                          <div class="chat-wrapper p-1">
+                              <div class="chat-box-wrapper">
+                              
+                                      <div> 
+                                   
+                                                 
+                                        <form [formGroup]="MSService.MicroserviceFormAdd_update">
+                                          
+                                            <textarea type="text"  formControlName="description" style="
+                                            padding-top: 0px;
+                                            border-top-width: 1px;
+                                            padding-right: 44px;
+                                            height: 92px;
+                                            width: 721px;
+                                            background-color: #aff5e0;">
+                                            
+                               </textarea>
+                                        <div >
+                                          <textarea type="text"  style="
+                                          padding-top: 0px;
+                                          border-top-width: 1px;
+                                          height: 92px;
+                                          padding-left: 80px;
+                                          width: 721px;   background-color:antiquewhite;"*ngFor="let comment of commentaireService.CommentaireList | paginate
+               : {
+                  id: 'ContractStatePagination',
+                  itemsPerPage: 3,
+                  currentPage: p
+                  }" class="sizeText">
+                                        {{comment.description}}  
+                                        </textarea>     
+                                      </div> 
+                                      <div style="text-align:left">
+                                        <rating (rate)="onRate($event)"></rating>
+                                                      
+                                      </div>    
+                                    </form>  
+
+         
+                            
+                                       
+                                  </div>
+                           
+                            
+                          </div>
+                      </div>
+                      <pagination-controls id="ContractStatePagination" class="my-pagination" (pageChange)="p = $event"
+                      previousLabel="Prec " nextLabel="Suiv ">
+                    </pagination-controls>
+                  
+                    <div class="col-3" style="float:left !important"> </div>
+              <div>
+            <form [formGroup]=" commentaireService.CommentaireFormAdd_update">
+              <textarea formControlName="description"
+                 placeholder="Write here and hit enter to send..." type="text" class="form-control-sm form-control"></textarea><br>
+                </form>
+              </div>
+      
+              <div class="card-footer">
+          <button type="button" class=" btn btn-info col-3 mr-2 " 
+          (click)="onSubmit()" [disabled]="commentaireService.CommentaireFormAdd_update.invalid" 
+          style="width: 80px; background-color:turquoise;">Send</button>
+      
+              </div>
+           </div>  
+   
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src="menu.js"></script>
+      

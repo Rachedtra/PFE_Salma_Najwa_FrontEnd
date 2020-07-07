@@ -1,16 +1,15 @@
 <div class="content-wrapper">
-  
+  <div class="search-hero" style="max-width: 300px;
+  padding-bottom: 50px;
+  margin:auto;">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"  style="   font-family: FontAwesome;
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+    ">
+  </div>
   <button type="button" class="btn  mb-2 text-white" (click)="openComponentForPost()"
     style="background-color:rgb(13, 184, 214); "> <i class="fas fa-plus-circle "></i> Ajouter</button>
     
-    <div class="form-group">
-      <input type="text" class="form-control" style="widows: 300px;" [(ngModel)]="label" (input)="Search()"/>
-      </div>
-      <div *ngFor=" let microservice of MicroserviceList | searchMicro:searchTerm">
-        <div (click)="onClick(microservice.idMS)" class="pointerCursor">
-          <!-- <app-display-microservice [microservice]="microservice" #childComponent></app-display-microservice> -->
-        </div>
-      </div>
+  
 
   <table class="table table-bordered  table-hover text-center">
     <thead>
