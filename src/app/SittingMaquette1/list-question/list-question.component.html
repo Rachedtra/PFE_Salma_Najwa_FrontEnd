@@ -1,15 +1,20 @@
-<div class="wrapper">
-  <h1>Select MicroService</h1>
-<div class="select">
+
+<div class="content-wrapper">
+
+<h1 style="margin-left:400px;">Select question</h1>
+<div class="select" style=" line-height: 2.5;
+text-align: center;
+    padding-right: 7px;
+    border-right-width: 60px;
+    margin-right: 85px;
+    margin-left: 200px;
+    margin-top: 123px;
+
+">
   <select name="slct" id="slct">
     <option value="0">Select</option>
-    <option *ngFor="let item of DemandList" value="{{item.idCom}}">{{item.label}}</option>
+    <option *ngFor="let item of DemandList" value="{{item.idDomain}}">{{item.titre}}</option>
   </select>
-</div>
-<div class="card card-2">
-</div>
-<div class="card card-3">
-  <a routerLink="/listQuestion" class="effect1"></a>
-  <a routerLink="/ListMicro" class="effect2"></a>
+  
 </div>
 </div>

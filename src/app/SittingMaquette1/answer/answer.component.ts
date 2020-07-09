@@ -29,7 +29,8 @@ export class AnswerComponent implements OnInit {
     this.commentaireService.CommentaireFormAdd_update.markAsUntouched();
     this.demandInfo.DemandeInfoFormAdd_update.markAsUntouched();
 
-  this.GetAll();
+    this.GetAll();
+    this.get();
 
 }
 GetAll()
@@ -40,7 +41,14 @@ this.demandInfo.getDemandeInfoList().subscribe(res => {
   console.log("test2",res);
  })
 }
-
+get()
+{
+console.log("test");
+this.commentaireService.getCommentaireList().subscribe(res => {
+  this.commentaireService.CommentaireList = res as Commentaire[];
+  console.log("test2",res);
+ })
+}
 GetVote()
 {
 console.log("test");

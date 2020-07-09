@@ -1,8 +1,21 @@
+<div class="content-wrapper">
 
-<h1>Select MicroService</h1>
-<div class="select">
+ <h1 style="margin-left:400px;">Select MicroService</h1>
+<div class="select"  style=" line-height: 2.5;
+text-align: center;
+    padding-right: 7px;
+    border-right-width: 60px;
+    margin-right: 85px;
+    margin-left: 200px;
+    margin-top: 123px;
+
+">
   <select name="slct" id="slct">
     <option value="0">Select</option>
-    <option *ngFor="let item of DemandList" value="{{item.idDomain}}">{{item.titre}}</option>
+    <option *ngFor="let item of DemandList" value="{{item.idCom}}">{{item.label}}</option>
   </select>
+<div>    <button type="button" style="width: 80px; background-color:turquoise;    margin-right: -86px;">Send</button>
+</div>
+
+      </div>
 </div>

@@ -4,7 +4,7 @@ body {
   }
   
   .card {
-	background:url('/src/app/SittingMaquette1/home/img/1_nIjfoUR90CUKibydNhq_Bw.jpegs');
+	background:url('img/1_nIjfoUR90CUKibydNhq_Bw.jpeg');
 	background-size: cover;
 	border-radius: 2px;
 	display: inline-block;
@@ -54,7 +54,7 @@ body {
 	text-align: center;
 	width: 100%;
 	line-height: 50px;
-	content: 'MicroService';
+	content: 'Question';
 	
 	-webkit-transition: all 0.3s;
 	  transition: all 0.3s;
@@ -85,12 +85,12 @@ body {
 	color: black;
 	text-decoration: none;
 	margin: 30px;
-	width: 150px;
+	width: 193px;
 	height:50px;
 	border: 3px solid;
 	font-family: Roboto, sans-serif;
 	font-size: 2em;
-	left: 322px;
+	left: 310px;
 
   }
   a.effect2:after{
@@ -99,7 +99,7 @@ body {
 	text-align: center;
 	width: 100%;
 	line-height: 50px;
-	content: 'Question';
+	content: 'MicroService';
 	
 	-webkit-transition: all 0.3s;
 	  transition: all 0.3s;

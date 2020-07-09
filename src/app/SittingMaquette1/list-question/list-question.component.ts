@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MicroserviceService } from 'src/app/shared/microservice.service';
+import { DemandeInfoService } from 'src/app/shared/demande-info.service';
 
 @Component({
   selector: 'app-list-question',
@@ -8,13 +8,15 @@ import { MicroserviceService } from 'src/app/shared/microservice.service';
 })
 export class ListQuestionComponent implements OnInit {
 
-  DemandList:[]
-  constructor(private microList:MicroserviceService) { }
+ 
+DemandList:[]
+  constructor(private demandeQuestion:DemandeInfoService) { }
 
   ngOnInit() {
-    this.microList.getListMicroservice()
+    this.demandeQuestion.getDemandeInfoList()
     .subscribe(res => this.DemandList = res as []);
 
   }
 
 }
+
