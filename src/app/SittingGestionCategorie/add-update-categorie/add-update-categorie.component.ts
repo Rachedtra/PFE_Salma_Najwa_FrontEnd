@@ -11,13 +11,20 @@ import { GestionCategorie } from 'src/app/shared/gestion-categorie.model';
 export class AddUpdateCategorieComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef, private categorieService: GestionCategorieService, private _snackBar: MatSnackBar) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+
  this.categorieService.CommentaireFormAdd_update.markAsUntouched();
+this.categorieService.getCategorieList();
 
   }
+
+
+
+
   UpdateForm() {
     this.categorieService.updateCategorie().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as GestionCategorie) {
         this.bsModalRef.hide();
         this.categorieService.getCategorieList().subscribe(res => {
           this.categorieService.CategorieList = res as GestionCategorie[]
@@ -46,7 +53,7 @@ export class AddUpdateCategorieComponent implements OnInit {
   PostForm() {
     debugger
     this.categorieService.postCategorie().subscribe(res => {
-      if (res == "Added done") {
+      if (res as GestionCategorie) {
         debugger
         this.bsModalRef.hide();
         this.categorieService.getCategorieList().subscribe(res => {

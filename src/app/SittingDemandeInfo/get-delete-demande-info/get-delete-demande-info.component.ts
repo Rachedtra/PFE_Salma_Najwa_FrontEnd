@@ -41,7 +41,7 @@ export class GetDeleteDemandeInfoComponent implements OnInit {
         this.demandeInfoService.deleteDemandeInfo(idMethod).subscribe(
           res => {
   
-            if (res == "Delete Done") {
+            if (res as DemandeInfo) {
               debugger
               this.demandeInfoService.getDemandeInfoList().subscribe(res => {
                 this.demandeInfoService.DemandeList = res as DemandeInfo[]

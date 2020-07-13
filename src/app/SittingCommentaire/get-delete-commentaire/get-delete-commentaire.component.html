@@ -11,6 +11,7 @@
   <table class="table table-bordered  table-hover text-center">
     <thead>
       <tr>
+        <th class="align-middle table-info table-border">idQuestion</th>
         <th class="align-middle table-info table-border">description</th>
         <th class="align-middle table-info table-border">Action(s)</th>
       </tr>
@@ -23,8 +24,9 @@
         itemsPerPage: 3,
         currentPage: p
       }" class="sizeText">
-        <td class="align-middle table-border">{{g.description }}</td>
-        <td class="align-middle ">
+      <td class="align-middle table-border">{{g.idQuestion }}</td>
+      <td class="align-middle table-border">{{g.description }}</td>
+      <td class="align-middle ">
           <button (click)="openComponentForUpdate(g)" class="btn-sm btn-info rounded mr-3 rounded"> <span
               class="fas fa-wrench  text-white"></span></button>
           <button (click)="OnDelete(g.idCom)" class="btn-sm btn-danger rounded"><span

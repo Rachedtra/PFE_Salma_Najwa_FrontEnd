@@ -23,13 +23,13 @@ export class GetDeleteVoteComponent implements OnInit {
       this.voteService.getListVote().subscribe(res => {
         this.voteService.VoteList = res as Vote[]
       })}
-      OnDelete(idMethod) {
+      OnDelete(idVote) {
         debugger
         if (confirm("Vous êtes sûr de vouloir supprimer")) {
-          this.voteService.deleteVote(idMethod).subscribe(
+          this.voteService.deleteVote(idVote).subscribe(
             res => {
     
-              if (res == "Delete Done") {
+              if (res as Vote) {
                 debugger
                 this.voteService.getListVote().subscribe(res => {
                   this.voteService.VoteList = res as Vote[]

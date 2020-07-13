@@ -16,11 +16,11 @@ export class AddUpdateDemandeInfoComponent implements OnInit {
 
   ngOnInit() {
  this.demandInfoService.DemandeInfoFormAdd_update.markAsUntouched();
-
+this.demandInfoService.getDemandeInfoList;
   }
   UpdateForm() {
     this.demandInfoService.updateDemandeInfo().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as DemandeInfo) {
         this.bsModalRef.hide();
         this.demandInfoService.getDemandeInfoList().subscribe(res => {
           this.demandInfoService.DemandeList = res as DemandeInfo[]
@@ -49,7 +49,7 @@ export class AddUpdateDemandeInfoComponent implements OnInit {
   PostForm() {
     debugger
     this.demandInfoService.postDemandeInfo().subscribe(res => {
-      if (res == "Added done") {
+      if (res as DemandeInfo) {
         debugger
         this.bsModalRef.hide();
         this.demandInfoService.getDemandeInfoList().subscribe(res => {

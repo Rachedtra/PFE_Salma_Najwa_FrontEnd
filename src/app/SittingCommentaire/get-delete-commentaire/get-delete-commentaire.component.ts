@@ -27,7 +27,7 @@ export class GetDeleteCommentaireComponent implements OnInit {
     /* #region  GetListMethods */
     GetCommentaire() {
       console.log("test");
-      this.CommentaireService.getCommentaireList().subscribe(res => {
+      this.CommentaireService.GetListCommentaire().subscribe(res => {
         this.CommentaireService.CommentaireList = res as Commentaire[];
         console.log("test2",res);
 
@@ -62,9 +62,9 @@ export class GetDeleteCommentaireComponent implements OnInit {
         this.CommentaireService.deleteCommentaire(idMethod).subscribe(
           res => {
   
-            if (res == "Delete Done") {
+            if (res as Commentaire) {
               debugger
-              this.CommentaireService.getCommentaireList().subscribe(res => {
+              this.CommentaireService.GetListCommentaire().subscribe(res => {
                 this.CommentaireService.CommentaireList = res as Commentaire[]
                 this._snackBar.open("La suppression est effectuée avec succées", "X", {
                   duration: 3000,

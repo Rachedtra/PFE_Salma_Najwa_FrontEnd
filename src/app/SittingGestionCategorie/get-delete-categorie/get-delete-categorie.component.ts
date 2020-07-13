@@ -47,10 +47,11 @@ export class GetDeleteCategorieComponent implements OnInit {
         this.gestionCategorie.deleteCategorie(idMethod).subscribe(
           res => {
   
-            if (res == "Delete Done") {
+            if (res  as GestionCategorie) {
               debugger
               this.gestionCategorie.getCategorieList().subscribe(res => {
                 this.gestionCategorie.CategorieList = res as GestionCategorie[]
+            
                 this._snackBar.open("La suppression est effectuée avec succées", "X", {
                   duration: 3000,
                   verticalPosition: "top",

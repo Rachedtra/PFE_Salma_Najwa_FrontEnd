@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   /* #region  GetListMethods */
   GetCommentaire() {
     console.log("test");
-    this.languageService.getCommentaireList().subscribe(res => {
+    this.languageService.GetListCommentaire().subscribe(res => {
       this.languageService.CommentaireList = res as Commentaire[];
       console.log("test2",res);
 
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     this.languageService.postCommentaire().subscribe(res => {
       if (res == "Added done") {
         debugger
-        this.languageService.getCommentaireList().subscribe(res => {
+        this.languageService.GetListCommentaire().subscribe(res => {
           this.languageService.CommentaireList = res as Commentaire[]
         })
         this._snackBar.open("L'ajout est effectué avec succées", "X", {

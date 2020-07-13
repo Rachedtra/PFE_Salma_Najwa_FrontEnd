@@ -2,7 +2,8 @@
 	/* background: url("/src/app/SittingMaquette1/answer/800px_COLOURBOX1211361.jpg"); */
 	background: url('img/1_nIjfoUR90CUKibydNhq_Bw.jpeg') no-repeat;
 	background-size: cover;
-  
+	width: 1498px;
+
   }
   .rating-list li.selected {
   background: url('/src/app/SittingMaquette1/list-domain/images/1_nIjfoUR90CUKibydNhq_Bw.jpeg');}

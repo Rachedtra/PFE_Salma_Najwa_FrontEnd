@@ -19,6 +19,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ['./answer.component.css']
 })
 export class AnswerComponent implements OnInit {
+  
   constructor( private modalService: BsModalService,private route: ActivatedRoute,private vote:VoteService,
     private _snackBar: MatSnackBar,private demandInfo:DemandeInfoService,private commentaireService:CommentaireService,private microservice:MicroserviceService) { }
     directives: [Rating]
@@ -44,7 +45,7 @@ this.demandInfo.getDemandeInfoList().subscribe(res => {
 get()
 {
 console.log("test");
-this.commentaireService.getCommentaireList().subscribe(res => {
+this.commentaireService.GetListCommentaire().subscribe(res => {
   this.commentaireService.CommentaireList = res as Commentaire[];
   console.log("test2",res);
  })
@@ -61,7 +62,7 @@ this.vote.getListVote().subscribe(res => {
   PostForm() {
     this.commentaireService.postCommentaire().subscribe(res => {
       if ("added done") {
-        this.commentaireService.getCommentaireList().subscribe(res => {
+        this.commentaireService.GetListCommentaire().subscribe(res => {
           console.log('get comment service');
           this.commentaireService.CommentaireList = res as Commentaire[]
         })
@@ -111,9 +112,13 @@ this.vote.getListVote().subscribe(res => {
         
       }
     )}
-    consulter(demand: DemandeInfo) {
-      this.demandInfo.initializeFormForUpdateDemandeInfo(demand);
-    
+    consulter(comment:Commentaire) {
+      console.log('rrrrr')
+      this.commentaireService.initializeFormForUpdateLanguage(comment);
+
     }
+
   }
+  
+
   

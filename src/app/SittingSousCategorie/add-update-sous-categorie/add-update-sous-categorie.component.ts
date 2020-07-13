@@ -19,10 +19,11 @@ export class AddUpdateSousCategorieComponent implements OnInit {
  this.sousCategorieService.CommentaireFormAdd_update.markAsUntouched();
  this.categorie.getCategorieList()
  .subscribe(res => this.CategorieList= res as []);
+ this.sousCategorieService.getCommentaireList();
   }
   UpdateForm() {
     this.sousCategorieService.updateCommentaire().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as SousCategorie){
         this.bsModalRef.hide();
         this.sousCategorieService.getCommentaireList().subscribe(res => {
           this.sousCategorieService.SousCategorieList = res as SousCategorie[]
@@ -51,7 +52,7 @@ export class AddUpdateSousCategorieComponent implements OnInit {
   PostForm() {
     debugger
     this.sousCategorieService.postCommentaire().subscribe(res => {
-      if (res == "Added done") {
+      if (res as SousCategorie) {
         debugger
         this.bsModalRef.hide();
         this.sousCategorieService.getCommentaireList().subscribe(res => {

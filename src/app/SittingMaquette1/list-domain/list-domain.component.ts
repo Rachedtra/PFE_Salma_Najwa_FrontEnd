@@ -45,7 +45,7 @@ this.MSService.getListMicroservice().subscribe(res => {
 }get()
 {
 console.log("test");
-this.commentaireService.getCommentaireList().subscribe(res => {
+this.commentaireService.GetListCommentaire().subscribe(res => {
   this.commentaireService.CommentaireList = res as Commentaire[];
   console.log("test2",res);
  })
@@ -63,7 +63,7 @@ this.vote.getListVote().subscribe(res => {
 PostForm() {
   this.commentaireService.postCommentaire().subscribe(res => {
     if ("added done") {
-      this.commentaireService.getCommentaireList().subscribe(res => {
+      this.commentaireService.GetListCommentaire().subscribe(res => {
         console.log('get comment service');
         this.commentaireService.CommentaireList = res as Commentaire[]
       })

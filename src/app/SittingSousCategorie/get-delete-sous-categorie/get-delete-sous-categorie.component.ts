@@ -20,7 +20,7 @@ export class GetDeleteSousCategorieComponent implements OnInit {
   
   
     ngOnInit() {
-      this.GetCommentaire();
+this.GetCommentaire();
   
   
     }
@@ -47,7 +47,7 @@ export class GetDeleteSousCategorieComponent implements OnInit {
         this.sousCategorie.deleteCommentaire(idMethod).subscribe(
           res => {
   
-            if (res == "Delete Done") {
+            if (res as SousCategorie) {
               debugger
               this.sousCategorie.getCommentaireList().subscribe(res => {
                 this.sousCategorie.SousCategorieList = res as SousCategorie[]

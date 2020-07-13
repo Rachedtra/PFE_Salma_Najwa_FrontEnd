@@ -55,7 +55,7 @@ export class SousCategorieService {
 
   /* #region  get */
   getCommentaireList() {
-    return this.http.get(environment.Commentaire + "/SousCategorie")
+    return this.http.get(environment.Commentaire + "/SousCategorie/GetListSousCategory")
 
   }
   /* #endregion */
@@ -64,15 +64,15 @@ export class SousCategorieService {
   deleteCommentaire(idSC: string) {
     debugger
     console.log(idSC)
-    return this.http.delete(environment.Commentaire + "/SousCategorie/" + idSC, { responseType: "text" });
+    return this.http.delete(environment.Commentaire + "/SousCategorie/DeleteSousCategory?id=" + idSC);
 
   }
   /* #endregion */
   /* #region  Post */
   postCommentaire() {
-    debugger
-    return this.http.post(environment.Commentaire + "/SousCategorie/", this.CommentaireFormAdd_update.value,
-      { responseType: "text" });
+
+    return this.http.post(environment.Commentaire + "/SousCategorie/PostSousCategory", this.CommentaireFormAdd_update.value
+     );
   }
   /* #endregion */
   /* #region  Update */
@@ -80,8 +80,8 @@ export class SousCategorieService {
   updateCommentaire() {
 
     debugger
-    return this.http.put(environment.Commentaire + "/SousCategorie/", this.CommentaireFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.Commentaire + "/SousCategorie/PutSousCategory/", this.CommentaireFormAdd_update.value
+      );}
   /* #endregion */
 
 

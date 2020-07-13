@@ -49,30 +49,30 @@ export class VoteService {
 
   /* #region  get */
   getListVote() {
-    return this.http.get(environment.Commentaire + "/Vote")
+    return this.http.get(environment.Commentaire + "/Vote/GetListCategory")
 
   }
   /* #endregion */
 
   /* #region  delete */
- deleteVote(idVote: string) {
-    debugger
-     console.log(idVote)
-   return this.http.delete(environment.Commentaire + "/Vote/" + idVote, { responseType: "text" });
+  deleteVote(idVote: string) {
+    
+    console.log(idVote)
+    return this.http.delete(environment.Commentaire + "/Vote/DeleteCategory/?id=" + idVote);
 
   }
   postVote() {
     debugger
-    return this.http.post(environment.Commentaire + "/Vote/", this.VoteFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.Commentaire + "/Vote/Postvote", this.VoteFormAdd_update.value,
+      );
   }
   /* #endregion */
   /* #region  Update */
 
   updateVote() {
     debugger
-    return this.http.put(environment.Commentaire + "/Vote/", this.VoteFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.Commentaire + "/Vote/Putvote", this.VoteFormAdd_update.value,
+      );}
   
   
 

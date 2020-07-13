@@ -16,11 +16,11 @@ export class AddUpdateVoteComponent implements OnInit {
 
   ngOnInit() {
  this.voteService.VoteFormAdd_update.markAsUntouched();
-
+this.voteService.VoteList;
   }
   UpdateForm() {
     this.voteService.updateVote().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as Vote) {
         this.bsModalRef.hide();
         this.voteService.getListVote().subscribe(res => {
           this.voteService.VoteList = res as Vote[]
@@ -49,7 +49,7 @@ export class AddUpdateVoteComponent implements OnInit {
   PostForm() {
     debugger
     this.voteService.postVote().subscribe(res => {
-      if (res == "Added done") {
+      if (res as Vote) {
         debugger
         this.bsModalRef.hide();
         this.voteService.getListVote().subscribe(res => {

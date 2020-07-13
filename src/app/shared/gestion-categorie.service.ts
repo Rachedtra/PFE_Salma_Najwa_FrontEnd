@@ -52,7 +52,7 @@ export class GestionCategorieService {
 
   /* #region  get */
   getCategorieList() {
-    return this.http.get(environment.Commentaire + "/Categorie")
+    return this.http.get(environment.Commentaire + "/Category/GetListCategory")
 
   }
   /* #endregion */
@@ -61,15 +61,15 @@ export class GestionCategorieService {
   deleteCategorie(idCategorie: string) {
     debugger
     console.log(idCategorie)
-    return this.http.delete(environment.Commentaire + "/Categorie/" + idCategorie, { responseType: "text" });
+    return this.http.delete(environment.Commentaire + "/Category/DeleteCategory?id=" + idCategorie);
 
   }
   /* #endregion */
   /* #region  Post */
   postCategorie() {
     debugger
-    return this.http.post(environment.Commentaire + "/Categorie/", this.CommentaireFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.Commentaire + "/Category/PostCategory", this.CommentaireFormAdd_update.value,
+      );
   }
   /* #endregion */
   /* #region  Update */
@@ -77,8 +77,8 @@ export class GestionCategorieService {
   updateCategorie() {
 
     debugger
-    return this.http.put(environment.Commentaire + "/Categorie/", this.CommentaireFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.Commentaire + "/Category/PutCategory", this.CommentaireFormAdd_update.value,
+      );}
   /* #endregion */
 
 

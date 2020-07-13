@@ -65,12 +65,12 @@ export class DemandeInfoService {
 
   /* #region  get */
   getDemandeInfoList() {
-    return this.http.get(environment.Commentaire + "/DemandeInfo")
+    return this.http.get(environment.Commentaire + "/DemandeInfo/GetListDemandInfo")
 
   } 
 
   getById(idDomain): Observable<DemandeInfo> {
-    return this.http.get<DemandeInfo>(environment.Commentaire + '/DemandeInfo/' + idDomain)
+    return this.http.get<DemandeInfo>(environment.Commentaire + '/DemandeInfo/GetDemandInfo' + idDomain)
    
   }
 
@@ -78,23 +78,23 @@ export class DemandeInfoService {
   deleteDemandeInfo(idInf: string) {
     
     console.log(idInf)
-    return this.http.delete(environment.Commentaire + "/DemandeInfo/" + idInf, { responseType: "text" });
+    return this.http.delete(environment.Commentaire + "/DemandeInfo/DeleteDemandInfo?id=" + idInf);
 
   }
   /* #endregion */
   /* #region  Post */
   postDemandeInfo() {
     debugger
-    return this.http.post(environment.Commentaire + "/DemandeInfo/", this.DemandeInfoFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.post(environment.Commentaire + "/DemandeInfo/PostDemandInfo", this.DemandeInfoFormAdd_update.value,
+      );}
    
   /* #endregion */
   /* #region  Update */
 
   updateDemandeInfo() {
 console.log('test')
-    return this.http.put(environment.Commentaire + "/DemandeInfo/", this.DemandeInfoFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.Commentaire + "/DemandeInfo/PutDemandInfo", this.DemandeInfoFormAdd_update.value,
+      );}
   /* #endregion */
 
 

@@ -3,6 +3,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { CommentaireService } from 'src/app/shared/commentaire.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Commentaire } from 'src/app/shared/commentaire.model';
+import { DemandeInfoService } from 'src/app/shared/demande-info.service';
 
 @Component({
   selector: 'app-add-update-commentaire',
@@ -10,19 +11,29 @@ import { Commentaire } from 'src/app/shared/commentaire.model';
   styles: []
 })
 export class AddUpdateCommentaireComponent implements OnInit {
+demandInfo:[]
+  constructor(private demand:DemandeInfoService,public bsModalRef: BsModalRef, private commentaitreService: CommentaireService, private _snackBar: MatSnackBar) { }
 
-  constructor(public bsModalRef: BsModalRef, private languageService: CommentaireService, private _snackBar: MatSnackBar) { }
+  ngOnInit() 
+  {
+    this.commentaitreService.CommentaireFormAdd_update.markAsUntouched();
 
-  ngOnInit() {
- this.languageService.CommentaireFormAdd_update.markAsUntouched();
+    this.demand.getDemandeInfoList()
+    .subscribe(res => this.demandInfo = res as []);
+ this.commentaitreService.CommentaireFormAdd_update.markAsUntouched();
+this.commentaitreService.GetListCommentaire();
 
   }
+
+
+
+
   UpdateForm() {
-    this.languageService.updateCommentaire().subscribe(res => {
-      if (res == "Update Done") {
+    this.commentaitreService.updateCommentaire().subscribe(res => {
+      if (res as Commentaire) {
         this.bsModalRef.hide();
-        this.languageService.getCommentaireList().subscribe(res => {
-          this.languageService.CommentaireList = res as Commentaire[]
+        this.commentaitreService.GetListCommentaire().subscribe(res => {
+          this.commentaitreService.CommentaireList = res as Commentaire[]
         })
         this._snackBar.open("La modification est effectuée avec succées", "X", {
           duration: 3000,
@@ -47,12 +58,12 @@ export class AddUpdateCommentaireComponent implements OnInit {
 
   PostForm() {
     debugger
-    this.languageService.postCommentaire().subscribe(res => {
-      if (res == "Added done") {
+    this.commentaitreService.postCommentaire().subscribe(res => {
+      if (res as Commentaire) {
         debugger
         this.bsModalRef.hide();
-        this.languageService.getCommentaireList().subscribe(res => {
-          this.languageService.CommentaireList = res as Commentaire[]
+        this.commentaitreService.GetListCommentaire().subscribe(res => {
+          this.commentaitreService.CommentaireList = res as Commentaire[]
         })
         this._snackBar.open("L'ajout est effectué avec succées", "X", {
           duration: 3000,
@@ -78,9 +89,16 @@ export class AddUpdateCommentaireComponent implements OnInit {
   }
 
   onSubmit() {
-    this.PostForm();
-  
-     
+    debugger
+    if (
+      this.commentaitreService.CommentaireFormAdd_update.controls.idCom.value ==
+      "00000000-0000-0000-0000-000000000000"
+    ) {
+      this.PostForm();
+    }
+     else {
+      this.UpdateForm();
+    }
   }
 
 }

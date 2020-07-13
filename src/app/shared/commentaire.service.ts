@@ -24,7 +24,11 @@ export class CommentaireService {
 
   /* #region  Form */
  CommentaireFormAdd_update = this.fb.group({
-    description: ['', Validators.required]
+  idCom: [''],
+
+  idQuestion: [''],
+
+  description: ['', Validators.required]
 
 
   })
@@ -34,6 +38,9 @@ export class CommentaireService {
 
   initializeFormForPostCommentaire() {
     this.CommentaireFormAdd_update.setValue({
+      idCom: '00000000-0000-0000-0000-000000000000',
+
+      idQuestion: '',
       description: '',
 
 
@@ -45,6 +52,8 @@ export class CommentaireService {
   initializeFormForUpdateLanguage(commentaire: Commentaire) {
     this.CommentaireFormAdd_update.setValue({
       idCom: commentaire.idCom,
+      idQuestion: commentaire.idQuestion,
+
       description: commentaire.description,
 
     })
@@ -52,9 +61,9 @@ export class CommentaireService {
   /* #endregion */
 
   /* #region  get */
-  getCommentaireList() {
+  GetListCommentaire() {
     console.log("test2");
-    return this.http.get(environment.Commentaire + "/Commentaire")
+    return this.http.get(environment.Commentaire + "/Commentaire/GetListCommentaire")
 
   }
   /* #endregion */
@@ -63,15 +72,14 @@ export class CommentaireService {
   deleteCommentaire(idCom: string) {
     debugger
     console.log(idCom)
-    return this.http.delete(environment.Commentaire + "/Commentaire/" + idCom, { responseType: "text" });
+    return this.http.delete(environment.Commentaire + "/Commentaire/DeleteCommentaire?id=" + idCom);
 
   }
   /* #endregion */
   /* #region  Post */
   postCommentaire() {
-    
-    return this.http.post(environment.Commentaire + "/Commentaire/", this.CommentaireFormAdd_update.value,
-      { responseType: "text" });
+    debugger
+    return this.http.post(environment.Commentaire + "/Commentaire/PostCommenataire", this.CommentaireFormAdd_update.value);
   }
   /* #endregion */
   /* #region  Update */
@@ -79,17 +87,15 @@ export class CommentaireService {
   updateCommentaire() {
 
     debugger
-    return this.http.put(environment.Commentaire + "/Commentaire/", this.CommentaireFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.Commentaire + "/Commentaire/PutCommenataire", this.CommentaireFormAdd_update.value,
+    );}
   /* #endregion */
 
 
-  read(id: number): Observable<Commentaire> {
-    return this.http.get<Commentaire>(`${environment.Commentaire}/${this.commentaireService}/${id}`);
-  }
+  getById(idQuestion: string): Observable<Commentaire> {
+    return this.http.get<Commentaire>(environment.Commentaire + '/Commentaire/GetListCommentaire1/' + idQuestion)
   
-
-
+  }
 
  
 }
