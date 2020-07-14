@@ -63,7 +63,7 @@ export class MethodService {
 
   /* #region  get */
   getListMethod() {
-    return this.http.get(environment.MsMicroservice + "/Method")
+    return this.http.get(environment.MsMicroservice + "/Method/GetListMethod")
 
   }
   /* #endregion */
@@ -72,23 +72,21 @@ export class MethodService {
   deleteMethod(idMethod: string) {
     debugger
     console.log(idMethod)
-    return this.http.delete(environment.MsMicroservice + "/Method/" + idMethod, { responseType: "text" });
+    return this.http.delete(environment.MsMicroservice + "/Method/DeleteSousCategory?id=" + idMethod);
 
   }
 //   /* #endregion */
 //   /* #region  Post */
   postMethod() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/Method/", this.MethodFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.MsMicroservice + "/Method/PostSousCategory", this.MethodFormAdd_update.value);
   }
   /* #endregion */
   /* #region  Update */
 
   updateMethod() {
     debugger
-    return this.http.put(environment.MsMicroservice + "/Method/", this.MethodFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.MsMicroservice + "/Method/PutSousCategory", this.MethodFormAdd_update.value);}
 
 
 //   /* #endregion */

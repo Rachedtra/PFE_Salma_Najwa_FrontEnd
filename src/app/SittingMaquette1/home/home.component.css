@@ -4,7 +4,7 @@ body {
   }
   
   .card {
-	background:url('img/1_nIjfoUR90CUKibydNhq_Bw.jpeg');
+	/* background:url('img/1_nIjfoUR90CUKibydNhq_Bw.jpeg'); */
 	background-size: cover;
 	border-radius: 2px;
 	display: inline-block;
@@ -16,9 +16,9 @@ body {
   }
   
   .card-2 {
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	background: url('img/1_nIjfoUR90CUKibydNhq_Bw.jpeg') no-repeat;
-	background-size: cover;
+	background-image: url('/apple-code-coding-computer-574069.jpg');
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-size: cover;
 	padding-right: 57px;
 	padding: 57px;
     height: 500px;
@@ -31,7 +31,8 @@ body {
     padding-right: 57px;
     height: 100px;
     width: 808px;
-    left: 300px;
+	left: 300px;
+	bottom:90px;
   }
   a.effect1 {
 	box-sizing: border-box;

@@ -22,45 +22,17 @@ export class AddUpdateMicroserviceComponent implements OnInit {
     constructor(public bsModalRef: BsModalRef, private MsService: MicroserviceService, private _snackBar: MatSnackBar,
    private language :LanguageService,private fb: FormBuilder  ) { }
 
-  ngOnInit() {
-    // this.language.getLanguageList().then
-    // (res => this.LanguageList = res as []);
-    // this.MsService.MicroserviceFormAdd_update.markAsUntouched();
-    //  this.language.getLanguageList().subscribe(res => this.LanguageList = res as Language[]);
-    //    this.formData = {
-    //     idLanguage: '00000000-0000-0000-0000-000000000000',
-    //     label:'',
-       
+  ngOnInit() {       
     this.language.getLanguageList()
     .subscribe(res => this.LanguageList = res as []);
-
-  this.MsService.getListMicroservice().subscribe(
-    res => {
-      if (res == [])
-        this.PostForm();
-      else {
-        //generate formarray as per the data received from BankAccont table
-        (res as []).forEach((Microservice: any) => {
-          this.bankAccountForms.push(this.fb.group({
-            idMS: [Microservice.idMS],
-            label: [Microservice.label, Validators.required],
-            description: [Microservice.description, Validators.required],
-            author: [Microservice.author, Validators.required],
-            lien: [Microservice.lien, Validators.required],
-            diagClass: [Microservice.diagClass, Validators.required],
-            languageFK: [Microservice.languageFK, Validators.min(1)],
-          }));
-        });
-      }
-    }
-  );
+    this.MsService.getListMicroservice();
 }
 
   
 
   UpdateForm() {
     this.MsService.updateMicroservice().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as Microservice) {
         this.bsModalRef.hide();
         this.MsService.getListMicroservice().subscribe(res => {
           this.MsService.MicroserviceList = res as Microservice[]
@@ -88,7 +60,7 @@ export class AddUpdateMicroserviceComponent implements OnInit {
   PostForm() {
     debugger
     this.MsService.postMicroservice().subscribe(res => {
-      if (res == "Added done") {
+      if (res as Microservice) {
         debugger
         this.bsModalRef.hide();
         this.MsService.getListMicroservice().subscribe(res => {

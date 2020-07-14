@@ -68,7 +68,7 @@ export class MicroserviceService {
 
   /* #region  get */
   getListMicroservice() {
-    return this.http.get(environment.MsMicroservice + "/MS")
+    return this.http.get(environment.MsMicroservice + "/MS/GetListCommentaire")
 
   }
   /* #endregion */
@@ -77,23 +77,21 @@ export class MicroserviceService {
   deleteMicroservice(idMS: string) {
     debugger
     console.log(idMS)
-    return this.http.delete(environment.MsMicroservice + "/MS/" + idMS, { responseType: "text" });
+    return this.http.delete(environment.MsMicroservice + "/MS/DeleteSousCategory?id=" + idMS);
 
   }
   /* #endregion */
   /* #region  Post */
   postMicroservice() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/MS/", this.MicroserviceFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.MsMicroservice + "/MS/PostSousCategory", this.MicroserviceFormAdd_update.value);
   }
   /* #endregion */
   /* #region  Update */
 
   updateMicroservice() {
     debugger
-    return this.http.put(environment.MsMicroservice + "/MS/", this.MicroserviceFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.MsMicroservice + "/MS/PutSousCategory", this.MicroserviceFormAdd_update.value);}
 
 
   /* #endregion */

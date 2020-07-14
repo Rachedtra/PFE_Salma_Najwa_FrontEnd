@@ -52,7 +52,7 @@ export class VersionService {
 
   /* #region  get */
   getListVersion() {
-    return this.http.get(environment.MsMicroservice + "/Version")
+    return this.http.get(environment.MsMicroservice + "/Version/GetListMethod")
 
   }
   /* #endregion */
@@ -61,23 +61,23 @@ export class VersionService {
   deleteVersion(iDversion: string) {
     debugger
     console.log(iDversion)
-    return this.http.delete(environment.MsMicroservice + "/Version/" + iDversion, { responseType: "text" });
+    return this.http.delete(environment.MsMicroservice + "/Version/DeleteSousCategory?id=" + iDversion);
 
   }
   /* #endregion */
   /* #region  Post */
   postVersion() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/Version/", this.VersionFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.MsMicroservice + "/Version/PostSousCategory", this.VersionFormAdd_update.value,
+      );
   }
   /* #endregion */
   /* #region  Update */
 
   updateVersion() {
     debugger
-    return this.http.put(environment.MsMicroservice + "/Version/", this.VersionFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.MsMicroservice + "/Version/PutSousCategory", this.VersionFormAdd_update.value
+      );}
 
 
   /* #endregion */

@@ -56,7 +56,7 @@ export class DomaineService {
 
   /* #region  get */
   getDomainList() {
-    return this.http.get(environment.MsMicroservice + "/Domain")
+    return this.http.get(environment.MsMicroservice + "/Domain/GetListMethod")
 
   }
   
@@ -66,23 +66,21 @@ export class DomaineService {
   deleteDomain(idDomaine: string) {
     debugger
     console.log(idDomaine)
-    return this.http.delete(environment.MsMicroservice + "/Domain/" + idDomaine, { responseType: "text" });
+    return this.http.delete(environment.MsMicroservice + "/Domain/DeleteSousCategory?id=" + idDomaine);
 
   }
   /* #endregion */
   /* #region  Post */
   postDomain() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/Domain/", this.DomainFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.MsMicroservice + "/Domain/PostSousCategory", this.DomainFormAdd_update.value);
   }
   /* #endregion */
   /* #region  Update */
 
   updateDomain() {
     debugger
-    return this.http.put(environment.MsMicroservice + "/Domain/", this.DomainFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.MsMicroservice + "/Domain/PutSousCategory", this.DomainFormAdd_update.value);}
 
       getDomainById (id: string): Observable<Domaine> {
         const url = `${environment.MsMicroservice}/${id}`;

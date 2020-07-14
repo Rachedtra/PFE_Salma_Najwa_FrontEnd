@@ -28,7 +28,7 @@ export class GetDeleteVersionComponent implements OnInit {
           this.versionService.deleteVersion(idMethod).subscribe(
             res => {
     
-              if (res == "Delete Done") {
+              if (res as Version) {
                 debugger
                 this.versionService.getListVersion().subscribe(res => {
                   this.versionService.VersionList = res as Version[]

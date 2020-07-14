@@ -55,7 +55,7 @@ export class SousCategorieService {
 
   /* #region  get */
   getCommentaireList() {
-    return this.http.get(environment.Commentaire + "/SousCategorie/GetListSousCategory")
+    return this.http.get(environment.Commentaire + "/SousCategorie/getSousCategorieDto")
 
   }
   /* #endregion */

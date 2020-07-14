@@ -12,11 +12,11 @@ export class AddUpdateDomainComponent implements OnInit {
 
   ngOnInit() {
  this.domainService.DomainFormAdd_update.markAsUntouched();
-
+ this.domainService.getDomainList();
   }
   UpdateForm() {
     this.domainService.updateDomain().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as Domaine) {
         this.bsModalRef.hide();
         this.domainService.getDomainList().subscribe(res => {
           this.domainService.DomainList = res as Domaine[]
@@ -45,7 +45,7 @@ export class AddUpdateDomainComponent implements OnInit {
   PostForm() {
     debugger
     this.domainService.postDomain().subscribe(res => {
-      if (res == "Added done") {
+      if (res as Domaine) {
         debugger
         this.bsModalRef.hide();
         this.domainService.getDomainList().subscribe(res => {

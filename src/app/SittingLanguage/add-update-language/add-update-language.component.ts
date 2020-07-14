@@ -13,11 +13,11 @@ export class AddUpdateLanguageComponent implements OnInit {
 
   ngOnInit() {
  this.languageService.LanguageFormAdd_update.markAsUntouched();
-
+ this.languageService.getLanguageList();
   }
   UpdateForm() {
     this.languageService.updateLanguage().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as Language) {
         this.bsModalRef.hide();
         this.languageService.getLanguageList().subscribe(res => {
           this.languageService.LanguageList = res as Language[]
@@ -46,7 +46,7 @@ export class AddUpdateLanguageComponent implements OnInit {
   PostForm() {
     debugger
     this.languageService.postLanguage().subscribe(res => {
-      if (res == "Added done") {
+      if (res as Language) {
         debugger
         this.bsModalRef.hide();
         this.languageService.getLanguageList().subscribe(res => {

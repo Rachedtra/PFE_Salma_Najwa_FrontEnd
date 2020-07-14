@@ -13,11 +13,11 @@ export class AddUpdateVersionComponent implements OnInit {
 
   ngOnInit() {
  this.versionService.VersionFormAdd_update.markAsUntouched();
-
+ this.versionService.getListVersion();
   }
   UpdateForm() {
     this.versionService.updateVersion().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as Version) {
         this.bsModalRef.hide();
         this.versionService.getListVersion().subscribe(res => {
           this.versionService.VersionList = res as Version[]
@@ -46,7 +46,7 @@ export class AddUpdateVersionComponent implements OnInit {
   PostForm() {
     debugger
     this.versionService.postVersion().subscribe(res => {
-      if (res == "Added done") {
+      if (res as Version) {
         debugger
         this.bsModalRef.hide();
         this.versionService.getListVersion().subscribe(res => {

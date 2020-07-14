@@ -53,7 +53,7 @@ export class LanguageService {
 
   /* #region  get */
   getLanguageList() {
-    return this.http.get(environment.MsMicroservice + "/Language")
+    return this.http.get(environment.MsMicroservice + "/Language/GetListMethod")
 
   }
   /* #endregion */
@@ -62,15 +62,14 @@ export class LanguageService {
   deleteMicroservice(idLanguage: string) {
     debugger
     console.log(idLanguage)
-    return this.http.delete(environment.MsMicroservice + "/Language/" + idLanguage, { responseType: "text" });
+    return this.http.delete(environment.MsMicroservice + "/Language/DeleteSousCategory?id=" + idLanguage);
 
   }
   /* #endregion */
   /* #region  Post */
   postLanguage() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/Language/", this.LanguageFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.MsMicroservice + "/Language/PostSousCategory", this.LanguageFormAdd_update.value);
   }
   /* #endregion */
   /* #region  Update */
@@ -78,8 +77,8 @@ export class LanguageService {
   updateLanguage() {
 
     debugger
-    return this.http.put(environment.MsMicroservice + "/Language/", this.LanguageFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.MsMicroservice + "/Language/PutSousCategory", this.LanguageFormAdd_update.value,
+);}
   /* #endregion */
 
 

@@ -1,10 +1,10 @@
 <div class="content-wrapper">
-  <div class="search-hero" style="max-width: 300px;
+  <div  style="max-width: 300px;
   padding-bottom: 50px;
-  margin:auto;">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"  style="   font-family: FontAwesome;
-    box-shadow: 0 10px 40px 0 #B0C1D9;
-    ">
+  ">
+        <div class="search-hero">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+        </div>
   </div>
   <button type="button" class="btn  mb-2 text-white" (click)="openComponentForPost()"
     style="background-color:rgb(13, 184, 214); "> <i class="fas fa-plus-circle "></i> Ajouter</button>
@@ -23,8 +23,8 @@
         id: 'ContractStatePagination',
         itemsPerPage: 3,
         currentPage: p
-      }" class="sizeText">
-      <td class="align-middle table-border">{{g.idQuestion }}</td>
+      }" class="sizeText  | filterPipe: searchText">
+      <td class="align-middle table-border">{{g.nameQuestion }}</td>
       <td class="align-middle table-border">{{g.description }}</td>
       <td class="align-middle ">
           <button (click)="openComponentForUpdate(g)" class="btn-sm btn-info rounded mr-3 rounded"> <span

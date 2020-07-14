@@ -46,7 +46,7 @@ this.microservice =this.microservice.filter(res=>{
       this.microserviceService.deleteMicroservice(idMethod).subscribe(
         res => {
 
-          if (res == "Delete Done") {
+          if (res as Microservice) {
             debugger
             this.microserviceService.getListMicroservice().subscribe(res => {
               this.microserviceService.MicroserviceList = res as Microservice[]

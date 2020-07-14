@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Pipe, PipeTransform ,Component, OnInit } from '@angular/core';
 import { Commentaire } from 'src/app/shared/commentaire.model';
 import { AddUpdateCommentaireComponent } from '../add-update-commentaire/add-update-commentaire.component';
 import { CommentaireService } from 'src/app/shared/commentaire.service';
@@ -11,6 +11,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styles: []
 })
 export class GetDeleteCommentaireComponent implements OnInit {
+  searchText = '';
+  
 
   constructor(private CommentaireService: CommentaireService, private modalService: BsModalService, private _snackBar: MatSnackBar
 
@@ -33,26 +35,7 @@ export class GetDeleteCommentaireComponent implements OnInit {
 
       })
     }
-//     this.guaranteeService
-//     .getGarantee(localStorage.getItem('ID_RequestFolder'))
-//     .subscribe(
-//       res => {
 
-//         // this.ListGuarantee = res as Guarantee[];
-//         this.guaranteeService.GuaranteeForm.setValue(res as Commentaire);
-
-//         console.log("lisguarantee" + res)
-
-//       },
-//       (error) => {
-//         console.log("errrr" + error)
-
-//       });
-
-
-
-
-// }
     /* #endregion */
     /* #region  Ondelete */
   

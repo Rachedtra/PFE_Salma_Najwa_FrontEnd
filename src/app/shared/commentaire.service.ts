@@ -63,7 +63,7 @@ export class CommentaireService {
   /* #region  get */
   GetListCommentaire() {
     console.log("test2");
-    return this.http.get(environment.Commentaire + "/Commentaire/GetListCommentaire")
+    return this.http.get(environment.Commentaire + "/Commentaire/getCommentaireDto")
 
   }
   /* #endregion */

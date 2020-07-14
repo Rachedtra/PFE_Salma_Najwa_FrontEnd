@@ -51,7 +51,7 @@
             <select type="text" class="form-control col-8" formControlName="fK_Microservice" [class.is-invalid]="MsService.MethodFormAdd_update.controls.fK_Microservice.errors?.required &&
             MsService.MethodFormAdd_update.controls.fK_Microservice.touched">
               <option value="0">Select</option>
-              <option *ngFor="let item of MicroList" value="{{item.idMS}}">{{item.label}}</option>
+              <option *ngFor="let item of MicroList" value="{{item.idMethod}}">{{item.label}}</option>
           </select>
           </div>
 

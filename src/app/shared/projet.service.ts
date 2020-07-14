@@ -57,7 +57,7 @@ private httpOptions: any;
 
   /* #region  get */
   getLisProjet() {
-    return this.http.get(environment.MsMicroservice + "/Projet")
+    return this.http.get(environment.MsMicroservice + "/Projet/GetListMethod")
 
   }
   /* #endregion */
@@ -66,21 +66,20 @@ private httpOptions: any;
  deleteProjet(idProjet: string) {
     debugger
      console.log(idProjet)
-   return this.http.delete(environment.MsMicroservice + "/Projet/" + idProjet, { responseType: "text" });
+   return this.http.delete(environment.MsMicroservice + "/Projet/DeleteSousCategory?id=" + idProjet);
 
   }
   postProjet() {
     debugger
-    return this.http.post(environment.MsMicroservice + "/Projet/", this.ProjetFormAdd_update.value,
-      { responseType: "text" });
+    return this.http.post(environment.MsMicroservice + "/Projet/PostSousCategory", this.ProjetFormAdd_update.value);
   }
   /* #endregion */
   /* #region  Update */
 
   updateProjet() {
     debugger
-    return this.http.put(environment.MsMicroservice + "/Projet/", this.ProjetFormAdd_update.value,
-      { responseType: "text" });}
+    return this.http.put(environment.MsMicroservice + "/Projet/PutSousCategory", this.ProjetFormAdd_update.value,
+    );}
   
   
 

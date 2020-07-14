@@ -27,7 +27,7 @@ export class GetDeleteLanguageComponent implements OnInit {
           this.languageService.deleteMicroservice(idMethod).subscribe(
             res => {
     
-              if (res == "Delete Done") {
+              if (res as Language) {
                 debugger
                 this.languageService.getLanguageList().subscribe(res => {
                   this.languageService.LanguageList = res as Language[]
