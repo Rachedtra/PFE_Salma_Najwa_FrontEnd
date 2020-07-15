@@ -112,9 +112,9 @@ this.vote.getListVote().subscribe(res => {
         
       }
     )}
-    consulter(comment:Commentaire) {
+    consulter(demand:DemandeInfo) {
       console.log('rrrrr')
-      this.commentaireService.initializeFormForUpdateLanguage(comment);
+      this.demandInfo.initializeFormForUpdateDemandeInfo(demand);
 
     }
 

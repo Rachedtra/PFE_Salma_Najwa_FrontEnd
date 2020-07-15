@@ -2,10 +2,10 @@
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
       <div class="content-wrapper">
         <div id="sidebar">
-          <h3>Question</h3>
+          <h3 style=" color: blanchedalmond;">Microservice</h3>
           <div class="checklist colors">
    
-            <ul class="list-group" *ngFor="let demand of MSService.MicroserviceList" >
+            <ul class="list-group" *ngFor="let demand of MSService.MicroserviceList " >
                 <li  (click)="consulter(demand)"class="list-group-item" style="	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
                 ">{{demand.label}} </li>
               </ul>
@@ -23,30 +23,24 @@
                               
                                       <div> 
                                    
-                                                 
                                         <form [formGroup]="MSService.MicroserviceFormAdd_update">
-                                          <div class="form-group ms-auto">
-                                            <textarea type="text"  formControlName="description" style="
+                                          <div class="form-group ms-auto ml-5 mt-2">
+                                            <textarea type="text" formControlName="description" style="
                                             padding-top: 0px;
                                             border-top-width: 1px;
                                             padding-right: 44px;
                                             height: 92px;
-                                            width: 800px;
-                                            background-color: #aff5e0;"
+                                            width: 888px; background-color: #d6e2e8;;
+                                            ;"
                                         >
                                </textarea>
                                         </div>     
+                                        
                                         <div class="form-group ms-auto ml-5 mt-2">
-                                          <textarea type="text"*ngFor="let demand of commentaireService.CommentaireList" style="
-                                          padding-top: 0px;
-                                          border-top-width: 1px;
-                                          left: 100px;
-                                          width: 800px;height: 109px;background-color:antiquewhite;;
-"
-                                      >{{demand.description}}
+                                          <textarea type="text" formControlName="author" style="padding-top: 0px;border-top-width: 0px;/* left: 128px; */right: 129px;width: 824px;height: 110px;background-color: antiquewhite;border-right-width: 0px;margin-right: 79px;margin-left: 142px;border-bottom-width: 0px;" >
                              </textarea>
                                       </div> 
-                                      <div style="text-align:left">
+                                      <div style="text-align:left"style="text-align:left;height: 38px;width: 119px;border-right-width: 0px;margin-right: 0px;margin-left: 203px;">
                                         <rating (rate)="onRate($event)"></rating>
                                                       
                                       </div>    

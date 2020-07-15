@@ -101,7 +101,7 @@ PostForm() {
 
   onRate($event:{oldValue:number, newValue:number}) {
     this.vote.postVote().subscribe(res => {
-      if ("added done") {
+      if (res as Vote) {
         this.vote.getListVote().subscribe(res => {
           console.log('get comment service');
           this.vote.VoteList = res as Vote[]

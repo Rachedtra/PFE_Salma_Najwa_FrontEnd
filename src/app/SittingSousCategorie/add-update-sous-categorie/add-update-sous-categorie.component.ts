@@ -16,16 +16,15 @@ export class AddUpdateSousCategorieComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef, private sousCategorieService: SousCategorieService, private _snackBar: MatSnackBar,private categorie:GestionCategorieService) { }
 
   ngOnInit() {
- this.sousCategorieService.CommentaireFormAdd_update.markAsUntouched();
- this.categorie.getCategorieList()
- .subscribe(res => this.CategorieList= res as []);
- this.sousCategorieService.getCommentaireList();
+
+this.categorie.getCategorieList()
+ .subscribe(res => this.CategorieList = res as []);
   }
   UpdateForm() {
-    this.sousCategorieService.updateCommentaire().subscribe(res => {
+    this.sousCategorieService.updateSousCategorie().subscribe(res => {
       if (res as SousCategorie){
         this.bsModalRef.hide();
-        this.sousCategorieService.getCommentaireList().subscribe(res => {
+        this.sousCategorieService.getSousCategorieList().subscribe(res => {
           this.sousCategorieService.SousCategorieList = res as SousCategorie[]
         })
         this._snackBar.open("La modification est effectuée avec succées", "X", {
@@ -51,11 +50,11 @@ export class AddUpdateSousCategorieComponent implements OnInit {
 
   PostForm() {
     debugger
-    this.sousCategorieService.postCommentaire().subscribe(res => {
+    this.sousCategorieService.postSousCategorie().subscribe(res => {
       if (res as SousCategorie) {
         debugger
         this.bsModalRef.hide();
-        this.sousCategorieService.getCommentaireList().subscribe(res => {
+        this.sousCategorieService.getSousCategorieList().subscribe(res => {
           this.sousCategorieService.SousCategorieList = res as SousCategorie[]
         })
         this._snackBar.open("L'ajout est effectué avec succées", "X", {
@@ -82,7 +81,7 @@ export class AddUpdateSousCategorieComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger
+    console.log('test1')
     if (
       this.sousCategorieService.CommentaireFormAdd_update.controls.idSC.value ==
       "00000000-0000-0000-0000-000000000000"

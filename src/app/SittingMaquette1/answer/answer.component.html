@@ -1,82 +1,12 @@
-<!-- <div class="content" >
-  <div class="col-sm-12 col-lg-6">
-        <div class="scroll-area-lg">
-            <div class="scrollbar-container ps ps--active-y">
-                <div class="p-2">
-                    <div class="chat-wrapper p-1">
-                        <div class="chat-box-wrapper">
-                            <div>
-                                <div class="avatar-icon-wrapper mr-1">
-                                    <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
-                                    </div>
-                                 
-                                </div>
-                            </div>
-                            <div>
-                                <div class="chat-box" *ngFor="let g of demandInfo.DemandeList" (click)="Update()">              
-                              {{g.titre}}
-                                </div>
-   
-                        </div>
-                        <div class="float-right">
-                            <div class="chat-box-wrapper chat-box-wrapper-right" >
-                                <div>
-                        
-                                    <div class="chat-box1">
-
-                                   
-                                    <div>   
-                                       <small class="opacity-6">
-                                      <i class="fa fa-calendar-alt mr-1"></i>
-                                    </small></div>
-                                  
-                                   
-                                      </div>
-                                       <div style="text-align:left">
-                      <rating (rate)="onRate($event)"></rating>
-                                    
-                                         <div>
-                                </div>
-                              
-                                 
-                                </div>
-                            </div>
-                        </div>
-                     
-                      
-                    </div>
-                </div>
-            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 400px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 296px;"></div></div></div>
-        </div>
-        <div>
-      <form [formGroup]=" commentaireService.CommentaireFormAdd_update">
-        <textarea formControlName="description"
-           placeholder="Write here and hit enter to send..." type="text" class="form-control-sm form-control"></textarea><br>
-          </form>
-        </div>
-
-        <div class="card-footer">
-    <button type="button" class=" btn btn-info col-3 mr-2 " 
-    (click)="onSubmit()" [disabled]="commentaireService.CommentaireFormAdd_update.invalid" 
-    style="width: 80px; background-color:turquoise;">Send</button>
-
-        </div>
-     </div>  
-   
-      </div> -->
-
-
-
-
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
       <div class="content-wrapper">
         <div id="sidebar">
           <h3 style=" color: blanchedalmond;">Question</h3>
           <div class="checklist colors">
    
-            <ul class="list-group" *ngFor="let comment of commentaireService.CommentaireList" >
-                <li  (click)="consulter(comment)"class="form-control" style="	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
-               {{comment.idQuestion}}
+            <ul class="list-group" *ngFor="let demand of demandInfo.DemandeList" >
+                <li  (click)="consulter(demand)"class="form-control" style="	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+               {{demand.titre}}
                 </li>
               </ul>
               </div>
@@ -94,9 +24,9 @@
                                       <div> 
                                    
                                                  
-                                        <form [formGroup]="commentaireService.CommentaireFormAdd_update">
+                                        <form [formGroup]="demandInfo.DemandeInfoFormAdd_update">
                                           <div class="form-group ms-auto ml-5 mt-2">
-                                            <textarea type="text" formControlName="idQuestion" style="
+                                            <textarea type="text" formControlName="description" style="
                                             padding-top: 0px;
                                             border-top-width: 1px;
                                             padding-right: 44px;
@@ -108,10 +38,10 @@
                                         </div>     
                                         
                                         <div class="form-group ms-auto ml-5 mt-2">
-                                          <textarea type="text" formControlName="description"style="padding-top: 0px;border-top-width: 0px;/* left: 128px; */right: 129px;width: 824px;height: 110px;background-color: antiquewhite;border-right-width: 0px;margin-right: 79px;margin-left: 142px;border-bottom-width: 0px;" >
+                                          <textarea type="text" formControlName="titre"style="padding-top: 0px;border-top-width: 0px;/* left: 128px; */right: 129px;width: 824px;height: 110px;background-color: antiquewhite;border-right-width: 0px;margin-right: 79px;margin-left: 142px;border-bottom-width: 0px;" >
                              </textarea>
                                       </div> 
-                                      <div style="text-align:left">
+                                      <div style="text-align:left"style="text-align:left;height: 38px;width: 119px;border-right-width: 0px;margin-right: 0px;margin-left: 203px;">
                                         <rating (rate)="onRate($event)"></rating>
                                                       
                                       </div>    

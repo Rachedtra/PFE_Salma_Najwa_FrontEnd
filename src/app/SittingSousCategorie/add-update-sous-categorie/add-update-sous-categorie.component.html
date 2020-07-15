@@ -1,8 +1,8 @@
 <div class="modal-header ">
   <h4 *ngIf="sousCategorieService.CommentaireFormAdd_update.controls.idSC.value =='00000000-0000-0000-0000-000000000000'"
-    class="modal-title pull-left text-info ml-3 mt-2">Ajouter un sous categorie </h4>
+    class="modal-title pull-left text-info ml-3 mt-2">Ajouter un sousCategorie</h4>
   <h4 *ngIf="sousCategorieService.CommentaireFormAdd_update.controls.idSC.value !='00000000-0000-0000-0000-000000000000'"
-    class="modal-title pull-left text-info ml-3 mt-2">Modifier un sous categorie</h4>
+    class="modal-title pull-left text-info ml-3 mt-2">Modifier sousCategorie</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -15,28 +15,28 @@
           <div class="input-group-prepend">
             <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
           </div>
-          <input type="text" class="form-control col-8" formControlName="label" placeholder="Entrer le label "
+          <input type="text" class="form-control col-8" formControlName="label" placeholder="Entrer le nom du Ms"
             [class.is-invalid]="sousCategorieService.CommentaireFormAdd_update.controls.label.errors?.required &&
             sousCategorieService.CommentaireFormAdd_update.controls.label.touched">
         </div>
-             
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
-          </div>
-          <select class="form-control" formControlName="fK_SousCategorie">
-            <option value="0">Select</option>
-            <option *ngFor="let item of CategorieList" value="{{item.idSC}}">{{item.label}}</option>
-        </select>
-        </div>
-        
-      </div>  
       
-      </form>
-    </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
+            </div>
+            <select class="form-control" formControlName="fK_SousCategorie">
+              <option value="0">Select</option>
+              <option *ngFor="let item of SousCategorieList" value="{{item.idSC}}">{{item.label}}</option>
+          </select>
+
+          </div>
+
+      </div>
+    </form>
   </div>
-  <div class="modal-footer">
-    <button type="button" class=" btn btn-info col-3 mr-2 " (click)="onSubmit()"
-      [disabled]="sousCategorieService.CommentaireFormAdd_update.invalid"><i class="fas fa-check"></i>
-      Valider</button>
-  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class=" btn btn-info col-3 mr-2 " (click)="onSubmit()"
+    [disabled]="sousCategorieService.CommentaireFormAdd_update.invalid"><i class="fas fa-check"></i>
+    Valider</button>
+</div>

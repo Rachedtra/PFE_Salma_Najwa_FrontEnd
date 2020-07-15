@@ -43,25 +43,25 @@ export class SousCategorieService {
   /* #endregion */
 
   /* #region  InitialFormUpdate */
-  initializeFormForUpdateLanguage(microservice: SousCategorie) {
+  initializeFormForUpdateSousCategorie(SousCategorie: SousCategorie) {
     this.CommentaireFormAdd_update.setValue({
-      idSC: microservice.idSC,
-      label: microservice.label,
-      fK_SousCategorie: microservice.fK_SousCategorie,
+      idSC: SousCategorie.idSC,
+      label: SousCategorie.label,
+      fK_SousCategorie: SousCategorie.fK_SousCategorie,
 
     })
   }
   /* #endregion */
 
   /* #region  get */
-  getCommentaireList() {
+  getSousCategorieList() {
     return this.http.get(environment.Commentaire + "/SousCategorie/getSousCategorieDto")
 
   }
   /* #endregion */
 
   // /* #region  delete */
-  deleteCommentaire(idSC: string) {
+  deleteSousCategorie(idSC: string) {
     debugger
     console.log(idSC)
     return this.http.delete(environment.Commentaire + "/SousCategorie/DeleteSousCategory?id=" + idSC);
@@ -69,7 +69,7 @@ export class SousCategorieService {
   }
   /* #endregion */
   /* #region  Post */
-  postCommentaire() {
+  postSousCategorie() {
 
     return this.http.post(environment.Commentaire + "/SousCategorie/PostSousCategory", this.CommentaireFormAdd_update.value
      );
@@ -77,7 +77,7 @@ export class SousCategorieService {
   /* #endregion */
   /* #region  Update */
 
-  updateCommentaire() {
+  updateSousCategorie() {
 
     debugger
     return this.http.put(environment.Commentaire + "/SousCategorie/PutSousCategory/", this.CommentaireFormAdd_update.value
