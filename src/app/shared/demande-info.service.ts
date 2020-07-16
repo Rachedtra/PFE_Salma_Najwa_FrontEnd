@@ -57,7 +57,7 @@ export class DemandeInfoService {
       idDomain: microservice.idDomain,
       description: microservice.description,
       date: microservice.date,
-      titre: microservice.date,
+      titre: microservice.titre,
 
     })
   }

@@ -29,7 +29,7 @@ export class GetDeleteMethodComponent implements OnInit {
           this.methodService.deleteMethod(idMethod).subscribe(
             res => {
     
-              if (res == "Delete Done") {
+              if (res as Method) {
                 debugger
                 this.methodService.getListMethod().subscribe(res => {
                   this.methodService.MethodList = res as Method[]

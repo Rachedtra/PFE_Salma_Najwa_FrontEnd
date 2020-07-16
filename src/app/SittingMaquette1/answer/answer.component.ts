@@ -27,11 +27,9 @@ export class AnswerComponent implements OnInit {
     bsModalRef: BsModalRef;
 
   ngOnInit() {
-    this.commentaireService.CommentaireFormAdd_update.markAsUntouched();
-    this.demandInfo.DemandeInfoFormAdd_update.markAsUntouched();
+  
 
     this.GetAll();
-    this.get();
 
 }
 GetAll()
@@ -59,48 +57,51 @@ this.vote.getListVote().subscribe(res => {
  })
 }
 
-  PostForm() {
-    this.commentaireService.postCommentaire().subscribe(res => {
-      if ("added done") {
-        this.commentaireService.GetListCommentaire().subscribe(res => {
-          console.log('get comment service');
-          this.commentaireService.CommentaireList = res as Commentaire[]
-        })
-        this._snackBar.open("L'ajout est effectué avec succées", "X", {
-          duration: 3000,
-          verticalPosition: "top",
-          horizontalPosition: "right",
-          panelClass: ["green-snackbar"]
-        });
-      }
+PostForm() {
+  debugger
+  this.commentaireService.postCommentaire().subscribe(res => {
+    if (res as Commentaire) {
+      debugger
+      this.bsModalRef.hide();
+      this.commentaireService.GetListCommentaire().subscribe(res => {
+        this.commentaireService.CommentaireList = res as Commentaire[]
+      })
+      this._snackBar.open("L'ajout est effectué avec succées", "X", {
+        duration: 3000,
+        verticalPosition: "top",
+        horizontalPosition: "right",
+        panelClass: ["green-snackbar"]
+      });
+    }
 
-    },
-      err => {
-        console.log('eroor',err)
-        this._snackBar.open("Erreur", "X", {
-          duration: 3000,
-          verticalPosition: 'top',
-          horizontalPosition: "right",
-          panelClass: ["red-snackbar"]
-        });
-      }
+  },
+    err => {
+      console.log(err)
+      this._snackBar.open("Erreur", "X", {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: "right",
+        panelClass: ["red-snackbar"]
+      });
+    }
 
 
-    )
-  }
+  )
+}
 
-  onSubmit() {
-    console.log('testOnsubmit');
-  
-      this.PostForm();
 
-  }
+    onSubmit() {
+          
+        this.PostForm();
+
+    }
+
 
 
 
   onRate($event:{oldValue:number, newValue:number}) {
     this.vote.postVote().subscribe(res => {
-      if ("added done") {
+      if (res as Vote) {
         this.vote.getListVote().subscribe(res => {
           console.log('get comment service');
           this.vote.VoteList = res as Vote[]
@@ -112,12 +113,18 @@ this.vote.getListVote().subscribe(res => {
         
       }
     )}
-    consulter(demand:DemandeInfo) {
+    consulterquestion(demande: DemandeInfo) {
       console.log('rrrrr')
-      this.demandInfo.initializeFormForUpdateDemandeInfo(demand);
-
+      this.demandInfo.initializeFormForUpdateDemandeInfo(demande);
+      localStorage.setItem('ID_demande', demande.idInf);
+      this.commentaireService.getcommentaireByIDdemande(localStorage.getItem('ID_demande')).subscribe(res => {
+        debugger
+        this.commentaireService.CommentaireList = res as Commentaire[];
+      }
+      )
+  
+  
     }
-
   }
   
 

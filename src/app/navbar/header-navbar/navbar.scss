@@ -1,0 +1,62 @@
+.navbar-nav{
+    background-color: #2574A9;
+    margin-left: 35px;
+    color: white;
+}
+
+.cc{
+    border-bottom: #dfe4ea solid ;
+    border-left: #dfe4ea solid ;
+    background-color:#ffffff;
+    height: auto;
+}
+
+.btn-circle {
+        width: 30px;
+        height: 30px;
+        padding: 2px 0px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 25px;
+        line-height: 0.5;
+}
+
+.navbar-brand{
+    text-align: center;
+    margin: auto;
+}
+
+.fa-sign-out-alt{
+    color: red;
+}
+
+.fa-globe-africa , .fa-users-cog  , .fa-user
+{
+    color: #2574A9;
+}
+
+
+h3{
+    font-family: 'Playfair Display';
+    font-size:40px ;
+    color: #665642;
+}
+
+.navbar-right{
+    display: flex;
+    justify-content: space-around;
+}
+
+.dropdown-menu{
+    width: 350% !important;
+}
+
+.fa-times{
+    position: absolute;
+    right: 30px;
+    line-height: unset;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+    color: gray;
+}

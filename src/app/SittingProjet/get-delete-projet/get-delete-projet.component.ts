@@ -28,7 +28,7 @@ export class GetDeleteProjetComponent implements OnInit {
           this.projetService.deleteProjet(idMethod).subscribe(
             res => {
     
-              if (res == "Delete Done") {
+              if (res as Projet) {
                 debugger
                 this.projetService.getLisProjet().subscribe(res => {
                   this.projetService.ProjetList = res as Projet[]

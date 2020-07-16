@@ -1,55 +1,55 @@
 <div class="modal-header ">
-  <h4 *ngIf="MsService.MethodFormAdd_update.controls.idMethod.value =='00000000-0000-0000-0000-000000000000'"
-    class="modal-title pull-left text-info ml-3 mt-2">Ajouter un MS</h4>
-  <h4 *ngIf="MsService.MethodFormAdd_update.controls.idMethod.value !='00000000-0000-0000-0000-000000000000'"
-    class="modal-title pull-left text-info ml-3 mt-2">Modifier la Ms</h4>
+  <h4 *ngIf="MethodService.MethodFormAdd_update.controls.idMethod.value =='00000000-0000-0000-0000-000000000000'"
+    class="modal-title pull-left text-info ml-3 mt-2">Ajouter un Method</h4>
+    <h4 *ngIf="MethodService.MethodFormAdd_update.controls.idMethod.value !='00000000-0000-0000-0000-000000000000'"
+    class="modal-title pull-left text-info ml-3 mt-2">Modifier la Method</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body ">
   <div class="container">
-    <form [formGroup]="MsService.MethodFormAdd_update">
+    <form [formGroup]="MethodService.MethodFormAdd_update">
       <div class="form-group ms-auto ml-5 mt-2">
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
           </div>
           <input type="text" class="form-control col-8" formControlName="nom" placeholder="Entrer le nom du nom"
-            [class.is-invalid]="MsService.MethodFormAdd_update.controls.nom.errors?.required &&
-            MsService.MethodFormAdd_update.controls.nom.touched">
+            [class.is-invalid]="MethodService.MethodFormAdd_update.controls.nom.errors?.required &&
+            MethodService.MethodFormAdd_update.controls.nom.touched">
         </div>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
           </div>
           <input type="text" class="form-control col-8" formControlName="description" placeholder="Entrer le description du Ms"
-            [class.is-invalid]="MsService.MethodFormAdd_update.controls.description.errors?.required &&
-            MsService.MethodFormAdd_update.controls.description.touched">
+            [class.is-invalid]="MethodService.MethodFormAdd_update.controls.description.errors?.required &&
+            MethodService.MethodFormAdd_update.controls.description.touched">
         </div>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
             </div>
             <input type="text" class="form-control col-8" formControlName="input" placeholder="Entrer le nom du input"
-              [class.is-invalid]="MsService.MethodFormAdd_update.controls.input.errors?.required &&
-              MsService.MethodFormAdd_update.controls.input.touched">
+              [class.is-invalid]="MethodService.MethodFormAdd_update.controls.input.errors?.required &&
+              MethodService.MethodFormAdd_update.controls.input.touched">
           </div>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
             </div>
             <input type="text" class="form-control col-8" formControlName="output" placeholder="Entrer le nom du output"
-              [class.is-invalid]="MsService.MethodFormAdd_update.controls.output.errors?.required &&
-              MsService.MethodFormAdd_update.controls.output.touched">
+              [class.is-invalid]="MethodService.MethodFormAdd_update.controls.output.errors?.required &&
+              MethodService.MethodFormAdd_update.controls.output.touched">
           </div>
    
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text "><i class="far fa-comment-alt text-info"></i></span>
             </div>
-            <select type="text" class="form-control col-8" formControlName="fK_Microservice" [class.is-invalid]="MsService.MethodFormAdd_update.controls.fK_Microservice.errors?.required &&
-            MsService.MethodFormAdd_update.controls.fK_Microservice.touched">
+            <select type="text" class="form-control col-8" formControlName="fK_Microservice" [class.is-invalid]="MethodService.MethodFormAdd_update.controls.fK_Microservice.errors?.required &&
+            MethodService.MethodFormAdd_update.controls.fK_Microservice.touched">
               <option value="0">Select</option>
               <option *ngFor="let item of MicroList" value="{{item.idMethod}}">{{item.label}}</option>
           </select>
@@ -61,6 +61,6 @@
 </div>
 <div class="modal-footer">
   <button type="button" class=" btn btn-info col-3 mr-2 " (click)="onSubmit()"
-    [disabled]="MsService.MethodFormAdd_update.invalid"><i class="fas fa-check"></i>
+    [disabled]="MethodService.MethodFormAdd_update.invalid"><i class="fas fa-check"></i>
     Valider</button>
 </div>

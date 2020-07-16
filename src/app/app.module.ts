@@ -57,6 +57,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { from } from 'rxjs';
 import { MicroListComponent } from './SittingMaquette1/micro-list/micro-list.component';
 import { ListQuestionComponent } from './SittingMaquette1/list-question/list-question.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +94,7 @@ import { ListQuestionComponent } from './SittingMaquette1/list-question/list-que
     ListDomainComponent,
     MicroListComponent,
     ListQuestionComponent,
+    AuthentificationComponent,
   ],
   imports: [
     Ng2SearchPipeModule,

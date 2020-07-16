@@ -1,0 +1,30 @@
+<div class="" >
+  <div id="formContent">
+      <!-- Icon -->
+      <div class="text-center mb-5 mt-3">
+          <!-- <img src="../../../assets/login.png" height="60px" alt="User Icon" /> -->
+          <h1 class="text-primary">Se Connecter</h1>
+      </div>
+  <!-- Login Form -->
+      <div>
+          <form [formGroup]="loginForm">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <!-- <span class="input-group-text"><img class="icon " src="../../../assets/user.png"></span> -->
+              </div>
+              <input type="text" formControlName="login" class="form-control" placeholder="Nom d'utilisateur" >
+          </div>
+
+          <div class="input-group mb-5">
+              <div class="input-group-prepend">
+                  <!-- <span class="input-group-text" ><img class="icon "  src="../../../assets/pass.png" ></span> -->
+              </div>
+              <input type="password" formControlName="password" class="form-control" placeholder="Mot de passe"  >
+          </div>
+
+          <button type="submit" (click)="loginHandler()" class="btn btn-primary" style="border-radius: 20px;"><i class="fas fa-check mr-1 text-white"></i>Valider</button>
+      </form>
+      </div>
+  </div>
+</div>
+

@@ -28,8 +28,15 @@ import { HomeComponent } from './SittingMaquette1/home/home.component';
 import { ListDomainComponent } from './SittingMaquette1/list-domain/list-domain.component';
 import { MicroListComponent } from './SittingMaquette1/micro-list/micro-list.component';
 import { ListQuestionComponent } from './SittingMaquette1/list-question/list-question.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 
 const routes: Routes = [
+
+  {  
+    path: '',
+    component: AuthentificationComponent,
+    },
+
   {
     path: 'Microservice',
     component: GetDeleteMicroserviceComponent,
@@ -143,6 +150,11 @@ component: MicroListComponent,
   path: 'listQuestion',
 component: ListQuestionComponent,
 },
+{
+  path: 'Acceuil1',
+component: AuthentificationComponent,
+},
+
 
 ];
 

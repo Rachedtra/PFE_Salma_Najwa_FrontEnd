@@ -92,9 +92,10 @@ export class CommentaireService {
   /* #endregion */
 
 
-  getById(idQuestion: string): Observable<Commentaire> {
-    return this.http.get<Commentaire>(environment.Commentaire + '/Commentaire/GetListCommentaire1/' + idQuestion)
   
+  getcommentaireByIDdemande(IdDemande) {
+    return this.http.get(environment.Commentaire + "/Commentaire/GetListCommentaire1?id=" + IdDemande);
+
   }
 
  

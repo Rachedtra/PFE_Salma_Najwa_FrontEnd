@@ -15,42 +15,22 @@ export class AddUpdateMethodComponent implements OnInit {
   MicroList:[];
   bankAccountForms: FormArray = this.fb.array([]);
 
-    constructor(public bsModalRef: BsModalRef, private MsService: MethodService, private _snackBar: MatSnackBar,
-   private language :MicroserviceService,private fb: FormBuilder  ) { }
+    constructor(public bsModalRef: BsModalRef, private MethodService: MethodService, private _snackBar: MatSnackBar,
+   private micro :MicroserviceService,private fb: FormBuilder  ) { }
 
   ngOnInit() {
-    
-    this.language.getListMicroservice()
+    this.MethodService.MethodFormAdd_update.markAsUntouched();
+    this.micro.getListMicroservice()
     .subscribe(res => this.MicroList = res as []);
-
-  this.MsService.getListMethod().subscribe(
-    res => {
-      if (res == [])
-        this.PostForm();
-      else {
-        //generate formarray as per the data received from BankAccont table
-        (res as []).forEach((Method: any) => {
-          this.bankAccountForms.push(this.fb.group({
-            idMethod: [Method.idMethod],
-            nom: [Method.nom, Validators.required],
-            description: [Method.description, Validators.required],
-            input: [Method.input, Validators.required],
-            output: [Method.output, Validators.required],
-            fk_Microservice: [Method.fk_Microservice, Validators.min(1)],
-          }));
-        });
-      }
-    }
-  );
 }
 
   
 UpdateForm() {
-  this.MsService.updateMethod().subscribe(res => {
-    if (res == "Update Done") {
+  this.MethodService.updateMethod().subscribe(res => {
+    if (res as Method) {
       this.bsModalRef.hide();
-      this.MsService.getListMethod().subscribe(res => {
-        this.MsService.MethodList = res as Method[]
+      this.MethodService.getListMethod().subscribe(res => {
+        this.MethodService.MethodList = res as Method[]
       })
       this._snackBar.open("La modification est effectuée avec succées", "X", {
         duration: 3000,
@@ -74,12 +54,12 @@ UpdateForm() {
 }
 PostForm() {
   debugger
-  this.MsService.postMethod().subscribe(res => {
-    if (res == "Added done") {
+  this.MethodService.postMethod().subscribe(res => {
+    if (res as Method) {
       debugger
       this.bsModalRef.hide();
-      this.MsService.getListMethod().subscribe(res => {
-        this.MsService.MethodList = res as Method[]
+      this.MethodService.getListMethod().subscribe(res => {
+        this.MethodService.MethodList = res as Method[]
       })
       this._snackBar.open("L'ajout est effectué avec succées", "X", {
         duration: 3000,
@@ -107,7 +87,7 @@ PostForm() {
 onSubmit() {
   debugger
   if (
-    this.MsService.MethodFormAdd_update.controls.idMethod.value ==
+    this.MethodService.MethodFormAdd_update.controls.idMethod.value ==
     "00000000-0000-0000-0000-000000000000"
   ) {
     this.PostForm();

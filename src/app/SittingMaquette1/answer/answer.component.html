@@ -5,7 +5,7 @@
           <div class="checklist colors">
    
             <ul class="list-group" *ngFor="let demand of demandInfo.DemandeList" >
-                <li  (click)="consulter(demand)"class="form-control" style="	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                <li  (click)="consulterquestion(demand)"class="form-control" style="	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
                {{demand.titre}}
                 </li>
               </ul>
@@ -38,8 +38,10 @@
                                         </div>     
                                         
                                         <div class="form-group ms-auto ml-5 mt-2">
-                                          <textarea type="text" formControlName="titre"style="padding-top: 0px;border-top-width: 0px;/* left: 128px; */right: 129px;width: 824px;height: 110px;background-color: antiquewhite;border-right-width: 0px;margin-right: 79px;margin-left: 142px;border-bottom-width: 0px;" >
-                             </textarea>
+                                          <textarea type="text" *ngFor="
+                                          let g of commentaireService.CommentaireList"  style="padding-top: 0px;border-top-width: 0px;/* left: 128px; */right: 129px;width: 824px;height: 110px;background-color: antiquewhite;border-right-width: 0px;margin-right: 79px;margin-left: 142px;border-bottom-width: 0px;" >
+                                          {{g.description }}
+                                        </textarea>
                                       </div> 
                                       <div style="text-align:left"style="text-align:left;height: 38px;width: 119px;border-right-width: 0px;margin-right: 0px;margin-left: 203px;">
                                         <rating (rate)="onRate($event)"></rating>
@@ -56,6 +58,47 @@
                             
                           </div>
                       </div>
+
+                      <!-- ///////////////////// -->
+                      <!-- <div class="content-wrapper">
+                        <div style="max-width: 300px;
+                padding-bottom: 50px;
+                ">
+              
+              
+              
+                          <table class="table table-bordered  table-hover text-center">
+                            <thead>
+                              <tr>
+                                <th class="align-middle table-info table-border">ommentaire</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="
+                  let g of commentaireService.CommentaireList  | paginate
+                  : {
+                      id: 'ContractStatePagination',
+                      itemsPerPage: 3,
+                      currentPage: p
+                    }" class="sizeText  | filterPipe: searchText">
+                                <td class="align-middle table-border">{{g.description }}</td>
+              
+                              </tr>
+                              <tr>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <pagination-controls id="ContractStatePagination" class="my-pagination" (pageChange)="p = $event"
+                            previousLabel="Prec " nextLabel="Suiv ">
+                          </pagination-controls>
+              
+                          <div class="col-3" style="float:left !important"> </div>
+                        </div>
+                      </div> -->
+
+
+
+<!-- /////////////////// -->
               <div>
             <form [formGroup]=" commentaireService.CommentaireFormAdd_update">
               <textarea formControlName="description"
@@ -65,7 +108,7 @@
               </div>
       
               <div class="card-footer">
-          <button type="button" class=" btn btn-info col-3 mr-2 " 
+          <button type="button" (click)="onSubmit()" class=" btn btn-info col-3 mr-2 " 
           style="width: 80px; background-color:turquoise;">Send</button>
               </div>
            </div>  

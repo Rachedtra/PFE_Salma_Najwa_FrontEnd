@@ -91,7 +91,7 @@ export class MicroserviceService {
 
   updateMicroservice() {
     debugger
-    return this.http.put(environment.MsMicroservice + "/MS/PutSousCategory", this.MicroserviceFormAdd_update.value);}
+    return this.http.put(environment.MsMicroservice + "/MS/PutCommenataire", this.MicroserviceFormAdd_update.value);}
 
 
   /* #endregion */

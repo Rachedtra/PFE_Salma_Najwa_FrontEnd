@@ -27,7 +27,7 @@ export class GetDeleteDomainComponent implements OnInit {
           this.domainService.deleteDomain(idMethod).subscribe(
             res => {
     
-              if (res == "Delete Done") {
+              if (res as Domaine) {
                 debugger
                 this.domainService.getDomainList().subscribe(res => {
                   this.domainService.DomainList = res as Domaine[]

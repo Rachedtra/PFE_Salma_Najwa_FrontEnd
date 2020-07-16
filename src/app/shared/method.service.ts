@@ -52,7 +52,6 @@ export class MethodService {
     this.MethodFormAdd_update.setValue({
       idMethod: method.idMethod,
       nom: method.nom,
-
       description: method.description,
       input: method.input,
       output: method.output,

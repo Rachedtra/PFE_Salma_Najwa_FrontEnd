@@ -19,7 +19,7 @@ export class AddUpdateProjetComponent implements OnInit {
   }
   UpdateForm() {
     this.projetService.updateProjet().subscribe(res => {
-      if (res == "Update Done") {
+      if (res as Projet) {
         this.bsModalRef.hide();
         this.projetService.getLisProjet().subscribe(res => {
           this.projetService.ProjetList = res as Projet[]
@@ -48,7 +48,7 @@ export class AddUpdateProjetComponent implements OnInit {
   PostForm() {
     debugger
     this.projetService.postProjet().subscribe(res => {
-      if (res == "Added done") {
+      if (res as Projet) {
         debugger
         this.bsModalRef.hide();
         this.projetService.getLisProjet().subscribe(res => {
